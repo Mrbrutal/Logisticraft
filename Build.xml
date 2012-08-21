@@ -4,37 +4,41 @@
     <!-- Description of the mod -->
 	<description>Logisticraft a mod in writing.</description>
 	
-	<!-- Your name here -->
-	<property name="author" value="Mrbrutal" />
+	<!-- Author -->
+	<property name="author"            value="Mrbrutal" />
 
-	<!-- Your release version here -->
-	<property name="version" value="1.0.0" />
+	<!-- Version -->
+	<property name="version"           value="1.0.0" />
 
-	<!-- Choose ".zip" or ".jar" as the dist file extension -->
-	<property name="filetype" value="jar" />
+	<!-- ".zip" or ".jar" as the dist file extension -->
+	<property name="filetype"          value="jar" />
 
-	<!-- Update if mcp directory isn't in same location as this file -->
-	<property name="mcp.dir" location="../.." />
+	<!-- MCP main directory -->
+	<property name="mcp.dir"           location="../.." />
 
-	<!-- Update if dist directory isn't in same location as this file -->
-	<property name="dist.dir" location="../../../Builds/dist" />
+	<!-- Dist directory -->
+	<property name="dist.dir"          location="../../../Builds/dist" />
 
-	<!-- Update only if build directory isn't in same location as this file -->
-	<property name="build.dir" location="../../../Builds/build" />
+	<!-- Build directory -->
+	<property name="build.dir"         location="../../../Builds/build" />
 	
-	<property name="srcCommon.dir" location="${mcp.dir}/src/common/si/meansoft/logisticraft/common" />
-	<property name="srcClient.dir" location="${mcp.dir}/src/common/si/meansoft/logisticraft/client" />
-	<property name="resources.dir" location="${mcp.dir}/eclipse/logisticraft/resources" />
+	<property name="srcCommon.dir"     location="${mcp.dir}/src/common/si/meansoft/logisticraft/common" />
+	<property name="srcClient.dir"     location="${mcp.dir}/src/common/si/meansoft/logisticraft/client" />
+	<property name="resources.dir"     location="${mcp.dir}/eclipse/logisticraft/resources" />
+	
+	<property name="mcp.version"       value="7.0.2"/>
+    <property name="forge.version"     value="4.0.0.217"/>
+    <property name="lc.version"        value="1.0.0_000"/>
 
 	<!-- Update to point to your Python executable. Example: /usr/bin/python -->
 	<!-- The following location is for Windows:	-->
 	<property name="python" location="${mcp.dir}/runtime/bin/python/python_mcp.exe" />
 
-	<target name="pre" description="Copy the source files">
+	<target name="PreInit" description="Prepare and copy SRC">
 		<echo message="Cleaning old sources" />
-        <delete dir="${mcp.dir}/src/common" />
-        <delete dir="${mcp.dir}/src/minecraft" />
-        <delete dir="${mcp.dir}/src/minecraft_server" />
+        <delete dir="${mcp.dir}/src/common/si" />
+        <delete dir="${mcp.dir}/src/minecraft/si" />
+        <delete dir="${mcp.dir}/src/minecraft_server/si" />
 
         <echo message="Creating src folders" />
         <mkdir dir="${srcCommon.dir}" />
@@ -42,14 +46,14 @@
 		
 		<echo message="Copying sources to MCP/src" />
 		<copy todir="${srcCommon.dir}">
-			<fileset dir="${mcp.dir}/eclipse/Logisticraft/common/si/meansoft/logisticraft" />
+			<fileset dir="${mcp.dir}/eclipse/Logisticraft/common/si/meansoft/logisticraft/common" />
 		</copy>
 		<copy todir="${srcClient.dir}">
-			<fileset dir="${mcp.dir}/eclipse/Logisticraft/client/si/meansoft/logisticraft" />        
+			<fileset dir="${mcp.dir}/eclipse/Logisticraft/client/si/meansoft/logisticraft/client" />        
 		</copy>
 	</target>
 	
-	<target name="init" description="Initialize build environment">
+	<target name="Init" description="Initialize build environment">
 		<echo message="Cleaning old build and dist, MCP reobf directories" />
 		<delete dir="${build.dir}" />
 		<delete dir="${dist.dir}" />
@@ -58,6 +62,10 @@
 		<echo message="Creating build and dist dirs" />
 		<mkdir dir="${build.dir}" />
 		<mkdir dir="${dist.dir}" />
+	</target>
+	
+	<target name="PostInit" description="Initialize build environment">
+	        <echo message="Cleaning old build and dist, MCP reobf directories" />
 	</target>
 
 	<target name="recompile" description="MCP recompile" >
@@ -86,8 +94,8 @@
 		
 	</target>
 
-	<target name="all" description="Perform all tasks for a build" depends="pre, init, recompile, reobfuscate, stage">
-		<echo message="MCP Ant Build Completed!" />
+	<target name="all" description="Perform all tasks for a build" depends="PreInit"> <!-- , Init, PostInit, recompile, reobfuscate, stage -->
+		<echo message="Build of Logisticraft Completed!" />
 	</target>
 
 	<target name="jarzip" description="Jar (or zip) the project's dist output">
