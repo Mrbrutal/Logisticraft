@@ -1,4 +1,4 @@
-package si.meansoft.logisticraft;
+package si.meansoft.logisticraft.common;
 
 import java.lang.reflect.Method;
 import java.util.logging.Level;

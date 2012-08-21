@@ -1,4 +1,4 @@
-package si.meansoft.logisticraft;
+package si.meansoft.logisticraft.common;
 
 import net.minecraft.src.NetworkManager;
 import net.minecraft.src.Packet250CustomPayload;
