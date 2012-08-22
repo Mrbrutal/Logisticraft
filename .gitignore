@@ -23,6 +23,8 @@
 *.log
 *.sql
 *.sqlite
+.pydevproject
+*.properties
 
 # OS generated files #
 ######################
