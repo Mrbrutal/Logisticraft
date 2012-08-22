@@ -15,6 +15,9 @@
 
 	<!-- MCP main directory -->
 	<property name="mcp.dir"           location="../.." />
+	
+	<!-- MCP eclipse directory -->
+	<property name="mcp.ecl"           location="../../eclipse/Logisticraft" />
 
 	<!-- Dist directory -->
 	<property name="dist.dir"          location="../../../Builds/dist" />
@@ -30,10 +33,31 @@
     <property name="forge.version"     value="4.0.0.217"/>
     <property name="lc.version"        value="1.0.0_000"/>
 
-	<!-- Update to point to your Python executable. Example: /usr/bin/python -->
-	<!-- The following location is for Windows:	-->
-	<property name="python" location="${mcp.dir}/runtime/bin/python/python_mcp.exe" />
-
+	<target name="SetUp">
+	    <tstamp>
+	      <format pattern="ddMMyy-HHmmss" property="timestamp" />
+	    </tstamp>
+	    <property environment="env" />
+	    <property file="build.properties" />
+	    <property name="modname" value="mod_ironchests" />
+	    <condition property="python.exe" value="${mcp.home}/runtime/bin/python/python_mcp" else="python">
+	      <os family="Windows" />
+	    </condition>
+	    <condition property="version.build" value="${env.BUILD_NUMBER}" else="1">
+	    	   <isset property="env.BUILD_NUMBER" />
+	    </condition>
+	</target>
+	
+	<target name="GetVer" depends="SetUp">
+        <exec executable="${python.exe}" dir="${mcp.ecl}" failonerror="true">
+            <arg value="${mcp.ecl}/CalcVer.py" />
+            <arg value="${ecl}" />
+        </exec>
+        <propertyfile file="lcver.properties">
+            <entry key="lc.build.build.number" type="int" value="${version.build}"/>
+        </propertyfile>
+	</target>
+	
 	<target name="PreInit" description="Prepare and copy SRC">
 		<echo message="Cleaning old sources" />
         <delete dir="${mcp.dir}/src/common/si" />

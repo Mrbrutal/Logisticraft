@@ -1,27 +1,51 @@
 import os
+import datetime
+import time
 
-str1=os.getcwd()
-str2=str1.split('\\')
-n=len(str2)
+file_location = os.getcwd()
+prop_file = file_location + "\lcver.properties"
+major = 1
+minor = 0
+rev = 0
+sub = "000"
+mcpversion = 72
+mcclientversion = "1.3.2"
 
-print str2[n-1]
-print str1
+def file_exists(filename):
+    try:
+        with open(filename) as f:
+            return True
+    except IOError:
+        return False
 
-version = "1.0.0"
-subversion = 000
+def read():
+    with open("lcver.properties","r") as f:
+        f.readline()
 
-print "Setting new version of mod"
+def write():
+    #t = datetime.time
+    #today = datetime.date.today()
+    #date = str(today.day) + "." + str(today.month) + "." + str(today.year) + ". - " + str(t.hour) + str(t.min) + str(t.second)
+    date = time.asctime(time.localtime(time.time()))
+    with open("lcver.properties","w") as f:
+        f.write("# %s \n" %(date))
+        f.write("%s=%s\n" %("lc.build.major.number",major))
+        f.write("%s=%s\n" %("lc.build.minor.number",minor))
+        f.write("%s=%s\n" %("lc.build.revision.number",rev))
+        f.write("%s=%s\n" %("lc.build.subversion.number",sub))
+        f.write("%s=%s\n" %("lc.build.mcpversion",mcpversion))
+        f.write("%s=%s\n" %("lc.build.mcclientversion",mcclientversion))
 
 def main():
-    print("Obtaining version information for mod")
+    print("[PY]Obtaining version information for mod")
+    if file_exists(prop_file):
+        print("[PY]Properties file exists: reading...")
+        read()
+    else:
+        print("[PY]Properties file does not exists: writting...")
+        write()
+        
+    print("[PY]Version information: Logisticraft %s.%s.%s_%s using MCP %s for c:%s" % (major, minor, rev, sub, mcpversion, mcclientversion))
     
-    with open("lcver.properties","w") as f:
-      f.write("%s=%s\n" %("lc.build.major.number",major))
-      f.write("%s=%s\n" %("lc.build.minor.number",minor))
-      f.write("%s=%s\n" %("lc.build.revision.number",rev))
-      f.write("%s=%s\n" %("lc.build.revision.number",sub))
-      f.write("%s=%s\n" %("lc.build.mcpversion",mcpversion))
-      f.write("%s=%s\n" %("lc.build.mcclientversion",mcclientversion))
-      f.write("%s=%s\n" %("lc.build.mcserverversion",mcserverversion))
-
-    print("Version information: Logisticraft %s.%s.%s_%s using MCP %s for c:%s, s:%s" % (major, minor, rev, sub, mcpversion, mcclientversion, mcserverversion))
+if __name__ == '__main__':
+    main()
