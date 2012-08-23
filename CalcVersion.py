@@ -15,7 +15,8 @@ major = "1"
 minor = "0"
 rev = "0"
 sub = "000"
-mcpversion = "72"
+mcpversion = "7.2"
+forgeversion = "4.0.0.217"
 mcclientver = "1.3.2"
 
 def cmdsplit(args):
@@ -37,15 +38,14 @@ def calc():
     global sub
     global mcpversion
     global mcclientver
+    
     major = list[0]
     minor =  list[1]
     rev =  list[2]
     sub = list[3]
     subver = int(sub)
-    #print str(subver) + " ",
     subver += 1
     sub = str(subver).zfill(3)
-    #print sub
     mcpversion = list[4]
     mcclientver = list[5]
 
@@ -57,23 +57,21 @@ def read():
             if not '#' in line:
                 split = line.split('=')
                 list.append(split[1])
-                #print split[1]
         f.close()
-        #print list
 
 def write():
-    #date = str(today.day) + "." + str(today.month) + "." + str(today.year) + ". - " + str(t.hour) + str(t.min) + str(t.second)
     date = time.asctime(time.localtime(time.time()))
     with open("lcver.properties","w+") as f:
-        #print("[PY]Version information: Logisticraft %s.%s.%s_%s using MCP %s for c:%s" % (major, minor, rev, sub, mcpversion, mcclientver))
         f.write("# %s \n" %(date))
         f.write("%s=%s\n" %("lc.build.major.number",major))
         f.write("%s=%s\n" %("lc.build.minor.number",minor))
         f.write("%s=%s\n" %("lc.build.revision.number",rev))
         f.write("%s=%s\n" %("lc.build.subversion.number",sub))
         f.write("%s=%s\n" %("lc.build.mcpversion",mcpversion))
+        f.write("%s=%s\n" %("lc.build.forgeversion",forgeversion))
         f.write("%s=%s\n" %("lc.build.mcclientversion",mcclientver))
         f.write("%s=%s.%s.%s_%s\n" %("lc.build.build",major, minor, rev, sub))
+        f.close()
         
 def getGit(): 
     print("[PY]Obtaining version information from github")
@@ -100,7 +98,7 @@ def main():
         write()
         
     print("[PY]"+time.asctime(time.localtime(time.time())))
-    print("[PY]Version information: Logisticraft %s.%s.%s_%s using MCP %s for c:%s" % (major, minor, rev, sub, mcpversion, mcclientver))
+    print("[PY]Version information: Logisticraft %s.%s.%s_%s using MCP %s and Forge %s for c:%s" % (major, minor, rev, sub, mcpversion, forgeversion, mcclientver))
     
 if __name__ == '__main__':
     main()
