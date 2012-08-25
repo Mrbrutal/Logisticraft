@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Logisticraft" basedir="." default="all">
+
+	<!-- Author -->
+	<property name="modname"            value="Logisticraft" />
+	
+	<!-- Description of the mod -->
+	<description>Logisticraft a mod in writing.</description>
+
+	<!-- Author -->
+	<property name="author"            value="Mrbrutal" />
+
+	<!-- ".zip" or ".jar" as the dist file extension -->
+	<property name="filetype"          value="jar" />
+	
+	<!-- Main directory -->
+	<property name="main.dir"           location="../../" />
+	
+	<!-- MCP main directory -->
+	<property name="mcp.dir"           location="${main.dir}/MCP" />
+
+	<!-- MCP eclipse directory -->
+	<property name="mcp.ecl"           location="${main.dir}/Project/Logisticraft" />
+
+	<!-- Dist directory -->
+	<property name="dist.dir"          location="${main.dir}/Builds/dist" />
+
+	<!-- Build directory -->
+	<property name="build.dir"         location="${main.dir}/Builds/build" />
+	
+	<!-- Deploy directory -->
+	<property name="deploy.dir"         location="${main.dir}/Logisticraft" />
+	
+	<!-- SRC directories -->
+	<property name="srcCommon.dir"     location="${mcp.dir}/src/common/si/meansoft/logisticraft/common" />
+	<property name="srcClient.dir"     location="${mcp.dir}/src/common/si/meansoft/logisticraft/client" />
+	<property name="resources.dir"     location="${mcp.ecl}/resources" />
+	
+	<property name="python2" location="${mcp.dir}/runtime/bin/python/python_mcp.exe" />
+
+	
+	<!-- ############################################################### -->
+	
+	<!-- Set up the environment -->
+	<target name="SetUp">
+		<echo message="${main.dir}" />
+		<echo message="${mcp.dir}" />
+		<tstamp>
+			<format pattern="dd_MM_yy-HHmmss" property="timestamp" />
+			<format pattern="HHmmss" property="ts" />
+		</tstamp>
+		
+		<property environment="env" />
+		<property file="build.properties" />
+		
+		<condition property="python.exe" value="${mcp.dir}/runtime/bin/python/python_mcp" else="python">
+			<os family="Windows" />
+		</condition>
+		<echo message="SetUp target completed succesfully!" />
+	</target>
+
+	<!-- Get version from python script -->
+	<target name="GetVer" depends="SetUp">
+		<exec executable="${python.exe}" dir="${mcp.ecl}/" failonerror="true">
+			<arg value="${mcp.ecl}/CalcVersion.py" />
+		</exec>
+		
+		<property file="lcver.properties" />
+	    <property name="build.number" value="${lc.build.major.number}.${lc.build.minor.number}.${lc.build.revision.number}_${lc.build.subversion.number}" />
+		<property name="version.forge" value="${lc.build.forgeversion}" />
+		<property name="version.mcp" value="${lc.build.mcpversion}" />
+	    <property name="version.minecraft" value="${lc.build.mcclientver}" />
+	    <property name="version.major" value="${lc.build.major.number}" />
+	    <property name="version.minor" value="${lc.build.minor.number}" />
+	    <property name="version.rev" value="${lc.build.revision.number}" />
+		<property name="version.sub" value="${lc.build.subversion.number}" />
+	    <property name="version" value="${version.major}.${version.minor}.${version.rev}_${version.sub}" />
+		<echo message="${version} Build of Logisticraft" />
+		<echo message="GetVer target completed succesfully!" />
+	</target>
+
+	<!-- Prepare sources -->
+	<target name="PreInit" description="Prepare and copy SRC">
+		<echo message="Cleaning old sources" />
+		<delete dir="${mcp.dir}/src/common/si" />
+		<delete dir="${mcp.dir}/src/minecraft/si" />
+		<delete dir="${mcp.dir}/src/minecraft_server/si" />
+
+		<echo message="Creating src folders" />
+		<mkdir dir="${srcCommon.dir}" />
+		<mkdir dir="${srcClient.dir}" />
+
+		<echo message="Copying sources to MCP/src" />
+		<copy todir="${srcCommon.dir}" verbose="true">
+			<fileset dir="${mcp.ecl}/common/si/meansoft/logisticraft/common" />
+		</copy>
+		<copy todir="${srcClient.dir}" verbose="true">
+			<fileset dir="${mcp.ecl}/client/si/meansoft/logisticraft/client" />
+		</copy>
+		<echo message="PreInit target completed succesfully!" />
+	</target>
+
+	<!-- Prepare the folder structure for build and dist -->
+	<target name="Init" description="Initialize build environment">
+		<echo message="Cleaning old build and dist, MCP reobf directories" />
+		<delete dir="${build.dir}" />
+		<delete dir="${dist.dir}" />
+		<delete dir="${mcp.dir}/reobf" />
+
+		<echo message="Creating build and dist dirs" />
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${dist.dir}" />
+		<echo message="Init target completed succesfully!" />
+	</target>
+
+	<!-- Prepare build folder for copying files over -->
+	<target name="PostInit" description="Initialize build environment">
+		<mkdir dir="${build.dir}/si/meansoft/logisticraft" />
+	    <!--mkdir dir="${build.dir}/si/meansoft/logisticraft/client" />
+		<mkdir dir="${build.dir}/si/meansoft/logisticraft/resources" /-->
+		<echo message="PostInit target completed succesfully!" />		
+	</target>
+
+	<!-- Recompile the sources -->
+	<target name="recompile" description="MCP recompile" >
+		<exec executable="${python2}" dir="${mcp.dir}">
+			<arg value="runtime/recompile.py"/>
+			<arg value="%*"/>
+		</exec>
+		<echo message="Recompile target completed succesfully!" />
+	</target>
+
+	<!-- Reobfuscate the sources -->
+	<target name="reobfuscate" description="MCP reobfuscate">
+		<exec executable="${python2}" dir="${mcp.dir}">
+			<arg value="runtime/reobfuscate.py"/>
+			<arg value="%*"/>
+		</exec>
+		<echo message="Reobfuscate target completed succesfully!" />
+	</target>
+
+	<!-- Stage all the required files to the build folder -->
+	<target name="stage" description="Stage resources into build directory">
+		<copy todir="${build.dir}">
+			<fileset dir="${mcp.ecl}">
+				<include name="**/mcmod.info" />
+				<include name="**/lcver.properties" />
+				<include name="**/lcraft_logo.png" />
+			</fileset>
+		</copy>
+		<copy todir="${build.dir}/si/meansoft/logisticraft/common" failonerror="false">
+			<fileset dir="${mcp.dir}/reobf/minecraft/si/meansoft/logisticraft/common"/>
+		</copy>
+		<copy todir="${build.dir}/si/meansoft/logisticraft/Resources" failonerror="false">
+			  <fileset dir="${resources.dir}" />
+		</copy>
+		<copy todir="${build.dir}/si/meansoft/logisticraft/common" failonerror="false">
+			<fileset dir="${mcp.dir}/reobf/minecraft/si/meansoft/logisticraft/client"/>
+		</copy>
+		<echo message="stage target completed succesfully!" />
+	</target>
+
+	<!-- Make the final .zip/.jar file -->
+	<target name="jarzip" description="Jar (or zip) the project's dist output">
+		<mkdir dir="${dist.dir}" />
+		<jar destfile="${dist.dir}/${ant.project.name}-${version}.${filetype}" duplicate="preserve" index="true" manifestencoding="UTF-8">
+			<manifest>
+				<attribute name="Built-By" value="MCP (http://mcp.ocean-labs.de)"/>
+				<attribute name="Implementation-Vendor" value="${author}"/>
+				<attribute name="Implementation-Title" value="${ant.project.name}"/>
+				<attribute name="Implementation-Version" value="${version}"/>
+			</manifest>
+			<fileset dir="${build.dir}" />
+		</jar>
+	</target>
+	
+	<!-- Copy the final .zip/.jar file -->
+	<target name="final" description="Copy .zip/.jar file to the appropriate folder">
+		<property name="jarname" value="${ant.project.name}-${version}" />
+	    <copy file="${dist.dir}/${jarname}.${filetype}" tofile="${deploy.dir}/${jarname}(${timestamp}).${filetype}" failonerror="false" verbose="true" />
+	</target>
+
+	<target name="all" description="Perform all tasks for a build" depends="GetVer, PreInit, Init, PostInit, recompile, reobfuscate, stage, jarzip, final">
+		<!-- , Init, PostInit, recompile, reobfuscate, stage -->
+		<echo message="Build of Logisticraft Completed!" />
+	</target>
+
+</project>

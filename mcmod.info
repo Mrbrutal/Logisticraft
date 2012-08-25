@@ -1,0 +1,21 @@
+[
+{
+  "modid": "LC",
+  "name": "Logisticraft",
+  "description": "A mod in writing",
+  "version": "1.0.0",
+  "mcversion": "1.3.2",
+  "url": "http://www.meansoft.si",
+  "updateUrl": "",
+  "authors": [
+    "Mrbrutal"
+  ],
+  "credits": "Authored by Mrbrutal",
+  "logoFile": "lcraft_logo.png",
+  "screenshots": [
+  ],
+  "parent": "",
+  "dependencies": [
+  ]
+}
+]
