@@ -1,10 +1,8 @@
 /*******************************************************************************
- * Copyright (c) 2012 Mrbrutal. All rights reserved. This program and the accompanying
- * materials are made available under the terms of the GNU Public License v3.0
- * which accompanies this distribution, and is available at 
- * http://www.gnu.org/licenses/gpl.html
- *
- * Contributors: Mrbrutal
+ * Copyright (c) 2012 Mrbrutal. All rights reserved.
+ * @name Logisticraft
+ * @author Mrbrutal
+ * @licence Lesser GNU Public License v3 http://www.gnu.org/licenses/gpl.html
  ******************************************************************************/
 
 package si.meansoft.logisticraft.common.core;
@@ -15,8 +13,7 @@ import java.util.Properties;
 import java.util.logging.Level;
 import cpw.mods.fml.common.FMLCommonHandler;
 
-public final class Version {
-	public static String fullVersion;
+public class Version {
 	private static String major;
 	private static String minor;
 	private static String rev;
@@ -26,8 +23,7 @@ public final class Version {
 	private static boolean loaded;
 
 	private static void init() {
-		InputStream stream = Version.class.getClassLoader()
-				.getResourceAsStream("lcver.properties");
+		InputStream stream = Version.class.getClassLoader().getResourceAsStream("lcver.properties");
 		Properties properties = new Properties();
 
 		if (stream != null) {
@@ -38,16 +34,14 @@ public final class Version {
 				rev = properties.getProperty("lc.build.revision.number");
 				sub = properties.getProperty("lc.build.subversion.number");
 				forgever = properties.getProperty("lc.build.forgever.number");
-				mcversion = properties.getProperty("lc.build.mcversion");
+				mcversion = properties.getProperty("lc.build.mcclientversion");
 			} catch (IOException ex) {
-				FMLCommonHandler
-						.instance()
-						.getFMLLogger()
-						.log(Level.SEVERE,
-								"[LC]Could not get Logisticraft version information - corrupted installation detected, please reinstall!",
-								ex);
+				FMLCommonHandler.instance().getFMLLogger().log(Level.SEVERE,(Info.MOD_PFX + "Could not get Logisticraft version information - corrupted installation detected, please reinstall!"),ex);
 				throw new RuntimeException(ex);
 			}
+		}
+		else {
+			FMLCommonHandler.instance().getFMLLogger().log(Level.SEVERE,(Info.MOD_PFX + "Stream returned null!"));
 		}
 		loaded = true;
 	}
@@ -62,10 +56,7 @@ public final class Version {
 	public static String fullVer() {
 		if (!loaded) {
 			init();
-			fullVersion = String.format("%s.%s.%s_%s for %s", major, minor,
-					rev, sub, mcversion);
 		}
-		return String.format("%s.%s.%s_%s for %s", major, minor, rev, sub,
-				mcversion);
+		return String.format("%s.%s.%s_%s for %s", major, minor, rev, sub, mcversion);
 	}
 }

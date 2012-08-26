@@ -69,7 +69,7 @@
 	    <property name="build.number" value="${lc.build.major.number}.${lc.build.minor.number}.${lc.build.revision.number}_${lc.build.subversion.number}" />
 		<property name="version.forge" value="${lc.build.forgeversion}" />
 		<property name="version.mcp" value="${lc.build.mcpversion}" />
-	    <property name="version.minecraft" value="${lc.build.mcclientver}" />
+	    <property name="version.minecraft" value="${lc.build.mcclientversion}" />
 	    <property name="version.major" value="${lc.build.major.number}" />
 	    <property name="version.minor" value="${lc.build.minor.number}" />
 	    <property name="version.rev" value="${lc.build.revision.number}" />
