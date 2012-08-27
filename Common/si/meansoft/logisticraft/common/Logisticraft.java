@@ -28,27 +28,31 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import si.meansoft.logisticraft.common.core.CommonProxy;
+import si.meansoft.logisticraft.common.core.Config;
 import si.meansoft.logisticraft.common.core.Info;
 import si.meansoft.logisticraft.common.core.Version;
 
 @Mod(modid = Info.modID, name = Info.modName, version = Info.modVersion)
 @NetworkMod(channels = { Info.channel }, clientSideRequired = true, serverSideRequired = true, packetHandler = PacketHandler.class)
 public class Logisticraft {
-	
-	/*Logisticraft instance*/
+
+	/* Logisticraft instance */
 	@Instance
-    public static Logisticraft instance;
-	/*Sided proxies*/
+	public static Logisticraft instance;
+	/* Sided proxies and proxy */
 	@SidedProxy(clientSide = "si.meansoft.logisticraft.client.core.ClientProxy", serverSide = "si.meansoft.logisticraft.common.core.CommonProxy")
 	public static CommonProxy proxy;
-	/*Logger*/
+	/* Logger */
 	public static Logger lcLog = Logger.getLogger(Info.modName);
-	
+
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {
 		event.getModMetadata().version = Version.fullVer();
 		lcLog.setParent(FMLLog.getLogger());
 		lcLog.info(Info.MOD_PFX + "Starting Logisticraft " + Version.fullVer() + "!");
+
+		/* Register config file */
+		Config.init(event.getSuggestedConfigurationFile()); // What does this do. Change to proper config file
 	}
 
 	@Init
@@ -58,6 +62,6 @@ public class Logisticraft {
 
 	@PostInit
 	public void modsLoaded(FMLPostInitializationEvent evt) {
-		//All the mod checking here
+		// All the mod checking here
 	}
 }

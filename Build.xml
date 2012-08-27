@@ -178,6 +178,7 @@
 	<target name="final" description="Copy .zip/.jar file to the appropriate folder">
 		<property name="jarname" value="${ant.project.name}-${version}" />
 	    <copy file="${dist.dir}/${jarname}.${filetype}" tofile="${deploy.dir}/${jarname}(${timestamp}).${filetype}" failonerror="false" verbose="true" />
+		<delete dir="${mcp.dir}/src/common/si" />
 	</target>
 
 	<target name="all" description="Perform all tasks for a build" depends="GetVer, PreInit, Init, PostInit, recompile, reobfuscate, stage, jarzip, final">
