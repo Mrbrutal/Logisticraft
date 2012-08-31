@@ -7,6 +7,7 @@
 
 package si.meansoft.logisticraft.common;
 
+import java.io.File;
 import java.lang.reflect.Method;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,10 +28,11 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.core.CommonProxy;
-import si.meansoft.logisticraft.common.core.Config;
 import si.meansoft.logisticraft.common.core.Info;
 import si.meansoft.logisticraft.common.core.Version;
+import si.meansoft.logisticraft.common.core.handlers.Config;
 
 @Mod(modid = Info.modID, name = Info.modName, version = Info.modVersion)
 @NetworkMod(channels = { Info.channel }, clientSideRequired = true, serverSideRequired = true, packetHandler = PacketHandler.class)
@@ -43,16 +45,24 @@ public class Logisticraft {
 	@SidedProxy(clientSide = "si.meansoft.logisticraft.client.core.ClientProxy", serverSide = "si.meansoft.logisticraft.common.core.CommonProxy")
 	public static CommonProxy proxy;
 	/* Logger */
-	public static Logger lcLog = Logger.getLogger(Info.modName);
+	public static Logger lcLog = Logger.getLogger(Info.modID);
 
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {
 		event.getModMetadata().version = Version.fullVer();
 		lcLog.setParent(FMLLog.getLogger());
-		lcLog.info(Info.MOD_PFX + "Starting Logisticraft " + Version.fullVer() + "!");
+		lcLog.info("Starting Logisticraft " + Version.fullVer() + "!");
 
 		/* Register config file */
-		Config.init(event.getSuggestedConfigurationFile()); // What does this do. Change to proper config file
+		Config.init(new File(event.getModConfigurationDirectory(), Info.modName + ".cfg"));
+		
+		/* Blocks + recipes */
+		LCBlocks.loadBlocks();
+		LCBlocks.registerBlocks();
+		LCBlocks.nameBlocks();
+		LCBlocks.blockRecipes();
+		
+		/* Items + recipes */
 	}
 
 	@Init
