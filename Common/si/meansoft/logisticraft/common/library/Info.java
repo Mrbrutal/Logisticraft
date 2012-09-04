@@ -5,7 +5,7 @@
  * @licence Lesser GNU Public License v3 http://www.gnu.org/licenses/gpl.html
  ******************************************************************************/
 
-package si.meansoft.logisticraft.common.core;
+package si.meansoft.logisticraft.common.library;
 
 public class Info {
 

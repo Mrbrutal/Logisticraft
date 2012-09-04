@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.logging.Level;
+
+import si.meansoft.logisticraft.common.library.Info;
 import cpw.mods.fml.common.FMLCommonHandler;
 
 public class Version {

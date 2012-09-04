@@ -5,7 +5,7 @@
  * @licence Lesser GNU Public License v3 http://www.gnu.org/licenses/gpl.html
  ******************************************************************************/
 
-package si.meansoft.logisticraft.common;
+package si.meansoft.logisticraft.common.core.handlers;
 
 import net.minecraft.src.NetworkManager;
 import net.minecraft.src.Packet250CustomPayload;
