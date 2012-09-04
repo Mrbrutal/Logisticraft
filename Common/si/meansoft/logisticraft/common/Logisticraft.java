@@ -35,6 +35,7 @@ import si.meansoft.logisticraft.common.core.Version;
 import si.meansoft.logisticraft.common.core.handlers.ConfigHandler;
 import si.meansoft.logisticraft.common.core.handlers.OreHandler;
 import si.meansoft.logisticraft.common.core.handlers.PacketHandler;
+import si.meansoft.logisticraft.common.core.util.Localization;
 import si.meansoft.logisticraft.common.items.LCItems;
 import si.meansoft.logisticraft.common.library.Info;
 
@@ -84,6 +85,8 @@ public class Logisticraft {
 		
 		/* Bonemeal */
 		
+		/* Localisations */
+		//Localization.addLocalization("/lang/", Info.DEFAULT_LANGUAGE);	//Does not yet work
 	}
 
 	@PostInit

@@ -28,7 +28,6 @@ public class BlockTest extends Block {
 	
 	@Override
 	public int getRenderType() {
-        // You know that render ID we talked about earlier? You need to access it here.
         return RenderIDs.crateID;
 	}
 		

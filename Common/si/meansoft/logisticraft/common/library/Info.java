@@ -22,4 +22,7 @@ public class Info {
 	
 	/*Additional information and constants*/
 	public static final String MOD_PFX = "[" + modID + "]";
+	
+	/* Language */
+	public static final String DEFAULT_LANGUAGE = "en_US";
 }

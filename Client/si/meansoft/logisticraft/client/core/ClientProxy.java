@@ -7,11 +7,15 @@
 
 package si.meansoft.logisticraft.client.core;
 
+import net.minecraft.src.Item;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.StringTranslate;
 import net.minecraftforge.client.EnumHelperClient;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.client.registry.KeyBindingRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 import si.meansoft.logisticraft.common.core.CommonProxy;
 import si.meansoft.logisticraft.common.library.Info;
 import si.meansoft.logisticraft.common.library.RenderIDs;
@@ -39,4 +43,24 @@ public class ClientProxy extends CommonProxy {
         RenderIDs.crateID = RenderingRegistry.getNextAvailableRenderId();
         RenderingRegistry.registerBlockHandler(new RenderCrate());
     }
+    
+    /* LOCALIZATION */
+	@Override
+	public String getCurrentLanguage() {
+		return StringTranslate.getInstance().getCurrentLanguage();
+	}
+	@Override
+	public void addName(Object obj, String s) {
+		LanguageRegistry.addName(obj, s);
+	}
+	@Override
+	public void addLocalization(String s1, String string) {
+		LanguageRegistry.instance().addStringLocalization(s1, string);
+	}
+	@Override
+	public String getItemDisplayName(ItemStack stack){
+		if (Item.itemsList[stack.itemID] == null) return "";
+
+		return Item.itemsList[stack.itemID].getItemDisplayName(stack);
+	}
 }

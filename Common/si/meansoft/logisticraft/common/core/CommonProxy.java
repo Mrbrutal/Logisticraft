@@ -8,11 +8,14 @@
 package si.meansoft.logisticraft.common.core;
 
 import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.ItemStack;
 import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 public class CommonProxy implements IGuiHandler {
+	public static CommonProxy proxy;
+	
 	public void registerKeyBindingHandler() {}
 
     public void setKeyBinding(String name, int value) {}
@@ -31,4 +34,13 @@ public class CommonProxy implements IGuiHandler {
     }
 
 	public void preloadTextures() {}
+	
+	/* LOCALIZATION */
+	public String getCurrentLanguage() {
+		return null;
+	}
+	
+	public void addName(Object obj, String s) {}
+	public void addLocalization(String s1, String string) {}
+	public String getItemDisplayName(ItemStack newStack) { return ""; }
 }
