@@ -6,10 +6,10 @@
  * @licence Lesser GNU Public License v3 http://www.gnu.org/licenses/gpl.html
  ******************************************************************************/
 
-package si.meansoft.logisticraft.common.blocks;
+package si.meansoft.logisticraft.common.library;
 
-public class BlockIDs {
+public class RenderIDs {
 
-	public static int TEST;
+	public static int crateID;
 	
 }

@@ -8,34 +8,47 @@
 
 package si.meansoft.logisticraft.common.blocks;
 
+import si.meansoft.logisticraft.common.items.ItemBlockOres;
+import si.meansoft.logisticraft.common.library.BlockIDs;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.src.Block;
+import net.minecraft.src.BlockPressurePlate;
+import net.minecraft.src.EnumMobType;
 import net.minecraft.src.ItemStack;
+import net.minecraft.src.Material;
 
 public class LCBlocks {
 	
-	public static Block TEST;
+	public static Block ores;
+	public static Block playerPlate;
 	
 	/* Block declarations */
 	public static void loadBlocks() {
-		TEST = new BlockTest(BlockIDs.TEST, 0);
+		ores = new BlockOres(BlockIDs.ores, 3);
+		playerPlate = new BlockPlayerPlate(BlockIDs.playerPlate, 0, EnumMobType.players, Material.rock).setHardness(0.5F);
 	}
 	
 	/* Block registration */
 	public static void registerBlocks() {
-		GameRegistry.registerBlock(TEST);
+		GameRegistry.registerBlock(playerPlate);
+		GameRegistry.registerBlock(ores, ItemBlockOres.class);
 	}
 	
 	/* Block names and translations */
 	public static void nameBlocks() {
-		TEST.setBlockName("TestBlock");
+		playerPlate.setBlockName("pressurePlate");
 		
-		LanguageRegistry.addName(TEST, "Test block");
+		LanguageRegistry.addName(playerPlate, "Player preasure plate");
+		LanguageRegistry.addName(new ItemStack(ores, 1, 0), "Platinum ore");
+		LanguageRegistry.addName(new ItemStack(ores, 1, 1), "Silver ore");
+		LanguageRegistry.addName(new ItemStack(ores, 1, 2), "Copper ore");
 	}
 	
 	/* Register recipes for blocks */
 	public static void blockRecipes() {
-		GameRegistry.addShapelessRecipe(new ItemStack(TEST), Block.dirt);
+		GameRegistry.addShapelessRecipe(new ItemStack(ores, 1, 0), Block.dirt);
+		GameRegistry.addShapelessRecipe(new ItemStack(ores, 1, 1), Block.cobblestone);
+		GameRegistry.addShapelessRecipe(new ItemStack(ores, 1, 2), Block.stone);
 	}
 }

@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
@@ -30,9 +31,12 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.core.CommonProxy;
-import si.meansoft.logisticraft.common.core.Info;
 import si.meansoft.logisticraft.common.core.Version;
-import si.meansoft.logisticraft.common.core.handlers.Config;
+import si.meansoft.logisticraft.common.core.handlers.ConfigHandler;
+import si.meansoft.logisticraft.common.core.handlers.OreHandler;
+import si.meansoft.logisticraft.common.core.handlers.PacketHandler;
+import si.meansoft.logisticraft.common.items.LCItems;
+import si.meansoft.logisticraft.common.library.Info;
 
 @Mod(modid = Info.modID, name = Info.modName, version = Info.modVersion)
 @NetworkMod(channels = { Info.channel }, clientSideRequired = true, serverSideRequired = true, packetHandler = PacketHandler.class)
@@ -41,9 +45,11 @@ public class Logisticraft {
 	/* Logisticraft instance */
 	@Instance
 	public static Logisticraft instance;
+	
 	/* Sided proxies and proxy */
 	@SidedProxy(clientSide = "si.meansoft.logisticraft.client.core.ClientProxy", serverSide = "si.meansoft.logisticraft.common.core.CommonProxy")
 	public static CommonProxy proxy;
+	
 	/* Logger */
 	public static Logger lcLog = Logger.getLogger(Info.modID);
 
@@ -54,8 +60,14 @@ public class Logisticraft {
 		lcLog.info("Starting Logisticraft " + Version.fullVer() + "!");
 
 		/* Register config file */
-		Config.init(new File(event.getModConfigurationDirectory(), Info.modName + ".cfg"));
+		ConfigHandler.init(new File(event.getModConfigurationDirectory(), Info.modName + ".cfg"));
 		
+		/* Preload textures */
+		proxy.preloadTextures();
+	}
+
+	@Init
+	public void load(FMLInitializationEvent evt) {
 		/* Blocks + recipes */
 		LCBlocks.loadBlocks();
 		LCBlocks.registerBlocks();
@@ -63,10 +75,14 @@ public class Logisticraft {
 		LCBlocks.blockRecipes();
 		
 		/* Items + recipes */
-	}
-
-	@Init
-	public void load(FMLInitializationEvent evt) {
+		LCItems.loadItems();
+		LCItems.nameItems();
+		LCItems.itemRecipes();
+		
+		/* Ores */
+		OreHandler.registerOres();
+		
+		/* Bonemeal */
 		
 	}
 

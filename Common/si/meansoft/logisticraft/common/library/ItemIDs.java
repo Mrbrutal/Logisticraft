@@ -6,8 +6,14 @@
  * @licence Lesser GNU Public License v3 http://www.gnu.org/licenses/gpl.html
  ******************************************************************************/
 
-package si.meansoft.logisticraft.common.items;
+package si.meansoft.logisticraft.common.library;
 
 public class ItemIDs {
 
+	public static int ingotCopper;
+	public static int ingotSilver;
+	public static int ingotPlatinum;
+	
+	public static int coins;
+	
 }
