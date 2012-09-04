@@ -36,7 +36,10 @@ import si.meansoft.logisticraft.common.core.handlers.ConfigHandler;
 import si.meansoft.logisticraft.common.core.handlers.OreHandler;
 import si.meansoft.logisticraft.common.core.handlers.PacketHandler;
 import si.meansoft.logisticraft.common.core.util.Localization;
+import si.meansoft.logisticraft.common.generation.WorldGenOres;
+import si.meansoft.logisticraft.common.generation.WorldGenSurface;
 import si.meansoft.logisticraft.common.items.LCItems;
+import si.meansoft.logisticraft.common.library.BlockIDs;
 import si.meansoft.logisticraft.common.library.Info;
 
 @Mod(modid = Info.modID, name = Info.modName, version = Info.modVersion)
@@ -65,6 +68,12 @@ public class Logisticraft {
 		
 		/* Preload textures */
 		proxy.preloadTextures();
+		
+		/* Generators */
+		/*GameRegistry.registerWorldGenerator(new WorldGenOres(LCBlocks.ores.blockID, 2, 12));
+		GameRegistry.registerWorldGenerator(new WorldGenOres(LCBlocks.ores.blockID, 1, 6));
+		GameRegistry.registerWorldGenerator(new WorldGenOres(LCBlocks.ores.blockID, 0, 3));*/
+		GameRegistry.registerWorldGenerator(new WorldGenSurface());
 	}
 
 	@Init
