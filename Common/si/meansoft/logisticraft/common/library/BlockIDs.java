@@ -11,6 +11,7 @@ package si.meansoft.logisticraft.common.library;
 public class BlockIDs {
 
 	public static int ores;
+	public static int crate;
 	public static int playerPlate;
 	
 }

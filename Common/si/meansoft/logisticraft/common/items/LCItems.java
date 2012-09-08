@@ -9,7 +9,9 @@
 package si.meansoft.logisticraft.common.items;
 
 import net.minecraft.src.CraftingManager;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;
+import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -25,14 +27,15 @@ public class LCItems {
 	
 	public static Item coins;
 	
+	public static ItemBlockOres ores;
+	
 	/* Item declarations */
 	public static void loadItems() {
-		ingotCopper = new ItemIngot(ItemIDs.ingotCopper).setIconCoord(2, 1);
-		ingotSilver = new ItemIngot(ItemIDs.ingotSilver).setIconCoord(1, 1);
-		ingotPlatinum = new ItemIngot(ItemIDs.ingotPlatinum).setIconCoord(0, 1);
+		ingotCopper = new ItemIngot(ItemIDs.ingotCopper).setIconIndex(18).setTabToDisplayOn(CreativeTabs.tabMaterials);
+		ingotSilver = new ItemIngot(ItemIDs.ingotSilver).setIconIndex(17).setTabToDisplayOn(CreativeTabs.tabMaterials);
+		ingotPlatinum = new ItemIngot(ItemIDs.ingotPlatinum).setIconIndex(16).setTabToDisplayOn(CreativeTabs.tabMaterials);
 		
 		coins = new ItemCoin(ItemIDs.coins).setIconCoord(5, 0);
-
 	}
 	
 	/* Item names and translations */
@@ -57,5 +60,6 @@ public class LCItems {
 		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(coins, 8, 1), true, new Object[]{ " # ", "###", " # ", Character.valueOf('#'), ingotSilver}));
 		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(coins, 8, 2), true, new Object[]{ " # ", "###", " # ", Character.valueOf('#'), Item.ingotGold}));
 		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(coins, 8, 3), true, new Object[]{ " # ", "###", " # ", Character.valueOf('#'), ingotPlatinum}));
+		
 	}
 }

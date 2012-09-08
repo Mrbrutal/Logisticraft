@@ -16,10 +16,10 @@ import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.client.registry.KeyBindingRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import si.meansoft.logisticraft.client.renderers.RenderCrate;
 import si.meansoft.logisticraft.common.core.CommonProxy;
 import si.meansoft.logisticraft.common.library.Info;
 import si.meansoft.logisticraft.common.library.RenderIDs;
-import si.meansoft.logisticraft.renderers.RenderCrate;
 
 public class ClientProxy extends CommonProxy {
 	@Override

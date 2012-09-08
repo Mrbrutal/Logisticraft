@@ -32,6 +32,7 @@ public class BlockOres extends Block {
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
     public String getTextureFile() {
     	return Info.TEX_BLOCK;
     }
@@ -56,6 +57,7 @@ public class BlockOres extends Block {
         return i;
     }
 	
+	@SideOnly(Side.CLIENT)
 	public int getBlockTextureFromSideAndMetadata(int side, int data) {
 		switch(data) {
 			case 0: return blockIndexInTexture;

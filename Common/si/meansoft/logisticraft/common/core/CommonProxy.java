@@ -9,6 +9,7 @@ package si.meansoft.logisticraft.common.core;
 
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ItemStack;
+import net.minecraft.src.ModLoader;
 import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -43,4 +44,8 @@ public class CommonProxy implements IGuiHandler {
 	public void addName(Object obj, String s) {}
 	public void addLocalization(String s1, String string) {}
 	public String getItemDisplayName(ItemStack newStack) { return ""; }
+	
+	public void addSmelting(ItemStack res, ItemStack prod) {
+	    ModLoader.addSmelting(res.getIconIndex(), prod);
+	}
 }

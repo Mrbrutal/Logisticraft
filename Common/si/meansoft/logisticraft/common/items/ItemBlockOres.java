@@ -8,6 +8,10 @@
 
 package si.meansoft.logisticraft.common.items;
 
+import si.meansoft.logisticraft.common.Logisticraft;
+import si.meansoft.logisticraft.common.blocks.LCBlocks;
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 import net.minecraft.src.*;
 
 public class ItemBlockOres extends ItemBlock {
@@ -25,5 +29,5 @@ public class ItemBlockOres extends ItemBlock {
 	
 	public int getMetadata(int i) {
 		return i;
-	}	
+	}
 }
