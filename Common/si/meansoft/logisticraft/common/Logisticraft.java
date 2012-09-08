@@ -12,6 +12,8 @@ import java.lang.reflect.Method;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import net.minecraft.src.FurnaceRecipes;
+import net.minecraft.src.ItemStack;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
@@ -37,10 +39,12 @@ import si.meansoft.logisticraft.common.core.handlers.OreHandler;
 import si.meansoft.logisticraft.common.core.handlers.PacketHandler;
 import si.meansoft.logisticraft.common.core.util.Localization;
 import si.meansoft.logisticraft.common.generation.WorldGenOres;
-import si.meansoft.logisticraft.common.generation.WorldGenSurface;
+import si.meansoft.logisticraft.common.generation.WorldGenWorld;
 import si.meansoft.logisticraft.common.items.LCItems;
 import si.meansoft.logisticraft.common.library.BlockIDs;
 import si.meansoft.logisticraft.common.library.Info;
+import si.meansoft.logisticraft.common.recipes.RecipesBlocks;
+import si.meansoft.logisticraft.common.recipes.RecipesItems;
 
 @Mod(modid = Info.modID, name = Info.modName, version = Info.modVersion)
 @NetworkMod(channels = { Info.channel }, clientSideRequired = true, serverSideRequired = true, packetHandler = PacketHandler.class)
@@ -70,27 +74,27 @@ public class Logisticraft {
 		proxy.preloadTextures();
 		
 		/* Generators */
-		/*GameRegistry.registerWorldGenerator(new WorldGenOres(LCBlocks.ores.blockID, 2, 12));
-		GameRegistry.registerWorldGenerator(new WorldGenOres(LCBlocks.ores.blockID, 1, 6));
-		GameRegistry.registerWorldGenerator(new WorldGenOres(LCBlocks.ores.blockID, 0, 3));*/
-		GameRegistry.registerWorldGenerator(new WorldGenSurface());
+		GameRegistry.registerWorldGenerator(new WorldGenWorld());
 	}
 
 	@Init
 	public void load(FMLInitializationEvent evt) {
-		/* Blocks + recipes */
+		/* Blocks */
 		LCBlocks.loadBlocks();
 		LCBlocks.registerBlocks();
 		LCBlocks.nameBlocks();
-		LCBlocks.blockRecipes();
 		
-		/* Items + recipes */
+		/* Items */
 		LCItems.loadItems();
 		LCItems.nameItems();
 		LCItems.itemRecipes();
 		
 		/* Ores */
 		OreHandler.registerOres();
+		
+		/* Recipes */
+		RecipesBlocks.blockRecipes();
+		RecipesItems.itemRecipes();
 		
 		/* Bonemeal */
 		

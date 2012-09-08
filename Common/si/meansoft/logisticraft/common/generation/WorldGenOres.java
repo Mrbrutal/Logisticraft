@@ -16,21 +16,22 @@ import net.minecraft.src.Block;
 import net.minecraft.src.IChunkProvider;
 import net.minecraft.src.MathHelper;
 import net.minecraft.src.World;
+import net.minecraft.src.WorldGenerator;
 import cpw.mods.fml.common.IWorldGenerator;
 
-public class WorldGenOres implements IWorldGenerator {
+public class WorldGenOres extends WorldGenerator{
 
-	private static int bID;
-    private static int meta;
-    private static int size;
+	private int bID;
+    private int meta;
+    private int size;
     
     public WorldGenOres(int blockID, int metadata, int sizeOfVein) {
-        bID = blockID;
-        meta = metadata;
-        size = sizeOfVein;
+        this.bID = blockID;
+        this.meta = metadata;
+        this.size = sizeOfVein;
     }
     
-    public static boolean generate(World world, Random random, int i, int j, int k) {
+    public boolean generate(World world, Random random, int i, int j, int k) {
         float f = random.nextFloat() * 3.141593F;
         double d = (float)(i + 8) + (MathHelper.sin(f) * (float)size) / 8F;
         double d1 = (float)(i + 8) - (MathHelper.sin(f) * (float)size) / 8F;
@@ -64,6 +65,7 @@ public class WorldGenOres implements IWorldGenerator {
                     for (int zGen = k1; zGen <= j2; zGen++) {
 						double d14 = (((double) zGen + 0.5D) - d8) / (d10 / 2D);
 						if (d12 * d12 + d13 * d13 + d14 * d14 < 1.0D && world.getBlockId(xGen, yGen, zGen) == Block.stone.blockID) {
+							//System.out.println("Generating ores at " + xGen + " | " + yGen + " | " + zGen + "  : " + meta);
 							world.setBlockAndMetadata(xGen, yGen, zGen, bID, meta);
 						}
                     }
@@ -73,7 +75,7 @@ public class WorldGenOres implements IWorldGenerator {
         return true;
     }
     
-    public static boolean generateVeins(World world, Random random, int chunkX, int chunkZ, int rarity, int height) {
+    public boolean generateVeins(World world, Random random, int chunkX, int chunkZ, int rarity, int height) {
    		 for (int i = 0; i < rarity; i++) {
                 int hi = random.nextInt(height);
                 int randX = chunkX + random.nextInt(16);
@@ -82,13 +84,4 @@ public class WorldGenOres implements IWorldGenerator {
    		 }
    		 return true;
    	 }
-    
-	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		System.out.println("Block ores are being generated!");
-		WorldGenOres oresGen1 = new WorldGenOres(LCBlocks.ores.blockID, 2, 12);
-		WorldGenOres oresGen2 = new WorldGenOres(LCBlocks.ores.blockID, 1, 6);
-		WorldGenOres oresGen3 = new WorldGenOres(LCBlocks.ores.blockID, 0, 3);
-	}
-
 }
