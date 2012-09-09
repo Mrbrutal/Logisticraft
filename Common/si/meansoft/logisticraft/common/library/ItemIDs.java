@@ -15,5 +15,6 @@ public class ItemIDs {
 	public static int ingotPlatinum;
 	
 	public static int coins;
+	public static int dusts;
 	
 }

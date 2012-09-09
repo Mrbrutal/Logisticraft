@@ -20,11 +20,11 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.MathHelper;
 import si.meansoft.logisticraft.common.library.Info;
 
-public class ItemCoin extends Item{
+public class ItemCoins extends Item{
 	
 	public static final String[] coinNames = new String[] {"Copper coin", "Silver coin", "Gold coin", "Platinum coin"};
 	
-	public ItemCoin(int par1) {
+	public ItemCoins(int par1) {
 		super(par1);
 		setMaxDamage(0);
 		setMaxStackSize(64);

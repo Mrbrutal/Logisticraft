@@ -41,6 +41,7 @@ public class ConfigHandler {
             BlockIDs.ores = cf.getOrCreateIntProperty("block_ores", CATEGORY_BLOCK, 400).getInt(400);
             BlockIDs.crate = cf.getOrCreateIntProperty("block_crate", CATEGORY_BLOCK, 401).getInt(401);
             BlockIDs.playerPlate = cf.getOrCreateIntProperty("block_player_plate", CATEGORY_BLOCK, 402).getInt(402);
+            BlockIDs.coloredGlass = cf.getOrCreateIntProperty("block_colored_glass", CATEGORY_BLOCK, 403).getInt(403);
             
             /* Item */
             ItemIDs.ingotCopper = cf.getOrCreateIntProperty("ingot_copper", Configuration.CATEGORY_ITEM, 1100).getInt();
@@ -48,6 +49,7 @@ public class ConfigHandler {
             ItemIDs.ingotPlatinum = cf.getOrCreateIntProperty("ingot_platinum", Configuration.CATEGORY_ITEM, 1102).getInt();
             
             ItemIDs.coins = cf.getOrCreateIntProperty("coins", Configuration.CATEGORY_ITEM, 1103).getInt();
+            ItemIDs.dusts = cf.getOrCreateIntProperty("dusts", Configuration.CATEGORY_ITEM, 1104).getInt();
             
         }
         catch (Exception e) {

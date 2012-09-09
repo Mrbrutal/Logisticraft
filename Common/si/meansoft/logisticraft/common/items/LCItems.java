@@ -26,6 +26,7 @@ public class LCItems {
 	public static Item ingotPlatinum;
 	
 	public static Item coins;
+	public static Item dusts;
 	
 	public static ItemBlockOres ores;
 	
@@ -35,7 +36,9 @@ public class LCItems {
 		ingotSilver = new ItemIngot(ItemIDs.ingotSilver).setIconIndex(17).setTabToDisplayOn(CreativeTabs.tabMaterials);
 		ingotPlatinum = new ItemIngot(ItemIDs.ingotPlatinum).setIconIndex(16).setTabToDisplayOn(CreativeTabs.tabMaterials);
 		
-		coins = new ItemCoin(ItemIDs.coins).setIconCoord(5, 0);
+		coins = new ItemCoins(ItemIDs.coins).setIconCoord(5, 0);
+		
+		dusts = new ItemDusts(ItemIDs.dusts).setIconIndex(19);
 	}
 	
 	/* Item names and translations */
@@ -52,14 +55,9 @@ public class LCItems {
 		LanguageRegistry.addName(new ItemStack(coins, 1, 1), "Silver coin");
 		LanguageRegistry.addName(new ItemStack(coins, 1, 2), "Gold coin");
 		LanguageRegistry.addName(new ItemStack(coins, 1, 3), "Platinum coin");
-	}
-	
-	/* Register recipes for items */
-	public static void itemRecipes() {
-		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(coins, 8, 0), true, new Object[]{ " # ", "###", " # ", Character.valueOf('#'), ingotCopper}));
-		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(coins, 8, 1), true, new Object[]{ " # ", "###", " # ", Character.valueOf('#'), ingotSilver}));
-		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(coins, 8, 2), true, new Object[]{ " # ", "###", " # ", Character.valueOf('#'), Item.ingotGold}));
-		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(coins, 8, 3), true, new Object[]{ " # ", "###", " # ", Character.valueOf('#'), ingotPlatinum}));
 		
+		LanguageRegistry.addName(new ItemStack(dusts, 1, 0), "Copper dust");
+		LanguageRegistry.addName(new ItemStack(dusts, 1, 1), "Silver dust");
+		LanguageRegistry.addName(new ItemStack(dusts, 1, 2), "Platinum dust");
 	}
 }

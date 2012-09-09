@@ -87,7 +87,6 @@ public class Logisticraft {
 		/* Items */
 		LCItems.loadItems();
 		LCItems.nameItems();
-		LCItems.itemRecipes();
 		
 		/* Ores */
 		OreHandler.registerOres();
