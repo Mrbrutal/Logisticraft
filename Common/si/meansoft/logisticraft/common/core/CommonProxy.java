@@ -44,8 +44,4 @@ public class CommonProxy implements IGuiHandler {
 	public void addName(Object obj, String s) {}
 	public void addLocalization(String s1, String string) {}
 	public String getItemDisplayName(ItemStack newStack) { return ""; }
-	
-	public void addSmelting(ItemStack res, ItemStack prod) {
-	    ModLoader.addSmelting(res.getIconIndex(), prod);
-	}
 }

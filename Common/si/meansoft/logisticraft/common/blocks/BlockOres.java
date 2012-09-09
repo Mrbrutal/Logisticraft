@@ -32,13 +32,11 @@ public class BlockOres extends Block {
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
     public String getTextureFile() {
     	return Info.TEX_BLOCK;
     }
 	
 	@Override
-	@SideOnly(Side.CLIENT)
     public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List) {
         for (int var4 = 0; var4 < 3; ++var4) {
             par3List.add(new ItemStack(this, 1, var4));

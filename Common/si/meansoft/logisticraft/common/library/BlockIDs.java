@@ -13,5 +13,6 @@ public class BlockIDs {
 	public static int ores;
 	public static int crate;
 	public static int playerPlate;
+	public static int coloredGlass;
 	
 }
