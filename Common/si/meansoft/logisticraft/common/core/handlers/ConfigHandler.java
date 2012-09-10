@@ -48,8 +48,8 @@ public class ConfigHandler {
             ItemIDs.ingotSilver = cf.getOrCreateIntProperty("ingot_silver", Configuration.CATEGORY_ITEM, 1101).getInt();
             ItemIDs.ingotPlatinum = cf.getOrCreateIntProperty("ingot_platinum", Configuration.CATEGORY_ITEM, 1102).getInt();
             
-            ItemIDs.coins = cf.getOrCreateIntProperty("coins", Configuration.CATEGORY_ITEM, 1103).getInt();
-            ItemIDs.dusts = cf.getOrCreateIntProperty("dusts", Configuration.CATEGORY_ITEM, 1104).getInt();
+            ItemIDs.dusts = cf.getOrCreateIntProperty("dusts", Configuration.CATEGORY_ITEM, 1103).getInt();
+            ItemIDs.coins = cf.getOrCreateIntProperty("coins", Configuration.CATEGORY_ITEM, 1104).getInt();
             
         }
         catch (Exception e) {

@@ -145,7 +145,6 @@
 			<fileset dir="${mcp.ecl}">
 				<include name="**/mcmod.info" />
 				<include name="**/lcver.properties" />
-				<include name="**/lcraft_logo.png" />
 			</fileset>
 		</copy>
 		<copy todir="${build.dir}/si/meansoft/logisticraft/common" failonerror="false">
@@ -154,7 +153,7 @@
 		<copy todir="${build.dir}/si/meansoft/logisticraft/Resources" failonerror="false">
 			  <fileset dir="${resources.dir}" />
 		</copy>
-		<copy todir="${build.dir}/si/meansoft/logisticraft/common" failonerror="false">
+		<copy todir="${build.dir}/si/meansoft/logisticraft/client" failonerror="false">
 			<fileset dir="${mcp.dir}/reobf/minecraft/si/meansoft/logisticraft/client"/>
 		</copy>
 		<echo message="stage target completed succesfully!" />

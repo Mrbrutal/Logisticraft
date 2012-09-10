@@ -16,7 +16,7 @@ public class Info {
 	public static final String channel = "Logisticraft";
 
 	/*All the resources for the mod*/
-	public static final String texPrefix = "/Resources/";
+	public static final String texPrefix = "/si/meansoft/logisticraft/Resources/";
 	public static final String TEX_BLOCK = texPrefix + "Blocks.png";
 	public static final String TEX_ITEM = texPrefix + "Items.png";
 	

@@ -21,8 +21,11 @@ public class OreHandler {
 		OreDictionary.registerOre("ingotPlatinum", new ItemStack(LCItems.ingotPlatinum));
 		
 		OreDictionary.registerOre("Platinum ore", new ItemStack(LCBlocks.ores, 1, 0));
-		OreDictionary.registerOre("Platinum ore", new ItemStack(LCBlocks.ores, 1, 1));
-		OreDictionary.registerOre("Platinum ore", new ItemStack(LCBlocks.ores, 1, 2));
+		OreDictionary.registerOre("Silver ore", new ItemStack(LCBlocks.ores, 1, 1));
+		OreDictionary.registerOre("Copper ore", new ItemStack(LCBlocks.ores, 1, 2));
 		
+		OreDictionary.registerOre("Platinum dust", new ItemStack(LCItems.dusts, 1, 0));
+		OreDictionary.registerOre("Silver dust", new ItemStack(LCItems.dusts, 1, 1));
+		OreDictionary.registerOre("Copper dust", new ItemStack(LCItems.dusts, 1, 2));
 	}
 }
