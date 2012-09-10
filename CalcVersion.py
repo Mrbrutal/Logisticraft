@@ -16,7 +16,7 @@ minor = "0"
 rev = "0"
 sub = "000"
 mcpversion = "7.2"
-forgeversion = "4.0.0.217"
+forgeversion = "4.0.0.251"
 mcclientver = "1.3.2"
 
 def cmdsplit(args):
