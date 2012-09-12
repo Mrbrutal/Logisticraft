@@ -38,6 +38,7 @@ public class ClientProxy extends CommonProxy {
     public void preloadTextures() {
         MinecraftForgeClient.preloadTexture(Info.TEX_BLOCK);
         MinecraftForgeClient.preloadTexture(Info.TEX_ITEM);
+        MinecraftForgeClient.preloadTexture(Info.TEX_CRATE);
         
         //RenderingRegistry.instance().registerEntityRenderingHandler(EntityTest.class, new RenderCatTest());//TODO--NPE on texture load
         RenderIDs.crateID = RenderingRegistry.getNextAvailableRenderId();

@@ -8,6 +8,8 @@
 
 package si.meansoft.logisticraft.common.blocks;
 
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 import si.meansoft.logisticraft.common.library.*;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
@@ -29,6 +31,16 @@ public class BlockCrate extends Block {
 	@Override
 	public int getRenderType() {
         return RenderIDs.crateID;
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public int getBlockTextureFromSideAndMetadata(int data, int meta) {
+		if(data == 0 || data == 1) {
+			return blockIndexInTexture;
+		}
+		else {
+			return blockIndexInTexture + 1;
+		}
 	}
 		
 }

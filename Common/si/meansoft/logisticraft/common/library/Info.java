@@ -19,6 +19,7 @@ public class Info {
 	public static final String texPrefix = "/si/meansoft/logisticraft/Resources/";
 	public static final String TEX_BLOCK = texPrefix + "Blocks.png";
 	public static final String TEX_ITEM = texPrefix + "Items.png";
+	public static final String TEX_CRATE = texPrefix + "Crate.png";
 	
 	/*Additional information and constants*/
 	public static final String MOD_PFX = "[" + modID + "]";
