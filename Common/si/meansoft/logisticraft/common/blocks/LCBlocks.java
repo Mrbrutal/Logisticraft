@@ -8,10 +8,14 @@
 
 package si.meansoft.logisticraft.common.blocks;
 
+import si.meansoft.logisticraft.common.items.ItemBlockBox;
+import si.meansoft.logisticraft.common.items.ItemBlockCrate;
 import si.meansoft.logisticraft.common.items.ItemBlockGlass;
+import si.meansoft.logisticraft.common.items.ItemBlockMachines;
 import si.meansoft.logisticraft.common.items.ItemBlockOres;
 import si.meansoft.logisticraft.common.items.LCItems;
 import si.meansoft.logisticraft.common.library.BlockIDs;
+import si.meansoft.logisticraft.common.library.Info;
 import si.meansoft.logisticraft.common.library.ItemIDs;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -27,22 +31,28 @@ import net.minecraft.src.ModLoader;
 public class LCBlocks {
 	
 	public static Block ores;
+	public static Block box;
 	public static Block crate;
 	public static Block playerPlate;
 	public static Block coloredGlass;
+	public static Block machines;
 	
 	/* Block declarations */
 	public static void loadBlocks() {
 		ores = new BlockOres(BlockIDs.ores, 3);
+		box = new BlockBox(BlockIDs.box, 48);
 		crate = new BlockCrate(BlockIDs.crate, 32);
 		playerPlate = new BlockPlayerPlate(BlockIDs.playerPlate, 0, EnumMobType.players, Material.rock).setHardness(0.5F);
 		coloredGlass = new BlockColorGlass(BlockIDs.coloredGlass, 240);
+		machines = new BlockMachines(BlockIDs.machines, 24, false);
 	}
 	
 	/* Block registration */
 	public static void registerBlocks() {
 		GameRegistry.registerBlock(playerPlate);
-		GameRegistry.registerBlock(crate);
+		GameRegistry.registerBlock(machines, ItemBlockMachines.class);
+		GameRegistry.registerBlock(box, ItemBlockBox.class);
+		GameRegistry.registerBlock(crate, ItemBlockCrate.class);
 		GameRegistry.registerBlock(ores, ItemBlockOres.class);
 		GameRegistry.registerBlock(coloredGlass, ItemBlockGlass.class);
 	}
@@ -50,9 +60,10 @@ public class LCBlocks {
 	/* Block names and translations */
 	public static void nameBlocks() {
 		playerPlate.setBlockName("pressurePlate");
-		crate.setBlockName("Crate");
 		
-		LanguageRegistry.addName(crate, "Crate");
+		addNames(Info.crateNames, "Crated ", crate, true);
+		addNames(Info.glassNames, " glass", coloredGlass, false);
+		addNames(Info.boxNames, "", box, false);
 		
 		LanguageRegistry.addName(playerPlate, "Player preasure plate");
 		
@@ -60,21 +71,21 @@ public class LCBlocks {
 		LanguageRegistry.addName(new ItemStack(ores, 1, 1), "Silver ore");
 		LanguageRegistry.addName(new ItemStack(ores, 1, 2), "Copper ore");
 		
-		LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 0), "Black glass");
-		LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 1), "Red glass");
-		LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 2), "Green glass");
-		LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 3), "Brown glass");
-		LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 4), "Blue glass");
-		LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 5), "Purple glass");
-		LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 6), "Cyan glass");
-		LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 7), "Light grey glass");
-		LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 8), "Dark grey glass");
-		LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 9), "Pink glass");
-		LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 10), "Light green glass");
-		LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 11), "Yellow glass");
-		LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 12), "Light blue glass");
-		LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 13), "Magenta glass");
-		LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 14), "Orange glass");
-		LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 15), "White glass");
+		LanguageRegistry.addName(new ItemStack(machines, 1, 0), "Lava remover");
+		LanguageRegistry.addName(new ItemStack(machines, 1, 1), "Lava remover on");
+		LanguageRegistry.addName(new ItemStack(machines, 1, 2), "Lava remover block");
+	}
+	
+	public static void addNames(String[] names, String name, Block block, boolean side) {
+		if(side) {
+			for (int i = 0; i < names.length; i++) {
+				LanguageRegistry.addName(new ItemStack(block , 1, i), name + names[i]);
+			}
+		}
+		else {
+			for (int i = 0; i < names.length; i++) {
+				LanguageRegistry.addName(new ItemStack(block , 1, i), names[i] + name);
+			}
+		}
 	}
 }
