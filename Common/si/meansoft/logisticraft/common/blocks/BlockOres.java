@@ -37,9 +37,9 @@ public class BlockOres extends Block {
     }
 	
 	@Override
-    public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List) {
+    public void getSubBlocks(int par1, CreativeTabs tabs, List list) {
         for (int var4 = 0; var4 < 3; ++var4) {
-            par3List.add(new ItemStack(this, 1, var4));
+            list.add(new ItemStack(this, 1, var4));
         }
     }
 	
