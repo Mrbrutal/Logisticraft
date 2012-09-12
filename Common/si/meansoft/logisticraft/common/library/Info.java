@@ -26,4 +26,10 @@ public class Info {
 	
 	/* Language */
 	public static final String DEFAULT_LANGUAGE = "en_US";
+	
+	/* Block/Item name arrays */
+	
+	public static final String[] crateNames = {"rott", "wheat", "sugarcane", "apples", "eggs", " cake", "bread", "zombie flesh", "cookies", "melon", "porkchops", "fish", "beef", " chicken", "slimebals", "watermelon"};
+	public static final String[] glassNames = {"Black", "Red", "Green", "Brown", "Blue", "Purple", "Cyan", "Light grey", "Dark grey", "Pink", "Light green", "Yellow", "Light blue", "Magenta", "Orange", "White"};
+	public static final String[] boxNames = {"Block wheat", "Block sugarcane", "Apple basket", "Egg basket", "Cake basket", "Bread basket", "Zombie basket", "Cookie basket", "Watermelon basket", "Box of pork", "Box of fish", "Box of beef", "Box of chicken", "SlimeBall basket", "Compost basket"};
 }
