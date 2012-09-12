@@ -14,5 +14,7 @@ public class BlockIDs {
 	public static int crate;
 	public static int playerPlate;
 	public static int coloredGlass;
+	public static int box;
+	public static int machines;
 	
 }
