@@ -16,5 +16,6 @@ public class ItemIDs {
 	
 	public static int coins;
 	public static int dusts;
+	public static int knife;
 	
 }

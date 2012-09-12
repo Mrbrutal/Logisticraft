@@ -10,9 +10,11 @@ package si.meansoft.logisticraft.common.items;
 
 import net.minecraft.src.CraftingManager;
 import net.minecraft.src.CreativeTabs;
+import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemStack;
+import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -27,6 +29,7 @@ public class LCItems {
 	
 	public static Item coins;
 	public static Item dusts;
+	public static Item knife;
 	
 	public static ItemBlockOres ores;
 	
@@ -39,6 +42,9 @@ public class LCItems {
 		coins = new ItemCoins(ItemIDs.coins).setIconCoord(5, 0);
 		
 		dusts = new ItemDusts(ItemIDs.dusts).setIconIndex(19);
+		
+		EnumToolMaterial materialKnife = EnumHelper.addToolMaterial("Knife", 1, 50, 5.0F, 1, 7);
+		knife = new ItemKnife(ItemIDs.knife, materialKnife).setIconCoord(1, 0);
 	}
 	
 	/* Item names and translations */
@@ -46,6 +52,7 @@ public class LCItems {
 		ingotCopper.setItemName("Copper Ingot");
 		ingotSilver.setItemName("Silver Ingot");
 		ingotPlatinum.setItemName("Platinum Ingot");
+		knife.setItemName("Knife");
 		
 		LanguageRegistry.addName(ingotCopper, "Copper Ingot");
 		LanguageRegistry.addName(ingotSilver, "Silver Ingot");
@@ -59,5 +66,7 @@ public class LCItems {
 		LanguageRegistry.addName(new ItemStack(dusts, 1, 0), "Copper dust");
 		LanguageRegistry.addName(new ItemStack(dusts, 1, 1), "Silver dust");
 		LanguageRegistry.addName(new ItemStack(dusts, 1, 2), "Platinum dust");
+		
+		LanguageRegistry.addName(knife, "Knife");
 	}
 }
