@@ -8,6 +8,7 @@
 package si.meansoft.logisticraft.common.core;
 
 import si.meansoft.logisticraft.client.GUI.GuiStackCrafting;
+import si.meansoft.logisticraft.common.containers.ContainerStackbench;
 import si.meansoft.logisticraft.common.library.GuiIDs;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ItemStack;
@@ -30,18 +31,22 @@ public class CommonProxy implements IGuiHandler {
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
     	System.out.println(ID);
     	if(ID == GuiIDs.GUI_STACKBENCH) {
-    		return new GuiStackCrafting(player.inventory, world, x, y, z);
+    		return new ContainerStackbench(player.inventory, world, x, y, z);
     	}
-    	return null;
+    	else {
+    		return null;
+    	}
     }
 
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
     	System.out.println(ID);
-    	/*if(ID == GuiIDs.GUI_STACKBENCH) {
+    	if(ID == GuiIDs.GUI_STACKBENCH) {
     		return new GuiStackCrafting(player.inventory, world, x, y, z);
-    	}*/
-    	return null;
+    	}
+    	else {
+    		return null;
+    	}
     }
 
     /* TEXTURE PRELOADS FROM CLIENT */

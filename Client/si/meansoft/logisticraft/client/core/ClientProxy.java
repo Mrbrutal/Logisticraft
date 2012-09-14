@@ -84,6 +84,8 @@ public class ClientProxy extends CommonProxy {
 		if(ID == GuiIDs.GUI_STACKBENCH) {
     		return new GuiStackCrafting(player.inventory, world, x, y, z);
     	}
-    	return null;
+		else {
+			return null;
+		}
     }
 }
