@@ -38,9 +38,9 @@ public class CommonProxy implements IGuiHandler {
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
     	System.out.println(ID);
-    	if(ID == GuiIDs.GUI_STACKBENCH) {
+    	/*if(ID == GuiIDs.GUI_STACKBENCH) {
     		return new GuiStackCrafting(player.inventory, world, x, y, z);
-    	}
+    	}*/
     	return null;
     }
 

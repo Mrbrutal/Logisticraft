@@ -78,12 +78,12 @@ public class ClientProxy extends CommonProxy {
 		return Item.itemsList[stack.itemID].getItemDisplayName(stack);
 	}
 	
-	/*@Override
+	@Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		System.out.println(ID);
 		if(ID == GuiIDs.GUI_STACKBENCH) {
     		return new GuiStackCrafting(player.inventory, world, x, y, z);
     	}
     	return null;
-    }*/
+    }
 }

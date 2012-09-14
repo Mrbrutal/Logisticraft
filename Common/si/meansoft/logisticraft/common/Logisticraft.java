@@ -75,6 +75,7 @@ public class Logisticraft {
 		
 		/* Generators */
 		GameRegistry.registerWorldGenerator(new WorldGenWorld());
+		NetworkRegistry.instance().registerGuiHandler(this, this.proxy);
 	}
 
 	@Init
