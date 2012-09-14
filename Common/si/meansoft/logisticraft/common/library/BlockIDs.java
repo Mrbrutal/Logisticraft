@@ -16,5 +16,8 @@ public class BlockIDs {
 	public static int coloredGlass;
 	public static int box;
 	public static int machines;
+	public static int beam;
+	public static int chimney;
+	public static int stackBench;
 	
 }

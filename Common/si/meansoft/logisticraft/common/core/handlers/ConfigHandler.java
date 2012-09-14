@@ -44,6 +44,9 @@ public class ConfigHandler {
             BlockIDs.playerPlate = cf.getOrCreateIntProperty("block_player_plate", CATEGORY_BLOCK, 403).getInt(403);
             BlockIDs.coloredGlass = cf.getOrCreateIntProperty("block_colored_glass", CATEGORY_BLOCK, 404).getInt(404);
             BlockIDs.machines = cf.getOrCreateIntProperty("block_machines", CATEGORY_BLOCK, 405).getInt(405);
+            BlockIDs.beam = cf.getOrCreateIntProperty("block_beam", CATEGORY_BLOCK, 406).getInt(406);
+            BlockIDs.chimney = cf.getOrCreateIntProperty("block_chimney", CATEGORY_BLOCK, 407).getInt(407);
+            BlockIDs.stackBench = cf.getOrCreateIntProperty("block_stack_bench", CATEGORY_BLOCK, 408).getInt(408);
             
             /* Item */
             ItemIDs.ingotCopper = cf.getOrCreateIntProperty("ingot_copper", Configuration.CATEGORY_ITEM, 1100).getInt();

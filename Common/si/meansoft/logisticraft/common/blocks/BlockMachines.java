@@ -14,14 +14,22 @@ import java.util.Random;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 
+import si.meansoft.logisticraft.common.core.Reflector;
 import si.meansoft.logisticraft.common.library.Info;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
+import net.minecraft.src.Entity;
+import net.minecraft.src.EntityLightningBolt;
 import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.EntityPlayerMP;
+import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
+import net.minecraft.src.ModLoader;
 import net.minecraft.src.World;
+import net.minecraftforge.client.ForgeHooksClient;
+import net.minecraftforge.common.ForgeHooks;
 
 public class BlockMachines extends Block{
 	
@@ -45,9 +53,9 @@ public class BlockMachines extends Block{
 	
 	@Override
     public void getSubBlocks(int par1, CreativeTabs tabs, List list) {
-        for (int var4 = 0; var4 < 3; ++var4) {
-            list.add(new ItemStack(this, 1, var4));
-        }
+		list.add(new ItemStack(this, 1, 0));
+		list.add(new ItemStack(this, 1, 3));
+		list.add(new ItemStack(this, 1, 4));
     }
 	
 	public int idDropped(int par1, Random par2Random, int par3) {
@@ -59,7 +67,7 @@ public class BlockMachines extends Block{
 	}
 	
 	protected int damageDropped(int i) {
-        return 0;
+        return i;
     }
 	
 	public int getBlockTextureFromSideAndMetadata(int side, int data) {
@@ -71,16 +79,44 @@ public class BlockMachines extends Block{
 				return blockIndexInTexture;
 			}
 		}
-		if(data == 2) {
-			return 27;
-		}
-		else {
+		else if(data == 1) {
 			if(side == 0 || side == 1) { //top and bottom
 				return blockIndexInTexture + 2;
 			}
 			else {						 //sides
 				return blockIndexInTexture;
 			}
+		}
+		else if(data == 2) {
+			return 27;
+		}
+		else if(data == 3) {
+			return blockIndexInTexture - 5;
+		}
+		else if(data == 4) {
+			if(side == 0) { //bottom
+				return blockIndexInTexture - 8;
+			}
+			else if(side == 1) { //Top
+				return blockIndexInTexture - 6;
+			}
+			else {						 //sides
+				return blockIndexInTexture - 7;
+			}
+		}
+		else if(data == 5) {
+			if(side == 0) { //bottom
+				return blockIndexInTexture - 8;
+			}
+			else if(side == 1) { //Top
+				return blockIndexInTexture - 22;
+			}
+			else {						 //sides
+				return blockIndexInTexture - 23;
+			}
+		}
+		else {
+			return 0;
 		}
 	}
 	
@@ -89,7 +125,7 @@ public class BlockMachines extends Block{
     }
 	
     public int tickRate() {
-        return 10;
+        return 6;
     }
 	
     private boolean ignoreTick(int i, int j) {
@@ -101,6 +137,114 @@ public class BlockMachines extends Block{
         }
         return false;
     }
+    
+    public void onBlockAdded(World world, int x, int y, int z) {
+    	int mb = world.getBlockMetadata(x, y, z);
+    	if (!world.isRemote) {
+    		if(mb == 0 || mb == 1) {
+    			Material mat = world.getBlockMaterial(x, y - 1, z);
+    			if(isActive(world, x, y, z) && (mat == Material.lava)) {
+    				//System.out.println("Had power from start");
+		    		/*world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 1);
+		    		int l = world.getBlockId(x, y - 1, z);
+		            byte byte0 = -1;
+		            if(l == Block.lavaStill.blockID || l == Block.lavaMoving.blockID) {
+		            	onState = true;
+		                byte0 = 2;
+		            }
+		            if(byte0 == -1) {
+		                world.setBlockAndMetadataWithNotify(x, y, z, blockID, 0);
+		            } 
+		            else {*/
+    				world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 1);
+	                world.setBlockMetadataWithNotify(x, y - 1, z, 2);
+	                expand(world, x, y - 1, z);
+		            //}
+    			}
+    			else {
+    				System.out.println("No power from start");
+		    		onState = false;
+		    		world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 0);
+    			}
+    		}
+    		else if(mb == 4 || mb == 5) {
+				world.setBlockAndMetadata(x, y, z, blockID, 0);
+				update(world, x, y, z);
+	    	}
+	    	else if (mb == 3){
+	    		if(isActive(world, x, y, z)) {
+	    			world.setWorldTime(0);
+	    			//EntityPlayer player;
+	    			//player.sendChatToPlayer("Setting time to day!");
+    			}
+	    	}
+    	}
+	}
+
+	public void onBlockRemoval(World world, int x, int y, int z) {
+		if (!world.isRemote) {
+			if(world.getBlockMetadata(x, y, z) == 4 || world.getBlockMetadata(x, y, z) == 5) {
+				update(world, x, y, z);
+			}
+		}
+	}
+
+	public void onNeighborBlockChange(World world, int x, int y, int z, int neighborBlockID) {
+		int mb = world.getBlockMetadata(x, y, z);
+		if (!world.isRemote) {
+			if(mb == 0 || mb == 1) {
+				Material mat = world.getBlockMaterial(x, y - 1, z);
+				if(isActive(world, x, y, z)  && (mat == Material.lava)) {
+					world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 1);
+	                world.setBlockMetadataWithNotify(x, y - 1, z, 2);
+	                expand(world, x, y - 1, z);
+    			}
+				else {
+					onState = false;
+		    		world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 0);
+				}
+			}
+			else if(mb == 4 || mb == 5) {
+				update(world, x, y, z);
+	    	}
+			else if (mb == 3){
+				if(isActive(world, x, y, z)) {
+	    			world.setWorldTime(0);
+	    			//EntityPlayer player = world.thePlayer();
+	    			//player.sendChatToPlayer("Setting time to day!");
+    			}
+			}
+		}
+	}
+	
+	public boolean update(World world, int x, int y, int z) {
+	    if (!world.isRemote) {
+	    	boolean isActive = Reflector.findReflector(world, x, y, z);	
+	    	
+	    	setMetadata(world, x, y, z, isActive);
+	    	
+	    	if (isActive) {
+				Reflector.add(world, x, y + 1, z);
+	    	}
+			else {
+				Reflector.remove(world, x, y + 1, z);
+			}
+	    }
+		return true;
+	}
+	
+	public void setMetadata(World world, int x, int y, int z, boolean isActive) {
+		int oldMeta = world.getBlockMetadata(x, y, z);
+		int newMeta = (oldMeta & 0xe) | (isActive ? 5 : 4);
+		if (oldMeta != newMeta) {
+			world.setBlockMetadata(x, y, z, newMeta);
+			world.markBlockNeedsUpdate(x, y, z);
+		}
+	}
+	
+	public boolean isActive(World world, int x, int y, int z) {
+		return world.isBlockIndirectlyGettingPowered(x, y, z);
+	}
     
     private void expand(World world, int i, int j, int k) {
         if(!world.isRemote) {
@@ -145,14 +289,14 @@ public class BlockMachines extends Block{
     
     public void updateTick(World world, int i, int j, int k, Random random) {
         if(!world.isRemote){
-	    	if(world.getBlockId(i, j, k) == this.blockID) {
+	    	if(world.getBlockId(i, j, k) == this.blockID && world.getBlockMetadata(i, j, k) == 2) {
 	        	expand(world, i, j, k);
 	            world.setBlockWithNotify(i, j, k, 0);
 	        }
         }
     }
     
-	public boolean blockActivated(World world, int i, int j, int k, EntityPlayer player) {
+	/*public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer player, int par1, float par2, float par3, float par4) {
 		Random random = new Random();
 		if (!world.isRemote) {
 	    	if(world.getBlockMetadata(i, j, k) == 0 || world.getBlockMetadata(i, j, k) == 1) {
@@ -185,47 +329,64 @@ public class BlockMachines extends Block{
 		    		world.setBlockAndMetadataWithNotify(i, j, k, this.blockID, 0);
 		    	}
 	    	}
+	    	else if(world.getBlockMetadata(i, j, k) == 3) {
+	    		world.setWorldTime(0);
+	    		player.sendChatToPlayer("Setting time to day!");
+	    		spawnStuff(world, i, j, k, player);
+	    	}
 	    }
 		return true;
-	}
+	}*/
 	
-	//@SideOnly(Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int par2, int par3, int par4, Random random) {
-		if(!world.isRemote) {
-			int var5 = 8;
-			int var6;
-	        float var7;
-	        float var8;
-	        float var9;
-	        double doub = 0.0D;
-			if(world.getBlockMetadata(par2, par3, par4) == 1) {
-	            for (var6 = 0; var6 < var5; ++var6) {
-	            	var7 = (float)par2 + random.nextFloat() * 0.1F;
-	                var8 = (float)par3 + random.nextFloat();
-	                var9 = (float)par4 + random.nextFloat();
-	                world.spawnParticle("largesmoke", (double)var7, (double)var8, (double)var9, doub, doub, doub);
-	            	
-	            	var7 = (float)(par2 + 1) - random.nextFloat() * 0.1F;
-	                var8 = (float)par3 + random.nextFloat();
-	                var9 = (float)par4 + random.nextFloat();
-	                world.spawnParticle("largesmoke", (double)var7, (double)var8, (double)var9, doub, doub, doub);
-	            	
-	            	var7 = (float)par2 + random.nextFloat();
-	                var8 = (float)par3 + random.nextFloat();
-	                var9 = (float)par4 + random.nextFloat() * 0.1F;
-	                world.spawnParticle("largesmoke", (double)var7, (double)var8, (double)var9, doub, doub, doub);
-	                
-	                var7 = (float)par2 + random.nextFloat();
-	                var8 = (float)par3 + random.nextFloat();
-	                var9 = (float)(par4 + 1) - random.nextFloat() * 0.1F;
-	                world.spawnParticle("largesmoke", (double)var7, (double)var8, (double)var9, doub, doub, doub);
-	                
-	                var7 = (float)par2 + random.nextFloat();
-		            var8 = (float)par3 + random.nextFloat() * 0.5F + 0.5F;
-		            var9 = (float)par4 + random.nextFloat();
-		            world.spawnParticle("largesmoke", (double)par2, (double)var8, (double)par4, doub, doub, doub);
-	            }
-			}
+		int var5 = 8;
+		int var6;
+        float var7;
+        float var8;
+        float var9;
+        double doub = 0.0D;
+		if(world.getBlockMetadata(par2, par3, par4) == 2) {
+            for (var6 = 0; var6 < var5; ++var6) {
+            	var7 = (float)par2 + random.nextFloat() * 0.1F;
+                var8 = (float)par3 + random.nextFloat();
+                var9 = (float)par4 + random.nextFloat();
+                world.spawnParticle("largesmoke", (double)var7, (double)var8, (double)var9, doub, doub, doub);
+            	
+            	var7 = (float)(par2 + 1) - random.nextFloat() * 0.1F;
+                var8 = (float)par3 + random.nextFloat();
+                var9 = (float)par4 + random.nextFloat();
+                world.spawnParticle("largesmoke", (double)var7, (double)var8, (double)var9, doub, doub, doub);
+            	
+            	var7 = (float)par2 + random.nextFloat();
+                var8 = (float)par3 + random.nextFloat();
+                var9 = (float)par4 + random.nextFloat() * 0.1F;
+                world.spawnParticle("largesmoke", (double)var7, (double)var8, (double)var9, doub, doub, doub);
+                
+                var7 = (float)par2 + random.nextFloat();
+                var8 = (float)par3 + random.nextFloat();
+                var9 = (float)(par4 + 1) - random.nextFloat() * 0.1F;
+                world.spawnParticle("largesmoke", (double)var7, (double)var8, (double)var9, doub, doub, doub);
+                
+                var7 = (float)par2 + random.nextFloat();
+	            var8 = (float)par3 + random.nextFloat() * 0.5F + 0.5F;
+	            var9 = (float)par4 + random.nextFloat();
+	            world.spawnParticle("largesmoke", (double)par2, (double)var8, (double)par4, doub, doub, doub);
+            }
 		}
     }
+	
+	/*@SideOnly(Side.CLIENT)
+	public static void spawnStuff(World world, int i, int j, int k, EntityPlayer player) {
+		EntityPlayerMP playerMP = (EntityPlayerMP) player;
+		world.setWorldTime(0);
+		playerMP.sendChatToPlayer("Setting time to day!");
+		playerMP.spawnExplosionParticle();
+		double x = (double)i;
+		double y = (double)j;
+		double z = (double)k;
+		EntityLightningBolt entitybolt = new EntityLightningBolt(world, i, j, k);
+		entitybolt.setLocationAndAngles(x, y, z, 2, 6.0F);
+		world.spawnEntityInWorld(entitybolt);
+	}*/
 }
