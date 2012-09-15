@@ -144,25 +144,11 @@ public class BlockMachines extends Block{
     		if(mb == 0 || mb == 1) {
     			Material mat = world.getBlockMaterial(x, y - 1, z);
     			if(isActive(world, x, y, z) && (mat == Material.lava)) {
-    				//System.out.println("Had power from start");
-		    		/*world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 1);
-		    		int l = world.getBlockId(x, y - 1, z);
-		            byte byte0 = -1;
-		            if(l == Block.lavaStill.blockID || l == Block.lavaMoving.blockID) {
-		            	onState = true;
-		                byte0 = 2;
-		            }
-		            if(byte0 == -1) {
-		                world.setBlockAndMetadataWithNotify(x, y, z, blockID, 0);
-		            } 
-		            else {*/
     				world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 1);
 	                world.setBlockMetadataWithNotify(x, y - 1, z, 2);
 	                expand(world, x, y - 1, z);
-		            //}
     			}
     			else {
-    				System.out.println("No power from start");
 		    		onState = false;
 		    		world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 0);
     			}
