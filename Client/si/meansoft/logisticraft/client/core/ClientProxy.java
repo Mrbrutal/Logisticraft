@@ -8,6 +8,7 @@
 package si.meansoft.logisticraft.client.core;
 
 import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.GuiCrafting;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.StringTranslate;
@@ -50,10 +51,10 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerBlockHandler(new RenderCrate());
     }
     
-    @Override
+    /*@Override
 	public World getClientWorld() {
 		return FMLClientHandler.instance().getClient().theWorld;
-	}
+	}*/
     
     /* LOCALIZATION */
 	@Override
@@ -80,12 +81,12 @@ public class ClientProxy extends CommonProxy {
 	
 	@Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		System.out.println(ID);
 		if(ID == GuiIDs.GUI_STACKBENCH) {
-    		return new GuiStackCrafting(player.inventory, world, x, y, z);
+    		//return new GuiStackCrafting(player.inventory, world, x, y, z);
+    		return new GuiCrafting(player.inventory, world, x, y, z);
     	}
-		else {
-			return null;
-		}
+    	else {
+    		return null;
+    	}
     }
 }

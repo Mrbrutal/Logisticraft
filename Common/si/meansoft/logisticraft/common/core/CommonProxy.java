@@ -10,7 +10,9 @@ package si.meansoft.logisticraft.common.core;
 import si.meansoft.logisticraft.client.GUI.GuiStackCrafting;
 import si.meansoft.logisticraft.common.containers.ContainerStackbench;
 import si.meansoft.logisticraft.common.library.GuiIDs;
+import net.minecraft.src.ContainerWorkbench;
 import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.GuiCrafting;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
 import net.minecraft.src.TileEntity;
@@ -29,9 +31,9 @@ public class CommonProxy implements IGuiHandler {
     /* GUIS */
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-    	System.out.println(ID);
     	if(ID == GuiIDs.GUI_STACKBENCH) {
-    		return new ContainerStackbench(player.inventory, world, x, y, z);
+    		//return new ContainerStackbench(player.inventory, world, x, y, z);
+    		return new ContainerWorkbench(player.inventory, world, x, y, z);
     	}
     	else {
     		return null;
@@ -40,13 +42,7 @@ public class CommonProxy implements IGuiHandler {
 
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-    	System.out.println(ID);
-    	if(ID == GuiIDs.GUI_STACKBENCH) {
-    		return new GuiStackCrafting(player.inventory, world, x, y, z);
-    	}
-    	else {
-    		return null;
-    	}
+    	return null;
     }
 
     /* TEXTURE PRELOADS FROM CLIENT */
@@ -61,7 +57,7 @@ public class CommonProxy implements IGuiHandler {
 	public void addLocalization(String s1, String string) {}
 	public String getItemDisplayName(ItemStack newStack) { return ""; }
 
-	public World getClientWorld() {
+	/*public World getClientWorld() {
 		return null;
-	}
+	}*/
 }

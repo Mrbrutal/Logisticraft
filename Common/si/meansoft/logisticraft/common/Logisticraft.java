@@ -75,11 +75,13 @@ public class Logisticraft {
 		
 		/* Generators */
 		GameRegistry.registerWorldGenerator(new WorldGenWorld());
-		NetworkRegistry.instance().registerGuiHandler(this, this.proxy);
 	}
 
 	@Init
 	public void load(FMLInitializationEvent evt) {
+		
+		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
+		
 		/* Blocks */
 		LCBlocks.loadBlocks();
 		LCBlocks.registerBlocks();

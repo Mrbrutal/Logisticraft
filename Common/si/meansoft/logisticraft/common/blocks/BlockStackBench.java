@@ -61,11 +61,13 @@ public class BlockStackBench extends Block {
 	}
 
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par1, float par2, float par3, float par4) {
-		if (!world.isRemote) {
-			player.openGui(Logisticraft.instance, 1, world, x, y, z);
-			System.out.println("Opening GUI");
-			return true;
-		}
-		return true;
+		if (world.isRemote) {
+            return true;
+        }
+        else {
+        	System.out.println("Opening GUI.");
+            player.openGui(Logisticraft.instance, 18, world, x, y, z);
+            return true;
+        }
 	}
 }
