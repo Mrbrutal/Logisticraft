@@ -32,8 +32,7 @@ public class CommonProxy implements IGuiHandler {
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
     	if(ID == GuiIDs.GUI_STACKBENCH) {
-    		//return new ContainerStackbench(player.inventory, world, x, y, z);
-    		return new ContainerWorkbench(player.inventory, world, x, y, z);
+    		return new ContainerStackbench(player.inventory, world, x, y, z);
     	}
     	else {
     		return null;
@@ -57,7 +56,7 @@ public class CommonProxy implements IGuiHandler {
 	public void addLocalization(String s1, String string) {}
 	public String getItemDisplayName(ItemStack newStack) { return ""; }
 
-	/*public World getClientWorld() {
+	public World getClientWorld() {
 		return null;
-	}*/
+	}
 }

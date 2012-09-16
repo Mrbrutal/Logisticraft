@@ -28,12 +28,12 @@ import si.meansoft.logisticraft.common.library.Info;
 import si.meansoft.logisticraft.common.library.RenderIDs;
 
 public class ClientProxy extends CommonProxy {
-	@Override
-    public void registerKeyBindingHandler() {  
+    @Override
+    public void registerKeyBindingHandler() {
     }
 
     @Override
-    public void setKeyBinding(String name, int value) {   
+    public void setKeyBinding(String name, int value) {
     }
 
     @Override
@@ -42,51 +42,51 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void preloadTextures() {
-        MinecraftForgeClient.preloadTexture(Info.TEX_BLOCK);
-        MinecraftForgeClient.preloadTexture(Info.TEX_ITEM);
-        MinecraftForgeClient.preloadTexture(Info.TEX_CRATE);
-        
-        //RenderingRegistry.instance().registerEntityRenderingHandler(EntityTest.class, new RenderCatTest());//TODO--NPE on texture load
-        RenderIDs.crateID = RenderingRegistry.getNextAvailableRenderId();
-        RenderingRegistry.registerBlockHandler(new RenderCrate());
-    }
-    
-    /*@Override
-	public World getClientWorld() {
-		return FMLClientHandler.instance().getClient().theWorld;
-	}*/
-    
-    /* LOCALIZATION */
-	@Override
-	public String getCurrentLanguage() {
-		return StringTranslate.getInstance().getCurrentLanguage();
-	}
-	
-	@Override
-	public void addName(Object obj, String s) {
-		LanguageRegistry.addName(obj, s);
-	}
-	
-	@Override
-	public void addLocalization(String s1, String string) {
-		LanguageRegistry.instance().addStringLocalization(s1, string);
-	}
-	
-	@Override
-	public String getItemDisplayName(ItemStack stack){
-		if (Item.itemsList[stack.itemID] == null) return "";
+	MinecraftForgeClient.preloadTexture(Info.TEX_BLOCK);
+	MinecraftForgeClient.preloadTexture(Info.TEX_ITEM);
+	MinecraftForgeClient.preloadTexture(Info.TEX_CRATE);
 
-		return Item.itemsList[stack.itemID].getItemDisplayName(stack);
-	}
-	
-	@Override
+	// RenderingRegistry.instance().registerEntityRenderingHandler(EntityTest.class, new RenderCatTest());//TODO--NPE on texture load
+	RenderIDs.crateID = RenderingRegistry.getNextAvailableRenderId();
+	RenderingRegistry.registerBlockHandler(new RenderCrate());
+    }
+
+    @Override
+    public World getClientWorld() {
+	return FMLClientHandler.instance().getClient().theWorld;
+    }
+
+    /* LOCALIZATION */
+    @Override
+    public String getCurrentLanguage() {
+	return StringTranslate.getInstance().getCurrentLanguage();
+    }
+
+    @Override
+    public void addName(Object obj, String s) {
+	LanguageRegistry.addName(obj, s);
+    }
+
+    @Override
+    public void addLocalization(String s1, String string) {
+	LanguageRegistry.instance().addStringLocalization(s1, string);
+    }
+
+    @Override
+    public String getItemDisplayName(ItemStack stack) {
+	if (Item.itemsList[stack.itemID] == null)
+	    return "";
+
+	return Item.itemsList[stack.itemID].getItemDisplayName(stack);
+    }
+
+    @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		if(ID == GuiIDs.GUI_STACKBENCH) {
-    		//return new GuiStackCrafting(player.inventory, world, x, y, z);
-    		return new GuiCrafting(player.inventory, world, x, y, z);
-    	}
-    	else {
-    		return null;
-    	}
+	if (ID == GuiIDs.GUI_STACKBENCH) {
+	    return new GuiStackCrafting(player.inventory, world, x, y, z);
+	}
+	else {
+	    return null;
+	}
     }
 }
