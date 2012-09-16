@@ -24,13 +24,17 @@
 		<link>
 			<name>jars</name>
 			<type>2</type>
-			<locationURI>MCP_LOC/jars</locationURI>
+			<locationURI>MCP_LOC1/jars</locationURI>
 		</link>
 	</linkedResources>
 	<variableList>
 		<variable>
 			<name>MCP_LOC</name>
 			<value>$%7BPARENT-2-PROJECT_LOC%7D</value>
+		</variable>
+		<variable>
+			<name>MCP_LOC1</name>
+			<value>$%7BMCP_LOC%7D/MCP</value>
 		</variable>
 	</variableList>
 </projectDescription>
