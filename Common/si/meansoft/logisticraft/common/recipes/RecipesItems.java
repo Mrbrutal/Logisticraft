@@ -9,9 +9,9 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 public class RecipesItems {
 
 	public static void itemRecipes() {
-		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(LCItems.coins, 8, 0), true, new Object[]{ " # ", "###", " # ", Character.valueOf('#'), LCItems.ingotCopper}));
-		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(LCItems.coins, 8, 1), true, new Object[]{ " # ", "###", " # ", Character.valueOf('#'), LCItems.ingotSilver}));
-		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(LCItems.coins, 8, 2), true, new Object[]{ " # ", "###", " # ", Character.valueOf('#'), Item.ingotGold}));
-		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(LCItems.coins, 8, 3), true, new Object[]{ " # ", "###", " # ", Character.valueOf('#'), LCItems.ingotPlatinum}));
+		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(LCItems.coins, 8, 0), true, new Object[]{ " # ", "# #", " # ", Character.valueOf('#'), LCItems.ingotCopper}));
+		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(LCItems.coins, 8, 1), true, new Object[]{ " # ", "# #", " # ", Character.valueOf('#'), LCItems.ingotSilver}));
+		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(LCItems.coins, 8, 2), true, new Object[]{ " # ", "# #", " # ", Character.valueOf('#'), Item.ingotGold}));
+		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(LCItems.coins, 8, 3), true, new Object[]{ " # ", "# #", " # ", Character.valueOf('#'), LCItems.ingotPlatinum}));
 	}
 }
