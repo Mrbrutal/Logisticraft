@@ -35,6 +35,7 @@ import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.core.CommonProxy;
 import si.meansoft.logisticraft.common.core.Version;
 import si.meansoft.logisticraft.common.core.handlers.ConfigHandler;
+import si.meansoft.logisticraft.common.core.handlers.CraftingHandler;
 import si.meansoft.logisticraft.common.core.handlers.OreHandler;
 import si.meansoft.logisticraft.common.core.handlers.PacketHandler;
 import si.meansoft.logisticraft.common.core.util.Localization;
@@ -80,7 +81,11 @@ public class Logisticraft {
 	@Init
 	public void load(FMLInitializationEvent evt) {
 		
+	    	// Register the GUI Handler
 		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
+		
+		// Register the Crafting Handler
+	        GameRegistry.registerCraftingHandler(new CraftingHandler());
 		
 		/* Blocks */
 		LCBlocks.loadBlocks();

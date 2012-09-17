@@ -1,6 +1,8 @@
 package si.meansoft.logisticraft.common.containers;
 
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
+import si.meansoft.logisticraft.common.core.StackCrafting;
+import si.meansoft.logisticraft.common.core.StackCraftingManager;
 import net.minecraft.src.*;
 
 public class ContainerStackbench extends Container {
@@ -17,7 +19,7 @@ public class ContainerStackbench extends Container {
 	this.posX = par3;
 	this.posY = par4;
 	this.posZ = par5;
-	this.addSlotToContainer(new SlotCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 124, 35));
+	this.addSlotToContainer(new StackCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 124, 35));
 	int var6;
 	int var7;
 
@@ -44,7 +46,7 @@ public class ContainerStackbench extends Container {
      * Callback for when the crafting matrix is changed.
      */
     public void onCraftMatrixChanged(IInventory par1IInventory) {
-	this.craftResult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(this.craftMatrix));
+	this.craftResult.setInventorySlotContents(0, StackCraftingManager.getInstance().findMatchingRecipe(this.craftMatrix));
     }
 
     /**
