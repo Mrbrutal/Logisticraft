@@ -30,8 +30,7 @@ import net.minecraft.src.RecipesFood;
 import net.minecraft.src.RecipesIngots;
 import net.minecraft.src.RecipesTools;
 import net.minecraft.src.RecipesWeapons;
-//import net.minecraft.src.ShapedRecipes;
-//import net.minecraft.src.ShapelessRecipes;
+import net.minecraft.src.ShapelessRecipes;
 
 public class StackCraftingManager{
     
@@ -124,7 +123,7 @@ public class StackCraftingManager{
 	System.out.println("Adding recipe.");
     }
 
-    /*public void addShapelessRecipe(ItemStack par1ItemStack, Object... par2ArrayOfObj) {
+    public void addShapelessRecipe(ItemStack par1ItemStack, Object... par2ArrayOfObj) {
 	ArrayList var3 = new ArrayList();
 	Object[] var4 = par2ArrayOfObj;
 	int var5 = par2ArrayOfObj.length;
@@ -148,7 +147,7 @@ public class StackCraftingManager{
 	}
 
 	this.recipes.add(new ShapelessRecipes(par1ItemStack, var3));
-    }*/
+    }
 
     public ItemStack findMatchingRecipe(InventoryCrafting par1InventoryCrafting) {
 	int var2 = 0;
@@ -200,9 +199,6 @@ public class StackCraftingManager{
 	}
     }
 
-    /**
-     * returns the List<> of all recipes
-     */
     public List getRecipeList() {
 	return this.recipes;
     }
