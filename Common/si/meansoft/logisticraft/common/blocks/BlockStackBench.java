@@ -72,7 +72,6 @@ public class BlockStackBench extends Block {
 	    return true;
 	}
 	else {
-	    System.out.println("Opening GUI");
 	    player.openGui(Logisticraft.instance, 1, world, x, y, z);
 	    return true;
 	}

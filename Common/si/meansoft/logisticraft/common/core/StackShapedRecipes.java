@@ -15,27 +15,31 @@ import net.minecraft.src.ShapedRecipes;
 
 public class StackShapedRecipes implements IRecipe{
 
-    /** How many horizontal slots this recipe is wide. */
+    /* How many horizontal slots this recipe is wide. */
     private int recipeWidth;
 
-    /** How many vertical slots this recipe uses. */
+    /* How many vertical slots this recipe uses. */
     private int recipeHeight;
 
-    /** Is a array of ItemStack that composes the recipe. */
+    /* Is a array of ItemStack that composes the recipe. */
     private ItemStack[] recipeItems;
 
-    /** Is the ItemStack that you get when craft the recipe. */
+    /* Is the ItemStack that you get when craft the recipe. */
     private ItemStack recipeOutput;
 
-    /** Is the itemID of the output item that you get when craft the recipe. */
+    /* Is the itemID of the output item that you get when craft the recipe. */
     public final int recipeOutputItemID;
+    
+    /* Stack size to be decremented */
+    public static int stackSize;
 
-    public StackShapedRecipes(int par1, int par2, ItemStack[] arrayStack, ItemStack stack) {
+    public StackShapedRecipes(int par1, int par2, ItemStack[] arrayStack, ItemStack stack, int size) {
 	this.recipeOutputItemID = stack.itemID;
 	this.recipeWidth = par1;
 	this.recipeHeight = par2;
 	this.recipeItems = arrayStack;
 	this.recipeOutput = stack;
+	this.stackSize = size;
     }
 
     public ItemStack getRecipeOutput() {
@@ -92,8 +96,10 @@ public class StackShapedRecipes implements IRecipe{
 			return false;
 		    }
 
-		    if (var10.stackSize != var10.getMaxStackSize()) {
-			return false;
+		    if(stackSize != 0) {
+			if (var10.stackSize != stackSize) {
+			    return false;
+			}
 		    }
 		}
 	    }
@@ -108,6 +114,10 @@ public class StackShapedRecipes implements IRecipe{
 
     public int getRecipeSize() {
 	return this.recipeWidth * this.recipeHeight;
+    }
+    
+    public static int getStackSize() {
+	return stackSize;
     }
 
 }

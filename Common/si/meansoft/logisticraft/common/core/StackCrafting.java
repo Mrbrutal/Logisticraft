@@ -8,6 +8,7 @@
 
 package si.meansoft.logisticraft.common.core;
 
+import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.IInventory;
@@ -42,7 +43,13 @@ public class StackCrafting extends SlotCrafting {
 	    ItemStack var3 = this.craftMatrix.getStackInSlot(var2);
 
 	    if (var3 != null) {
-		this.craftMatrix.decrStackSize(var2, var3.getMaxStackSize());
+		System.out.println("stack: " + var3.getItemName());
+		if (var3.getItemName().startsWith("item")) {
+		    this.craftMatrix.decrStackSize(var2, var3.getMaxStackSize());
+		}
+		else {
+		    this.craftMatrix.decrStackSize(var2, 1);
+		}
 
 		if (var3.getItem().hasContainerItem()) {
 		    ItemStack var4 = var3.getItem().getContainerItemStack(var3);

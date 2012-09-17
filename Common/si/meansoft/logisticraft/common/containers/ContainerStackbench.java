@@ -8,6 +8,7 @@ import net.minecraft.src.*;
 public class ContainerStackbench extends Container {
     /** The crafting matrix inventory (3x3). */
     public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
+    public InventoryCrafting craftMatrix2 = new InventoryCrafting(this, 2, 2);
     public IInventory craftResult = new InventoryCraftResult();
     private World worldObj;
     private int posX;
@@ -19,7 +20,7 @@ public class ContainerStackbench extends Container {
 	this.posX = par3;
 	this.posY = par4;
 	this.posZ = par5;
-	this.addSlotToContainer(new StackCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 124, 35));
+	this.addSlotToContainer(new StackCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 124, 53));
 	int var6;
 	int var7;
 
@@ -38,6 +39,8 @@ public class ContainerStackbench extends Container {
 	for (var6 = 0; var6 < 9; ++var6) {
 	    this.addSlotToContainer(new Slot(par1InventoryPlayer, var6, 8 + var6 * 18, 142));
 	}
+	
+	this.addSlotToContainer(new Slot(this.craftMatrix2, 0, 124, 17));
 
 	this.onCraftMatrixChanged(this.craftMatrix);
     }
@@ -62,6 +65,11 @@ public class ContainerStackbench extends Container {
 		if (var3 != null) {
 		    par1EntityPlayer.dropPlayerItem(var3);
 		}
+	    }
+	    ItemStack var3 = this.craftMatrix2.getStackInSlotOnClosing(0);
+
+	    if (var3 != null) {
+		par1EntityPlayer.dropPlayerItem(var3);
 	    }
 	}
     }

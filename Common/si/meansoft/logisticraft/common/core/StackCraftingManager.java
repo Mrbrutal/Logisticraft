@@ -32,34 +32,45 @@ import net.minecraft.src.RecipesTools;
 import net.minecraft.src.RecipesWeapons;
 import net.minecraft.src.ShapelessRecipes;
 
-public class StackCraftingManager{
-    
-    /** The static instance of this class */
+public class StackCraftingManager {
+
+    /* The static instance of this class */
     private static final StackCraftingManager instance = new StackCraftingManager();
 
-    /** A list of all the recipes added */
+    /* A list of all the recipes added */
     private List recipes = new ArrayList();
 
-    /**
-     * Returns the static instance of this class
-     */
+    /* Returns the static instance of this class */
     public static final StackCraftingManager getInstance() {
 	return instance;
     }
 
     private StackCraftingManager() {
 
-	//this.addRecipe(new ItemStack(Item.paper, 3), new Object[] { "###", '#', Item.reed });
-	this.addRecipe(new ItemStack(LCBlocks.crate.blockID, 1, 1), new Object[] { "###", "###", "###", '#', Item.wheat });
-	
-	//Collections.sort(this.recipes, new RecipeSorter(this));
+	Item[] items = new Item[] { Item.wheat, Item.reed, Item.appleRed, Item.egg, Item.cake, Item.bread, Item.rottenFlesh, Item.cookie, Item.arrow, Item.porkRaw, Item.fishRaw, Item.beefRaw, Item.chickenRaw, Item.slimeBall, Item.melon, Item.coal };
+
+	for (int i = 0; i < 16; i++) {
+	    if (i == 4) {
+		this.addRecipe(16, new ItemStack(LCBlocks.box.blockID, 1, i), new Object[] { "###", "###", "###", '#', items[i] });
+	    }
+	    else if (i == 5) {
+		this.addRecipe(1, new ItemStack(LCBlocks.box.blockID, 1, i), new Object[] { "###", "###", "###", '#', items[i] });
+	    }
+	    else {
+		this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, i), new Object[] { "###", "###", "###", '#', items[i] });
+	    }
+
+	    this.addRecipe(0, new ItemStack(LCBlocks.crate.blockID, 1, i), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, i) });
+	}
+
+	// Collections.sort(this.recipes, new RecipeSorter(this));
 	System.out.println(this.recipes.size() + " recipes");
     }
 
     /**
      * Adds a recipe. See spreadsheet on first page for details.
      */
-    public void addRecipe(ItemStack par1ItemStack, Object... par2ArrayOfObj) {
+    public void addRecipe(int stackSize, ItemStack par1ItemStack, Object... par2ArrayOfObj) {
 	String var3 = "";
 	int var4 = 0;
 	int var5 = 0;
@@ -119,11 +130,10 @@ public class StackCraftingManager{
 	    }
 	}
 
-	this.recipes.add(new StackShapedRecipes(var5, var6, var15, par1ItemStack));
-	System.out.println("Adding recipe.");
+	this.recipes.add(new StackShapedRecipes(var5, var6, var15, par1ItemStack, stackSize));
     }
 
-    public void addShapelessRecipe(ItemStack par1ItemStack, Object... par2ArrayOfObj) {
+    /*public void addShapelessRecipe(ItemStack par1ItemStack, Object... par2ArrayOfObj) {
 	ArrayList var3 = new ArrayList();
 	Object[] var4 = par2ArrayOfObj;
 	int var5 = par2ArrayOfObj.length;
@@ -147,56 +157,21 @@ public class StackCraftingManager{
 	}
 
 	this.recipes.add(new ShapelessRecipes(par1ItemStack, var3));
-    }
-
+    }*/
+    
     public ItemStack findMatchingRecipe(InventoryCrafting par1InventoryCrafting) {
-	int var2 = 0;
-	ItemStack var3 = null;
-	ItemStack var4 = null;
+	Iterator var11 = this.recipes.iterator();
+	IRecipe var13;
 
-	for (int var5 = 0; var5 < par1InventoryCrafting.getSizeInventory(); ++var5) {
-	    ItemStack var6 = par1InventoryCrafting.getStackInSlot(var5);
-
-	    if (var6 != null) {
-		if (var2 == 0) {
-		    var3 = var6;
-		}
-
-		if (var2 == 1) {
-		    var4 = var6;
-		}
-
-		++var2;
-	    }
-	}
-
-	if (var2 == 2 && var3.itemID == var4.itemID && var3.stackSize == 1 && var4.stackSize == 1 && Item.itemsList[var3.itemID].isRepairable()) {
-	    Item var10 = Item.itemsList[var3.itemID];
-	    int var12 = var10.getMaxDamage() - var3.getItemDamageForDisplay();
-	    int var7 = var10.getMaxDamage() - var4.getItemDamageForDisplay();
-	    int var8 = var12 + var7 + var10.getMaxDamage() * 10 / 100;
-	    int var9 = var10.getMaxDamage() - var8;
-
-	    if (var9 < 0) {
-		var9 = 0;
+	do {
+	    if (!var11.hasNext()) {
+		return null;
 	    }
 
-	    return new ItemStack(var3.itemID, 1, var9);
-	}
-	else {
-	    Iterator var11 = this.recipes.iterator();
-	    IRecipe var13;
+	    var13 = (IRecipe) var11.next();
+	} while (!var13.matches(par1InventoryCrafting));
 
-	    do {
-		if (!var11.hasNext()) {
-		    return null;
-		}
-
-		var13 = (IRecipe) var11.next();
-	    } while (!var13.matches(par1InventoryCrafting));
-
-	    return var13.getCraftingResult(par1InventoryCrafting);
-	}
+	return var13.getCraftingResult(par1InventoryCrafting);
     }
 
     public List getRecipeList() {
