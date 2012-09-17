@@ -1,3 +1,5 @@
+![Logo](/Resources/lcraft_logo.png)
+
 Logisticraft
 =============
 
