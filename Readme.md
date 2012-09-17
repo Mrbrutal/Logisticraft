@@ -1,4 +1,4 @@
-![Logo](/Resources/lcraft_logo.png)
+![Logo](https://github.com/Mrbrutal/Logisticraft/blob/master/Resources/lcraft_logo.png)
 
 Logisticraft
 =============
