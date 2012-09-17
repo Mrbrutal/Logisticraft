@@ -159,7 +159,7 @@ public class BlockBox extends Block {
 
 	@Override
 	public void getSubBlocks(int par1, CreativeTabs tabs, List list) {
-		for (int var4 = 0; var4 < 15; ++var4) {
+		for (int var4 = 0; var4 < 16; ++var4) {
 			list.add(new ItemStack(this, 1, var4));
 		}
 	}

@@ -44,101 +44,101 @@ public class BlockCrate extends Block {
 
 	@SideOnly(Side.CLIENT)
 	public int getBlockTextureFromSideAndMetadata(int side, int data) {
-		int base = blockIndexInTexture;
+		int base = blockIndexInTexture + 1;
 		switch (data) {
 		case 0:
 			if (side == 0 || side == 1) { // top and bottom
-				return base;
+				return base - 1;
 			} else { // sides
 				return base + 1;
 			}
 		case 1:
 			if (side == 0 || side == 1) { // top and bottom
-				return base;
+				return base - 1;
 			} else { // sides
 				return base + 2;
 			}
 		case 2:
 			if (side == 0 || side == 1) { // top and bottom
-				return base;
+				return base - 1;
 			} else { // sides
 				return base + 3;
 			}
 		case 3:
 			if (side == 0 || side == 1) { // top and bottom
-				return base;
+				return base - 1;
 			} else { // sides
 				return base + 4;
 			}
 		case 4:
 			if (side == 0 || side == 1) { // top and bottom
-				return base;
+				return base - 1;
 			} else { // sides
 				return base + 5;
 			}
 		case 5:
 			if (side == 0 || side == 1) { // top and bottom
-				return base;
+				return base - 1;
 			} else { // sides
 				return base + 6;
 			}
 		case 6:
 			if (side == 0 || side == 1) { // top and bottom
-				return base;
+				return base - 1;
 			} else { // sides
 				return base + 7;
 			}
 		case 7:
 			if (side == 0 || side == 1) { // top and bottom
-				return base;
+				return base - 1;
 			} else { // sides
 				return base + 8;
 			}
 		case 8:
 			if (side == 0 || side == 1) { // top and bottom
-				return base;
+				return base - 1;
 			} else { // sides
 				return base + 9;
 			}
 		case 9:
 			if (side == 0 || side == 1) { // top and bottom
-				return base;
+				return base - 1;
 			} else { // sides
 				return base + 10;
 			}
 		case 10:
 			if (side == 0 || side == 1) { // top and bottom
-				return base;
+				return base - 1;
 			} else { // sides
 				return base + 11;
 			}
 		case 11:
 			if (side == 0 || side == 1) { // top and bottom
-				return base;
+				return base - 1;
 			} else { // sides
 				return base + 12;
 			}
 		case 12:
 			if (side == 0 || side == 1) { // top and bottom
-				return base;
+				return base - 1;
 			} else { // sides
 				return base + 13;
 			}
 		case 13:
 			if (side == 0 || side == 1) { // top and bottom
-				return base;
+				return base - 1;
 			} else { // sides
 				return base + 14;
 			}
 		case 14:
 			if (side == 0 || side == 1) { // top and bottom
-				return base;
+				return base - 1;
 			} else { // sides
-				return base + 15;
+				return base - 2;
 			}
 		case 15:
 			if (side == 0 || side == 1) { // top and bottom
-				return base;
+				return base - 1;
 			} else { // sides
 				return base - 1;
 			}
