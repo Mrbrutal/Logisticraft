@@ -22,6 +22,7 @@ public class Info {
 	public static final String TEX_ITEM = texPrefix + "Items.png";
 	public static final String TEX_CRATE = texPrefix + "Crate.png";
 	public static final String TEX_GUI_SB = guiPrefix + "stackCrafting.png";
+	public static final String TEX_GUI_SQ = guiPrefix + "square.png";
 	
 	/*Additional information and constants*/
 	public static final String MOD_PFX = "[" + modID + "]";
