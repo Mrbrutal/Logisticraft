@@ -57,7 +57,6 @@ public class Crate {
 		y++;
 		
 		if(!world.isRemote && world.isRaining()) {
-			System.out.println("It is raining");
 			if((bl==LCBlocks.crate.blockID && (md!=0 || md!=14 || md!=7)) || (bl==LCBlocks.box.blockID && (md!=13 || md!=6 || md!=14))){
 				while (y<256) {
 					if(world.getBlockId(x, y, z) != 0) {
