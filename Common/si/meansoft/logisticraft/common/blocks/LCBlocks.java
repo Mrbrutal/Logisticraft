@@ -71,6 +71,13 @@ public class LCBlocks {
 	public static void nameBlocks() {
 		playerPlate.setBlockName("pressurePlate");
 		stackBench.setBlockName("Stackbench");
+		ores.setBlockName("ores");
+		box.setBlockName("box");
+		crate.setBlockName("crate");
+		machines.setBlockName("machines");
+		coloredGlass.setBlockName("coloredGlass");
+		beam.setBlockName("beam");
+		chimney.setBlockName("Chimney");
 		
 		addNames(Info.crateNames, "Crated ", crate, true);
 		addNames(Info.glassNames, " glass", coloredGlass, false);
