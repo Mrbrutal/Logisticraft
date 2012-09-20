@@ -31,7 +31,7 @@ public class StackShapedRecipes implements IRecipe{
     public final int recipeOutputItemID;
     
     /* Stack size to be decremented */
-    public static int stackSize;
+    public static int stSize;
 
     public StackShapedRecipes(int par1, int par2, ItemStack[] arrayStack, ItemStack stack, int size) {
 	this.recipeOutputItemID = stack.itemID;
@@ -39,7 +39,7 @@ public class StackShapedRecipes implements IRecipe{
 	this.recipeHeight = par2;
 	this.recipeItems = arrayStack;
 	this.recipeOutput = stack;
-	this.stackSize = size;
+	this.stSize = size;
     }
 
     public ItemStack getRecipeOutput() {
@@ -92,19 +92,14 @@ public class StackShapedRecipes implements IRecipe{
 			return false;
 		    }
 
-		    if (var9.getItemDamage() != -1 && var9.getItemDamage() != var10.getItemDamage()) {
-			return false;
-		    }
-
-		    if(stackSize != 0) {
-			if (var10.stackSize != stackSize) {
-			    return false;
+		    if(stSize != -1) {
+			if (var10.stackSize != stSize) {
+    				return false;
 			}
 		    }
 		}
 	    }
 	}
-
 	return true;
     }
 
@@ -117,7 +112,7 @@ public class StackShapedRecipes implements IRecipe{
     }
     
     public static int getStackSize() {
-	return stackSize;
+	return stSize;
     }
 
 }

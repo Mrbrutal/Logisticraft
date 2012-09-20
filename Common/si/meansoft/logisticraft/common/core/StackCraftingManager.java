@@ -51,16 +51,20 @@ public class StackCraftingManager {
 
 	for (int i = 0; i < 16; i++) {
 	    if (i == 4) {
-		this.addRecipe(16, new ItemStack(LCBlocks.box.blockID, 1, i), new Object[] { "###", "###", "###", '#', items[i] });
+		this.addRecipe(1, new ItemStack(LCBlocks.box.blockID, 1, i), new Object[] { "###", "###", "###", '#', items[i] });
+		//System.out.println("Added recipe for: " + items[i] + " | box(" + i + ")");
 	    }
 	    else if (i == 5) {
-		this.addRecipe(1, new ItemStack(LCBlocks.box.blockID, 1, i), new Object[] { "###", "###", "###", '#', items[i] });
+		this.addRecipe(16, new ItemStack(LCBlocks.box.blockID, 1, i), new Object[] { "###", "###", "###", '#', items[i] });
+		//System.out.println("Added recipe for: " + items[i] + " | box(" + i + ")");
 	    }
 	    else {
 		this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, i), new Object[] { "###", "###", "###", '#', items[i] });
+		//System.out.println("Added recipe for: " + items[i] + " | box(" + i + ")");
 	    }
 
-	    this.addRecipe(0, new ItemStack(LCBlocks.crate.blockID, 1, i), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, i) });
+	    this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, i), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, i) });
+	    //System.out.println("Added recipe for: Crate" + i + " | box(" + i + ")");
 	}
 
 	// Collections.sort(this.recipes, new RecipeSorter(this));
@@ -131,6 +135,7 @@ public class StackCraftingManager {
 	}
 
 	this.recipes.add(new StackShapedRecipes(var5, var6, var15, par1ItemStack, stackSize));
+	//System.out.println("Added: " + var5 + ":" + var6 + " " + par1ItemStack.getItemName() + " | " + stackSize);
     }
 
     /*public void addShapelessRecipe(ItemStack par1ItemStack, Object... par2ArrayOfObj) {

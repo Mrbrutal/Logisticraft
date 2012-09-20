@@ -43,12 +43,11 @@ public class StackCrafting extends SlotCrafting {
 	    ItemStack var3 = this.craftMatrix.getStackInSlot(var2);
 
 	    if (var3 != null) {
-		System.out.println("stack: " + var3.getItemName());
-		if (var3.getItemName().startsWith("item")) {
-		    this.craftMatrix.decrStackSize(var2, var3.getMaxStackSize());
+		if (var3.getItemName().startsWith("tile.box")) {
+		    this.craftMatrix.decrStackSize(var2, 1);
 		}
 		else {
-		    this.craftMatrix.decrStackSize(var2, 1);
+		    this.craftMatrix.decrStackSize(var2, var3.getMaxStackSize());
 		}
 
 		if (var3.getItem().hasContainerItem()) {
