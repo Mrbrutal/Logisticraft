@@ -51,19 +51,19 @@ public class StackCraftingManager {
 
 	for (int i = 0; i < 16; i++) {
 	    if (i == 4) {
-		this.addRecipe(1, new ItemStack(LCBlocks.box.blockID, 1, i), new Object[] { "###", "###", "###", '#', items[i] });
+		this.addRecipe(1, new ItemStack(LCBlocks.box.blockID, 1, i), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', items[i] });
 		//System.out.println("Added recipe for: " + items[i] + " | box(" + i + ")");
 	    }
 	    else if (i == 5) {
-		this.addRecipe(16, new ItemStack(LCBlocks.box.blockID, 1, i), new Object[] { "###", "###", "###", '#', items[i] });
+		this.addRecipe(16, new ItemStack(LCBlocks.box.blockID, 1, i), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', items[i] });
 		//System.out.println("Added recipe for: " + items[i] + " | box(" + i + ")");
 	    }
 	    else {
-		this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, i), new Object[] { "###", "###", "###", '#', items[i] });
+		this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, i), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', items[i] });
 		//System.out.println("Added recipe for: " + items[i] + " | box(" + i + ")");
 	    }
 
-	    this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, i), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, i) });
+	    this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, i), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, i) });
 	    //System.out.println("Added recipe for: Crate" + i + " | box(" + i + ")");
 	}
 
@@ -74,7 +74,7 @@ public class StackCraftingManager {
     /**
      * Adds a recipe. See spreadsheet on first page for details.
      */
-    public void addRecipe(int stackSize, ItemStack par1ItemStack, Object... par2ArrayOfObj) {
+    public void addRecipe(int stackSize, ItemStack par1ItemStack, ItemStack addBlock, Object... par2ArrayOfObj) {
 	String var3 = "";
 	int var4 = 0;
 	int var5 = 0;

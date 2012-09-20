@@ -20,7 +20,7 @@ public class ContainerStackbench extends Container {
 	this.posX = par3;
 	this.posY = par4;
 	this.posZ = par5;
-	this.addSlotToContainer(new StackCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 124, 53));
+	this.addSlotToContainer(new StackCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftMatrix2, this.craftResult, 0, 124, 53));
 	int var6;
 	int var7;
 
@@ -43,6 +43,7 @@ public class ContainerStackbench extends Container {
 	this.addSlotToContainer(new Slot(this.craftMatrix2, 0, 124, 17));
 
 	this.onCraftMatrixChanged(this.craftMatrix);
+	//this.onCraftMatrixChanged(this.craftMatrix2);
     }
 
     /**

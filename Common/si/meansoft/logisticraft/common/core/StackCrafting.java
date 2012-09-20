@@ -19,6 +19,7 @@ public class StackCrafting extends SlotCrafting {
 
     /** The craft matrix inventory linked to this result slot. */
     private final IInventory craftMatrix;
+    private final IInventory craftMatrix2;
 
     /** The player that is using the GUI where this slot resides. */
     private EntityPlayer thePlayer;
@@ -28,10 +29,11 @@ public class StackCrafting extends SlotCrafting {
      */
     private int amountCrafted;
     
-    public StackCrafting(EntityPlayer player, IInventory inv1, IInventory inv2, int x, int y, int z) {
+    public StackCrafting(EntityPlayer player, IInventory inv1, IInventory inv3, IInventory inv2, int x, int y, int z) {
 	super(player, inv1, inv2, x, y, z);
 	this.thePlayer = player;
         this.craftMatrix = inv1;
+        this.craftMatrix2 = inv2;
     }
 
     @Override
