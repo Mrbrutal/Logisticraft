@@ -17,7 +17,7 @@ public class ItemBlockCrate extends ItemBlock {
 		setHasSubtypes(true);
 		setMaxStackSize(1);
 	}
-	public String[] blockNames = { "Rotten crate", "Crated wheat", "Crated sugarcane", "Crated apples", "Crated eggs", "Crated cake", "Crated bread", "Crated zombie flesh", "Crated cookies", "Crated melon", "Crated porkchops", "Crated fish", "Crated beef", "Crated chicken", "Crated slimeballs", "Crated watermelon"};
+	public String[] blockNames = { "Crated wheat", "Crated sugarcane", "Crated apples", "Crated eggs", "Crated cake", "Crated bread", "Crated zombie flesh", "Crated cookies", "Crated melon", "Crated porkchops", "Crated fish", "Crated beef", "Crated chicken", "Crated slimeballs", "Crated watermelon", "Rotten crate"};
 
 	public String getItemNameIS(ItemStack itemstack) {
 		return(new StringBuilder()).append(super.getItemName()).append(".").append(blockNames[itemstack.getItemDamage()]).toString();

@@ -17,7 +17,7 @@ public class ItemBlockBox extends ItemBlock {
 		setHasSubtypes(true);
 		setMaxStackSize(64);
 	}
-	public String[] blockNames = { "Block wheat", "Block sugarcane", "Apple basket", "Egg basket", "Cake basket", "Bread basket", "Zombie basket", "Cookie basket", "Watermelon basket", "Box of pork", "Box of fish", "Box of beef", "Box of chicken", "SlimeBall basket", "Box of watermelon", "Compost basket" };
+	public String[] blockNames = { "Block of wheat", "Block of sugarcane", "Apple basket", "Egg basket", "Cake basket", "Bread basket", "Zombie basket", "Cookie basket", "Watermelon basket", "Box of pork", "Box of fish", "Box of beef", "Box of chicken", "SlimeBall basket", "Box of watermelon", "Compost basket" };
 
 	public String getItemNameIS(ItemStack itemstack) {
 		return(new StringBuilder()).append(super.getItemName()).append(".").append(blockNames[itemstack.getItemDamage()]).toString();
