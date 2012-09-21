@@ -37,9 +37,9 @@ public class BlockChimney extends Block {
 
     @Override
     public void getSubBlocks(int par1, CreativeTabs tabs, List list) {
-	for (int var4 = 0; var4 < 1; ++var4) {
-	    list.add(new ItemStack(this, 1, var4));
-	}
+	list.add(new ItemStack(this, 1, 1));
+	list.add(new ItemStack(this, 1, 2));
+	list.add(new ItemStack(this, 1, 3));
     }
 
     public int idDropped(int par1, Random par2Random, int par3) {
@@ -74,6 +74,25 @@ public class BlockChimney extends Block {
 		return blockIndexInTexture + 2;
 	    }
 	}
+	if (data == 2) {
+	    if (side == 0 || side == 1) { // top and bottom
+		return LCBlocks.crate.blockIndexInTexture;
+	    }
+	    else { // sides
+		return LCBlocks.crate.blockIndexInTexture + 1;
+	    }
+	}
+	if (data == 3) {
+	    if (side == 0 || side == 1) { // top and bottom
+		return blockIndexInTexture + 4;
+	    }
+	    else if (side == 3 || side == 2) {
+		return blockIndexInTexture + 5;
+	    }
+	    else { // sides
+		return blockIndexInTexture + 6;
+	    }
+	}
 	else {
 	    if (side == 0 || side == 1) { // top and bottom
 		return blockIndexInTexture;
@@ -89,16 +108,24 @@ public class BlockChimney extends Block {
     }
 
     public void onBlockAdded(World world, int x, int y, int z) {
-	changeBlock(world, x, y, z);
+	if(world.getBlockMetadata(x, y, z)==0 || world.getBlockMetadata(x, y, z)==1) {
+	    changeBlock(world, x, y, z);
+	}
     }
 
     public void onNeighborBlockChange(World world, int x, int y, int z, int neighborBlockID) {
-	changeBlock(world, x, y, z);
+	if(world.getBlockMetadata(x, y, z)==0 || world.getBlockMetadata(x, y, z)==1) {
+	    changeBlock(world, x, y, z);
+	}
     }
     
     public void changeBlock(World world, int x, int y, int z) {
+	int mt1 = world.getBlockMetadata(x, y + 1, z);
+	int mt2 = world.getBlockMetadata(x, y - 1, z);
+	int id1 = world.getBlockId(x, y + 1, z);
+	int id2 = world.getBlockId(x, y - 1, z);
 	if (!world.isRemote) {
-	    if (world.getBlockId(x, y + 1, z) != this.blockID && world.getBlockId(x, y - 1, z) == this.blockID) {
+	    if (id1 != this.blockID && id2 == this.blockID) {
 		world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 1);
 		world.setBlockAndMetadataWithNotify(x, y - 1, z, this.blockID, 0);
 	    }
