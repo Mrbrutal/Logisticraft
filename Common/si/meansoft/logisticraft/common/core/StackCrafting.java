@@ -47,9 +47,11 @@ public class StackCrafting extends SlotCrafting {
 	    if (var3 != null) {
 		if (var3.getItemName().startsWith("tile.box")) {
 		    this.craftMatrix.decrStackSize(var2, 1);
+		    this.craftMatrix2.decrStackSize(0, 1);
 		}
 		else {
 		    this.craftMatrix.decrStackSize(var2, var3.getMaxStackSize());
+		    this.craftMatrix2.decrStackSize(0, 1);
 		}
 
 		if (var3.getItem().hasContainerItem()) {
@@ -66,5 +68,20 @@ public class StackCrafting extends SlotCrafting {
 		}
 	    }
 	}
+	/*ItemStack var3 = this.craftMatrix2.getStackInSlot(0);
+	if(var3 != null) {
+	    this.craftMatrix2.decrStackSize(0, 1);
+	}
+	if (var3.getItem().hasContainerItem()) {
+	    ItemStack var4 = var3.getItem().getContainerItemStack(var3);
+	    if (!var3.getItem().doesContainerItemLeaveCraftingGrid(var3) || !this.thePlayer.inventory.addItemStackToInventory(var4)) {
+		if (this.craftMatrix2.getStackInSlot(0) == null) {
+		    this.craftMatrix2.setInventorySlotContents(0, var4);
+		}
+		else {
+		    this.thePlayer.dropPlayerItem(var4);
+		}
+	    }
+	}*/
     }
 }

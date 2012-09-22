@@ -43,14 +43,14 @@ public class ContainerStackbench extends Container {
 	this.addSlotToContainer(new Slot(this.craftMatrix2, 0, 124, 17));
 
 	this.onCraftMatrixChanged(this.craftMatrix);
-	//this.onCraftMatrixChanged(this.craftMatrix2);
+	this.onCraftMatrixChanged(this.craftMatrix2);
     }
 
     /**
      * Callback for when the crafting matrix is changed.
      */
     public void onCraftMatrixChanged(IInventory par1IInventory) {
-	this.craftResult.setInventorySlotContents(0, StackCraftingManager.getInstance().findMatchingRecipe(this.craftMatrix));
+	this.craftResult.setInventorySlotContents(0, StackCraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.craftMatrix2));
     }
 
     /**

@@ -14,8 +14,9 @@ import net.minecraft.src.ItemStack;
 public interface IStackRecipe {
     /**
      * Used to check if a recipe matches current crafting inventory
+     * @param par1InventoryCrafting2 
      */
-    boolean matches(InventoryCrafting var1);
+    boolean matches(InventoryCrafting var1, InventoryCrafting par1InventoryCrafting2);
 
     /**
      * Returns an Item that is the result of this recipe
@@ -28,6 +29,8 @@ public interface IStackRecipe {
     int getRecipeSize();
 
     ItemStack getRecipeOutput();
+    
+    ItemStack getRecipeAdditional();
     
     int getStackSize();
 }

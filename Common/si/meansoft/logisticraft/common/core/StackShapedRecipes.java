@@ -27,6 +27,9 @@ public class StackShapedRecipes implements IStackRecipe {
 
     /* Is the ItemStack that you get when craft the recipe. */
     private ItemStack recipeOutput;
+    
+    /* Is the ItemStack that you get when craft the recipe. */
+    private ItemStack additionalOutput;
 
     /* Is the itemID of the output item that you get when craft the recipe. */
     public final int recipeOutputItemID;
@@ -34,31 +37,36 @@ public class StackShapedRecipes implements IStackRecipe {
     /* Stack size to be decremented */
     public static int stSize;
 
-    public StackShapedRecipes(int par1, int par2, ItemStack[] arrayStack, ItemStack stack, int size) {
+    public StackShapedRecipes(int par1, int par2, ItemStack[] arrayStack, ItemStack stack, ItemStack additionalBlock, int size) {
 	this.recipeOutputItemID = stack.itemID;
 	this.recipeWidth = par1;
 	this.recipeHeight = par2;
 	this.recipeItems = arrayStack;
 	this.recipeOutput = stack;
+	this.additionalOutput = additionalBlock;
 	this.stSize = size;
-	System.out.println(size);
+	//System.out.println(size);
     }
 
     public ItemStack getRecipeOutput() {
+	return this.recipeOutput;
+    }
+    
+    public ItemStack getRecipeAdditional() {
 	return this.recipeOutput;
     }
 
     /**
      * Used to check if a recipe matches current crafting inventory
      */
-    public boolean matches(InventoryCrafting par1InventoryCrafting) {
+    public boolean matches(InventoryCrafting par1InventoryCrafting, InventoryCrafting par1InventoryCrafting2) {
 	for (int var2 = 0; var2 <= 3 - this.recipeWidth; ++var2) {
 	    for (int var3 = 0; var3 <= 3 - this.recipeHeight; ++var3) {
-		if (this.checkMatch(par1InventoryCrafting, var2, var3, true)) {
+		if (this.checkMatch(par1InventoryCrafting, par1InventoryCrafting2, var2, var3, true)) {
 		    return true;
 		}
 
-		if (this.checkMatch(par1InventoryCrafting, var2, var3, false)) {
+		if (this.checkMatch(par1InventoryCrafting, par1InventoryCrafting2, var2, var3, false)) {
 		    return true;
 		}
 	    }
@@ -67,7 +75,7 @@ public class StackShapedRecipes implements IStackRecipe {
 	return false;
     }
 
-    private boolean checkMatch(InventoryCrafting par1InventoryCrafting, int par2, int par3, boolean par4) {
+    private boolean checkMatch(InventoryCrafting par1InventoryCrafting, InventoryCrafting par1InventoryCrafting2, int par2, int par3, boolean par4) {
 	for (int var5 = 0; var5 < 3; ++var5) {
 	    for (int var6 = 0; var6 < 3; ++var6) {
 		int var7 = var5 - par2;
@@ -86,9 +94,11 @@ public class StackShapedRecipes implements IStackRecipe {
 		}
 
 		ItemStack var10 = par1InventoryCrafting.getStackInRowAndColumn(var5, var6);
+		ItemStack var11 = par1InventoryCrafting2.getStackInSlot(0);
+		ItemStack var12 = this.additionalOutput;
 
-		if (var10 != null || var9 != null) {
-		    if (var10 == null && var9 != null || var10 != null && var9 == null) {
+		if (var10 != null || var9 != null || var11 != null || var12 != null) {
+		    if (var10 == null && var9 != null || var10 != null && var9 == null || var11 == null && var12 != null || var11 != null && var12 == null) {
 			return false;
 		    }
 
@@ -96,17 +106,19 @@ public class StackShapedRecipes implements IStackRecipe {
 			return false;
 		    }
 
-		    if (getStackSize() != 1 && var10.stackSize != getStackSize()) {
+		    if (getStackSize() != 1 && var10.stackSize != getStackSize() && var11.itemID == var12.itemID && var11.getItemDamage() == var12.getItemDamage()) {
 			//System.out.println("StSize: " + getStackSize() + " Damages: 10:" + var10.stackSize + " 10:" + getStackSize());
 			return false;
 		    }
 
-		    if (var10.getItemDamage() != -1 && var9.getItemDamage() != var10.getItemDamage()) {
+		    if (var10.getItemDamage() != -1 && var9.getItemDamage() != var10.getItemDamage() && var11.itemID == var12.itemID && var11.getItemDamage() == var12.getItemDamage()) {
 			//System.out.println("StSize: " + getStackSize() + " Damages: 9:" + var9.getItemDamage() + " 10:" + var10.getItemDamage());
-			// if (var9.getItemDamage() != 0 /*&& var9.getItemDamage() != var10.getItemDamage()*/) {
 			return false;
-			// }
 		    }
+		    
+		    /*if (var12 != null && var11 == null) {
+			return false;
+		    }*/
 		}
 	    }
 	}
