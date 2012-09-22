@@ -8,12 +8,13 @@
 
 package si.meansoft.logisticraft.common.core;
 
+import si.meansoft.logisticraft.common.core.interfaces.IStackRecipe;
 import net.minecraft.src.IRecipe;
 import net.minecraft.src.InventoryCrafting;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ShapedRecipes;
 
-public class StackShapedRecipes implements IRecipe {
+public class StackShapedRecipes implements IStackRecipe {
 
     /* How many horizontal slots this recipe is wide. */
     private int recipeWidth;
@@ -40,6 +41,7 @@ public class StackShapedRecipes implements IRecipe {
 	this.recipeItems = arrayStack;
 	this.recipeOutput = stack;
 	this.stSize = size;
+	System.out.println(size);
     }
 
     public ItemStack getRecipeOutput() {
@@ -52,11 +54,11 @@ public class StackShapedRecipes implements IRecipe {
     public boolean matches(InventoryCrafting par1InventoryCrafting) {
 	for (int var2 = 0; var2 <= 3 - this.recipeWidth; ++var2) {
 	    for (int var3 = 0; var3 <= 3 - this.recipeHeight; ++var3) {
-		if (this.checkMatch(par1InventoryCrafting, var2, var3, true, stSize)) {
+		if (this.checkMatch(par1InventoryCrafting, var2, var3, true)) {
 		    return true;
 		}
 
-		if (this.checkMatch(par1InventoryCrafting, var2, var3, false, stSize)) {
+		if (this.checkMatch(par1InventoryCrafting, var2, var3, false)) {
 		    return true;
 		}
 	    }
@@ -65,14 +67,14 @@ public class StackShapedRecipes implements IRecipe {
 	return false;
     }
 
-    private boolean checkMatch(InventoryCrafting par1InventoryCrafting, int par2, int par3, boolean par4, int sizeOfStack) {
+    private boolean checkMatch(InventoryCrafting par1InventoryCrafting, int par2, int par3, boolean par4) {
 	for (int var5 = 0; var5 < 3; ++var5) {
 	    for (int var6 = 0; var6 < 3; ++var6) {
 		int var7 = var5 - par2;
 		int var8 = var6 - par3;
 		ItemStack var9 = null;
-		
-		System.out.println("SOF: " + sizeOfStack);
+
+		//System.out.println("SOF: " + sizeOfStack);
 
 		if (var7 >= 0 && var8 >= 0 && var7 < this.recipeWidth && var8 < this.recipeHeight) {
 		    if (par4) {
@@ -86,7 +88,7 @@ public class StackShapedRecipes implements IRecipe {
 		ItemStack var10 = par1InventoryCrafting.getStackInRowAndColumn(var5, var6);
 
 		if (var10 != null || var9 != null) {
-		    if (var10 == null /*&& var9 != null || var10 != null && var9 == null*/) {
+		    if (var10 == null && var9 != null || var10 != null && var9 == null) {
 			return false;
 		    }
 
@@ -94,17 +96,16 @@ public class StackShapedRecipes implements IRecipe {
 			return false;
 		    }
 
-		    //if (sizeOfStack != -1) {
-			if (var10.stackSize != sizeOfStack) {
-			    return false;
-			}
-		    //}
-		    
-		    if (var9.getItemDamage() != var10.getItemDamage() && sizeOfStack != 1){
-			System.out.println("StSize: " + sizeOfStack + " Damages: 9:"+var9.getItemDamage() + " 10:" + var10.getItemDamage());
-			//if (var9.getItemDamage() != 0 /*&& var9.getItemDamage() != var10.getItemDamage()*/) {
-			    return false;
-			//}
+		    if (getStackSize() != 1 && var10.stackSize != getStackSize()) {
+			//System.out.println("StSize: " + getStackSize() + " Damages: 10:" + var10.stackSize + " 10:" + getStackSize());
+			return false;
+		    }
+
+		    if (var10.getItemDamage() != -1 && var9.getItemDamage() != var10.getItemDamage()) {
+			//System.out.println("StSize: " + getStackSize() + " Damages: 9:" + var9.getItemDamage() + " 10:" + var10.getItemDamage());
+			// if (var9.getItemDamage() != 0 /*&& var9.getItemDamage() != var10.getItemDamage()*/) {
+			return false;
+			// }
 		    }
 		}
 	    }
@@ -120,7 +121,7 @@ public class StackShapedRecipes implements IRecipe {
 	return this.recipeWidth * this.recipeHeight;
     }
 
-    public static int getStackSize() {
+    public int getStackSize() {
 	return stSize;
     }
 

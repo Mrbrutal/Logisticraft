@@ -15,6 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
+import si.meansoft.logisticraft.common.core.interfaces.IStackRecipe;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.CraftingManager;
@@ -169,7 +170,7 @@ public class StackCraftingManager {
 	}
 
 	this.recipes.add(new StackShapedRecipes(var5, var6, var15, par1ItemStack, stackSize));
-	System.out.println("Added: " + var5 + ":" + var6 + " " + par1ItemStack.getItemName() + " | " + stackSize);
+	//System.out.println("Added: " + var5 + ":" + var6 + " " + par1ItemStack.getItemName() + " | " + stackSize);
     }
 
     /*public void addShapelessRecipe(ItemStack par1ItemStack, Object... par2ArrayOfObj) {
@@ -200,14 +201,14 @@ public class StackCraftingManager {
     
     public ItemStack findMatchingRecipe(InventoryCrafting par1InventoryCrafting) {
 	Iterator var11 = this.recipes.iterator();
-	IRecipe var13;
+	IStackRecipe var13;
 
 	do {
 	    if (!var11.hasNext()) {
 		return null;
 	    }
 
-	    var13 = (IRecipe) var11.next();
+	    var13 = (IStackRecipe) var11.next();
 	} while (!var13.matches(par1InventoryCrafting));
 
 	return var13.getCraftingResult(par1InventoryCrafting);
