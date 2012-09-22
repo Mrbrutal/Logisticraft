@@ -98,6 +98,8 @@ public class LCBlocks {
 		
 		LanguageRegistry.addName(new ItemStack(chimney, 1, 0), "Chimney");
 		LanguageRegistry.addName(new ItemStack(chimney, 1, 1), "Chimney top");
+		LanguageRegistry.addName(new ItemStack(chimney, 1, 2), "Crate");
+		LanguageRegistry.addName(new ItemStack(chimney, 1, 3), "Box");
 		
 		LanguageRegistry.addName(stackBench, "Stackbench");
 	}
