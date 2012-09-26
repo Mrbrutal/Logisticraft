@@ -106,19 +106,23 @@ public class StackShapedRecipes implements IStackRecipe {
 			return false;
 		    }
 
-		    if (getStackSize() != 1 && var10.stackSize != getStackSize() && var11.itemID == var12.itemID && var11.getItemDamage() == var12.getItemDamage()) {
+		    if (getStackSize() != 1 && var10.stackSize != getStackSize()) {
 			//System.out.println("StSize: " + getStackSize() + " Damages: 10:" + var10.stackSize + " 10:" + getStackSize());
-			return false;
+			return false;			
 		    }
 
-		    if (var10.getItemDamage() != -1 && var9.getItemDamage() != var10.getItemDamage() && var11.itemID == var12.itemID && var11.getItemDamage() == var12.getItemDamage()) {
+		    if (var10.getItemDamage() != -1 && var9.getItemDamage() != var10.getItemDamage()) {
 			//System.out.println("StSize: " + getStackSize() + " Damages: 9:" + var9.getItemDamage() + " 10:" + var10.getItemDamage());
 			return false;
 		    }
 		    
-		    /*if (var12 != null && var11 == null) {
+		    if (var11.itemID != var12.itemID) {
 			return false;
-		    }*/
+		    }
+		    
+		    if (var11.getItemDamage() != var12.getItemDamage()) {
+			return false;
+		    }
 		}
 	    }
 	}
