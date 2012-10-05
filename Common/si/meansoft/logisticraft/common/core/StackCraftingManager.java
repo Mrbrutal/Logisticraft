@@ -67,40 +67,6 @@ public class StackCraftingManager {
 	    this.addRecipe(1, new ItemStack(LCBlocks.crate.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 2), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, i) });
 	    //System.out.println("Added recipe for: Crate" + i + " | box(" + i + ")");
 	}
-	
-	/*this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, 0), new ItemStack(LCBlocks.crate, 1, 0), new Object[] { "###", "###", "###", '#', items[0] });
-	this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, 1), new ItemStack(LCBlocks.crate, 1, 1), new Object[] { "###", "###", "###", '#', items[1] });
-	this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, 2), new ItemStack(LCBlocks.crate, 1, 2), new Object[] { "###", "###", "###", '#', items[2] });
-	this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, 3), new ItemStack(LCBlocks.crate, 1, 3), new Object[] { "###", "###", "###", '#', items[3] });
-	this.addRecipe(1, new ItemStack(LCBlocks.box.blockID, 1, 4), new ItemStack(LCBlocks.crate, 1, 4), new Object[] { "###", "###", "###", '#', items[4] });
-	this.addRecipe(16, new ItemStack(LCBlocks.box.blockID, 1, 5), new ItemStack(LCBlocks.crate, 1, 5), new Object[] { "###", "###", "###", '#', items[5] });
-	this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, 6), new ItemStack(LCBlocks.crate, 1, 6), new Object[] { "###", "###", "###", '#', items[6] });
-	this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, 7), new ItemStack(LCBlocks.crate, 1, 7), new Object[] { "###", "###", "###", '#', items[7] });
-	this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, 8), new ItemStack(LCBlocks.crate, 1, 8), new Object[] { "###", "###", "###", '#', items[8] });
-	this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, 9), new ItemStack(LCBlocks.crate, 1, 9), new Object[] { "###", "###", "###", '#', items[9] });
-	this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, 10), new ItemStack(LCBlocks.crate, 1, 10), new Object[] { "###", "###", "###", '#', items[10] });
-	this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, 11), new ItemStack(LCBlocks.crate, 1, 11), new Object[] { "###", "###", "###", '#', items[11] });
-	this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, 12), new ItemStack(LCBlocks.crate, 1, 12), new Object[] { "###", "###", "###", '#', items[12] });
-	this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, 13), new ItemStack(LCBlocks.crate, 1, 13), new Object[] { "###", "###", "###", '#', items[13] });
-	this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, 14), new ItemStack(LCBlocks.crate, 1, 14), new Object[] { "###", "###", "###", '#', items[14] });
-	this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, 15), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', items[15] });
-	
-	this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, 0), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, 0) });
-	this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, 1), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, 1) });
-	this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, 2), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, 2) });
-	this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, 3), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, 3) });
-	this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, 4), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, 4) });
-	this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, 5), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, 5) });
-	this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, 6), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, 6) });
-	this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, 7), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, 7) });
-	this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, 8), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, 8) });
-	this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, 9), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, 9) });
-	this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, 10), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, 10) });
-	this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, 11), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, 11) });
-	this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, 12), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, 12) });
-	this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, 13), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, 13) });
-	this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, 14), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, 14) });
-	this.addRecipe(-1, new ItemStack(LCBlocks.crate.blockID, 1, 15), new ItemStack(LCBlocks.crate, 1, 15), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, 15) });*/
 
 	// Collections.sort(this.recipes, new RecipeSorter(this));
 	System.out.println(this.recipes.size() + " recipes");

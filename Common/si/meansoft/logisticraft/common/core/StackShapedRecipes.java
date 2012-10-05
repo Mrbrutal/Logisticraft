@@ -53,7 +53,7 @@ public class StackShapedRecipes implements IStackRecipe {
     }
     
     public ItemStack getRecipeAdditional() {
-	return this.recipeOutput;
+	return this.additionalOutput;
     }
 
     /**

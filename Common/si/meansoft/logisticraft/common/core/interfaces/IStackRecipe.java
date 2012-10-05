@@ -16,7 +16,7 @@ public interface IStackRecipe {
      * Used to check if a recipe matches current crafting inventory
      * @param par1InventoryCrafting2 
      */
-    boolean matches(InventoryCrafting var1, InventoryCrafting par1InventoryCrafting2);
+    boolean matches(InventoryCrafting var1, InventoryCrafting var2);
 
     /**
      * Returns an Item that is the result of this recipe

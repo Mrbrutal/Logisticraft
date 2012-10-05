@@ -1,5 +1,7 @@
 package si.meansoft.logisticraft.common.containers;
 
+import java.util.List;
+
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.core.StackCrafting;
 import si.meansoft.logisticraft.common.core.StackCraftingManager;
@@ -50,6 +52,9 @@ public class ContainerStackbench extends Container {
      * Callback for when the crafting matrix is changed.
      */
     public void onCraftMatrixChanged(IInventory par1IInventory) {
+	if(this.craftMatrix2.getStackInSlot(0) != null) {
+	    System.out.println("Checking for recipe!" + this.craftMatrix2.getStackInSlot(0).getItemName() + " : " + this.craftMatrix2.getStackInSlot(0).stackSize);
+	}
 	this.craftResult.setInventorySlotContents(0, StackCraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.craftMatrix2));
     }
 
@@ -124,8 +129,8 @@ public class ContainerStackbench extends Container {
 	    }
 
 	    var3.onPickupFromSlot(var4);
+	    // var3.onPickupFromSlot(var4);
 	}
-
 	return var2;
     }
 }
