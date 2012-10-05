@@ -197,22 +197,23 @@ public class BlockCrate extends Block {
     }
 
     public void updateTick(World world, int x, int y, int z, Random random) {
-	// this.tryToFall(world, x, y, z);
 	int getId = world.getBlockId(x, y, z);
 	int meta = world.getBlockMetadata(x, y, z);
 	int crate = LCBlocks.crate.blockID;
 	if (getId == crate && meta != 0) {
-	    if (Crate.checkRain(world, x, y, z)) {
-		world.setBlockAndMetadataWithNotify(x, y, z, crate, 0);
+	    if(world.isRaining()) {
+		if (!Crate.checkRain(world, x, y, z)) {
+		    world.setBlockAndMetadataWithNotify(x, y, z, crate, 15);
+		}
 	    }
 
 	    if (Crate.checkWater(world, x, y, z)) {
-		world.setBlockAndMetadataWithNotify(x, y, z, crate, 0);
+		world.setBlockAndMetadataWithNotify(x, y, z, crate, 15);
 	    }
 
 	    if (meta == 5 || meta == 10 || meta == 11 || meta == 12 || meta == 13) {
 		if (!Crate.checkIce(world, x, y, z)) {
-		    world.setBlockAndMetadataWithNotify(x, y, z, crate, 0);
+		    world.setBlockAndMetadataWithNotify(x, y, z, crate, 15);
 		}
 	    }
 	}
