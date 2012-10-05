@@ -37,7 +37,7 @@ public class Crate {
 		int md = world.getBlockMetadata(x, y, z);
 		int bl = world.getBlockId(x, y, z);
 		
-		if((bl==LCBlocks.crate.blockID && md!=0) || (bl==LCBlocks.box.blockID && md!=14)) {
+		if((bl==LCBlocks.crate.blockID && md!=15) || (bl==LCBlocks.box.blockID && md!=14)) {
 			if((up == ma) || (dn == ma) || (so == ma) || (no == ma) || (ea == ma) || (we == ma)){
 				return true;
 			}
@@ -56,8 +56,8 @@ public class Crate {
 		boolean blockAbove = false;
 		y++;
 		
-		if(!world.isRemote && world.isRaining()) {
-			if((bl==LCBlocks.crate.blockID && (md!=0 || md!=14 || md!=7)) || (bl==LCBlocks.box.blockID && (md!=13 || md!=6 || md!=14))){
+		if(!world.isRemote) {
+			if((bl==LCBlocks.crate.blockID && (md!=15 || md!=14 || md!=7)) || (bl==LCBlocks.box.blockID && (md!=13 || md!=6 || md!=14))){
 				while (y<256) {
 					if(world.getBlockId(x, y, z) != 0) {
 						y++;
@@ -68,15 +68,8 @@ public class Crate {
 						y++;
 					}
 				}
-				return blockAbove;
-			}
-			else {
-				return false;
 			}
 		}
-		else {
-			return false;
-
-		}
+		return blockAbove;
 	}
 }
