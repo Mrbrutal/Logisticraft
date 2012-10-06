@@ -16,6 +16,7 @@ import java.util.List;
 
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.core.interfaces.IStackRecipe;
+import si.meansoft.logisticraft.common.items.LCItems;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.CraftingManager;
@@ -67,6 +68,9 @@ public class StackCraftingManager {
 	    this.addRecipe(1, new ItemStack(LCBlocks.crate.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 2), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, i) });
 	    //System.out.println("Added recipe for: Crate" + i + " | box(" + i + ")");
 	}
+	this.addRecipe(64, new ItemStack(LCItems.coins, 1, 1), null, new Object[] {"   ", " # ", "   ", '#', new ItemStack(LCItems.coins, 1, 0)});
+	this.addRecipe(64, new ItemStack(LCItems.coins, 1, 2), null, new Object[] {"   ", " # ", "   ", '#', new ItemStack(LCItems.coins, 1, 1)});
+	this.addRecipe(64, new ItemStack(LCItems.coins, 1, 3), null, new Object[] {"   ", " # ", "   ", '#', new ItemStack(LCItems.coins, 1, 2)});
 
 	// Collections.sort(this.recipes, new RecipeSorter(this));
 	System.out.println(this.recipes.size() + " recipes");

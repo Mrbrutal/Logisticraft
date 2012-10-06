@@ -1,3 +1,11 @@
+/*******************************************************************************
+ * Copyright (c) 2012 Mrbrutal. All rights reserved.
+ * 
+ * @name Logisticraft
+ * @author Mrbrutal
+ * @licence Lesser GNU Public License v3 http://www.gnu.org/licenses/gpl.html
+ ******************************************************************************/
+
 package si.meansoft.logisticraft.common.containers;
 
 import java.util.List;
@@ -8,7 +16,7 @@ import si.meansoft.logisticraft.common.core.StackCraftingManager;
 import net.minecraft.src.*;
 
 public class ContainerStackbench extends Container {
-    /** The crafting matrix inventory (3x3). */
+    /** The crafting matrix inventory (3x3)+1. */
     public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
     public InventoryCrafting craftMatrix2 = new InventoryCrafting(this, 2, 2);
     public IInventory craftResult = new InventoryCraftResult();
@@ -129,7 +137,6 @@ public class ContainerStackbench extends Container {
 	    }
 
 	    var3.onPickupFromSlot(var4);
-	    // var3.onPickupFromSlot(var4);
 	}
 	return var2;
     }
