@@ -10,6 +10,7 @@ package si.meansoft.logisticraft.common.containers;
 
 import java.util.List;
 
+import si.meansoft.logisticraft.client.GUI.GuiStackCrafting;
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.core.StackCrafting;
 import si.meansoft.logisticraft.common.core.StackCraftingManager;
@@ -18,7 +19,7 @@ import net.minecraft.src.*;
 public class ContainerStackbench extends Container {
     /** The crafting matrix inventory (3x3)+1. */
     public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
-    public InventoryCrafting craftMatrix2 = new InventoryCrafting(this, 2, 2);
+    public InventoryCrafting craftMatrix2 = new InventoryCrafting(this, 1, 1);
     public IInventory craftResult = new InventoryCraftResult();
     private World worldObj;
     private int posX;
@@ -53,17 +54,15 @@ public class ContainerStackbench extends Container {
 	this.addSlotToContainer(new Slot(this.craftMatrix2, 0, 124, 17));
 
 	this.onCraftMatrixChanged(this.craftMatrix);
-	this.onCraftMatrixChanged(this.craftMatrix2);
+	//this.onCraftMatrixChanged(this.craftMatrix2);
     }
 
     /**
      * Callback for when the crafting matrix is changed.
      */
     public void onCraftMatrixChanged(IInventory par1IInventory) {
-	if(this.craftMatrix2.getStackInSlot(0) != null) {
-	    System.out.println("Checking for recipe!" + this.craftMatrix2.getStackInSlot(0).getItemName() + " : " + this.craftMatrix2.getStackInSlot(0).stackSize);
-	}
 	this.craftResult.setInventorySlotContents(0, StackCraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.craftMatrix2));
+	//GuiStackCrafting.drawNew(this.craftMatrix);
     }
 
     /**

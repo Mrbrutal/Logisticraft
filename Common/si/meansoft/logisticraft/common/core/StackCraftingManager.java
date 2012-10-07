@@ -24,7 +24,6 @@ import net.minecraft.src.IRecipe;
 import net.minecraft.src.InventoryCrafting;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
-//import net.minecraft.src.RecipeSorter;
 import net.minecraft.src.RecipesArmor;
 import net.minecraft.src.RecipesCrafting;
 import net.minecraft.src.RecipesDyes;
@@ -48,38 +47,26 @@ public class StackCraftingManager {
     }
 
     private StackCraftingManager() {
-
+	
 	Item[] items = new Item[] { Item.wheat, Item.reed, Item.appleRed, Item.egg, Item.cake, Item.bread, Item.rottenFlesh, Item.cookie, Item.arrow, Item.porkRaw, Item.fishRaw, Item.beefRaw, Item.chickenRaw, Item.slimeBall, Item.melon, Item.coal };
 
+	/*this.addShapelessRecipe(64, new ItemStack(LCItems.coins, 1, 1), null, new Object[] {new ItemStack(LCItems.coins, 1, 0)});
+	this.addShapelessRecipe(64, new ItemStack(LCItems.coins, 1, 2), null, new Object[] {new ItemStack(LCItems.coins, 1, 1)});
+	this.addShapelessRecipe(64, new ItemStack(LCItems.coins, 1, 3), null, new Object[] {new ItemStack(LCItems.coins, 1, 2)});*/
+	
 	for (int i = 0; i < 16; i++) {
-	    if (i == 4) {
-		this.addRecipe(1, new ItemStack(LCBlocks.box.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', items[i] });
-		//System.out.println("Added recipe for: " + items[i] + " | box(" + i + ")");
-	    }
-	    else if (i == 5) {
-		this.addRecipe(16, new ItemStack(LCBlocks.box.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', items[i] });
-		//System.out.println("Added recipe for: " + items[i] + " | box(" + i + ")");
-	    }
-	    else {
-		this.addRecipe(64, new ItemStack(LCBlocks.box.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', items[i] });
-		//System.out.println("Added recipe for: " + items[i] + " | box(" + i + ")");
-	    }
-
+	    this.addRecipe(items[i].getItemStackLimit(), new ItemStack(LCBlocks.box.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', items[i] });
 	    this.addRecipe(1, new ItemStack(LCBlocks.crate.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 2), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, i) });
-	    //System.out.println("Added recipe for: Crate" + i + " | box(" + i + ")");
 	}
-	this.addRecipe(64, new ItemStack(LCItems.coins, 1, 1), null, new Object[] {"   ", " # ", "   ", '#', new ItemStack(LCItems.coins, 1, 0)});
-	this.addRecipe(64, new ItemStack(LCItems.coins, 1, 2), null, new Object[] {"   ", " # ", "   ", '#', new ItemStack(LCItems.coins, 1, 1)});
-	this.addRecipe(64, new ItemStack(LCItems.coins, 1, 3), null, new Object[] {"   ", " # ", "   ", '#', new ItemStack(LCItems.coins, 1, 2)});
 
-	// Collections.sort(this.recipes, new RecipeSorter(this));
-	System.out.println(this.recipes.size() + " recipes");
+	Collections.sort(this.recipes, new StackRecipeSorter(this));
+	System.out.println(this.recipes.size() + " stack recipes.");
     }
 
     /**
      * Adds a recipe. See spreadsheet on first page for details.
      */
-    public void addRecipe(int stackSize, ItemStack par1ItemStack, ItemStack addBlock, Object... par2ArrayOfObj) {
+    public void addRecipe(int stackSize, ItemStack stackGet, ItemStack addBlock, Object... par2ArrayOfObj) {
 	String var3 = "";
 	int var4 = 0;
 	int var5 = 0;
@@ -139,11 +126,11 @@ public class StackCraftingManager {
 	    }
 	}
 
-	this.recipes.add(new StackShapedRecipes(var5, var6, var15, par1ItemStack, addBlock, stackSize));
-	//System.out.println("Added: " + var5 + ":" + var6 + " " + par1ItemStack.getItemName() + " | " + stackSize);
+	this.recipes.add(new StackShapedRecipes(var5, var6, var15, stackGet, addBlock, stackSize));
+	System.out.println("Added: " + var5 + ":" + var6 + "  " + stackGet.getItemName() + " | " + stackSize);
     }
 
-    /*public void addShapelessRecipe(ItemStack par1ItemStack, Object... par2ArrayOfObj) {
+    public void addShapelessRecipe(int stackSize, ItemStack stackGet, ItemStack addBlock, Object... par2ArrayOfObj) {
 	ArrayList var3 = new ArrayList();
 	Object[] var4 = par2ArrayOfObj;
 	int var5 = par2ArrayOfObj.length;
@@ -159,15 +146,15 @@ public class StackCraftingManager {
 	    }
 	    else {
 		if (!(var7 instanceof Block)) {
-		    throw new RuntimeException("Invalid shapeless recipy!");
+		    throw new RuntimeException("Invalid shapeless recipe!");
 		}
 
 		var3.add(new ItemStack((Block) var7));
 	    }
 	}
 
-	this.recipes.add(new ShapelessRecipes(par1ItemStack, var3));
-    }*/
+	this.recipes.add(new StackShapelessRecipes(stackGet, addBlock, var3, stackSize));
+    }
     
     public ItemStack findMatchingRecipe(InventoryCrafting par1InventoryCrafting, InventoryCrafting par1InventoryCrafting2) {
 	Iterator var11 = this.recipes.iterator();

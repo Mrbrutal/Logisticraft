@@ -33,8 +33,7 @@ public class StackCrafting extends SlotCrafting {
 	super(player, inv1, inv2, x, y, z);
 	this.thePlayer = player;
         this.craftMatrix = inv1;
-        this.craftMatrix2 = inv2;
-        //System.out.println("Inv2 " + inv2.getStackInSlot(0).getItemName());
+        this.craftMatrix2 = inv3;
     }
 
     @Override
@@ -68,22 +67,9 @@ public class StackCrafting extends SlotCrafting {
 	    }
 	}
 	ItemStack var3 = this.craftMatrix2.getStackInSlot(0);
-	//System.out.println("Decrementing slot 0 " + var3.stackSize);
 	if(var3 != null) {
 	    this.craftMatrix2.decrStackSize(0, 1);
-	    System.out.println("Getting slot 0 with " + var3.getItemName());
+	    //System.out.println("Getting slot 0 with " + var3.getItemName());
 	}
-	/*
-	if (var3.getItem().hasContainerItem()) {
-	    ItemStack var4 = var3.getItem().getContainerItemStack(var3);
-	    if (!var3.getItem().doesContainerItemLeaveCraftingGrid(var3) || !this.thePlayer.inventory.addItemStackToInventory(var4)) {
-		if (this.craftMatrix2.getStackInSlot(0) == null) {
-		    this.craftMatrix2.setInventorySlotContents(0, var4);
-		}
-		else {
-		    this.thePlayer.dropPlayerItem(var4);
-		}
-	    }
-	}*/
     }
 }
