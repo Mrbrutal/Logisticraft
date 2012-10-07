@@ -40,7 +40,7 @@ public class BlockCrate extends Block {
 	return Info.TEX_BLOCK;
     }
 
-    /*@Override public int getRenderType() { return RenderIDs.crateID; } */
+    @Override public int getRenderType() { return RenderIDs.crateID; }
     
     @Override
     public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int metadata, int fortune) {

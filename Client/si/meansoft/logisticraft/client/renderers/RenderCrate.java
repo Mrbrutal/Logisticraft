@@ -23,38 +23,7 @@ import net.minecraftforge.client.ForgeHooksClient;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class RenderCrate implements ISimpleBlockRenderingHandler {
-	
-	private ModelBase model = new ModelBase() {};
-	static final float factor = (float) (1.0 / 16.0);
-	
-	private final ModelRenderer box;
-	
-	private final ModelRenderer vert[] = new ModelRenderer[4];
-	private final ModelRenderer hor[] = new ModelRenderer[4];
-	
-	public RenderCrate() {
-		box = new ModelRenderer(model, 0, 0);
-		box.addBox(0F, 0F, 0F, 14, 14, 14);
-		box.setRotationPoint(-7F, 9F, -7F);
-		box.setTextureSize(128, 64);
-		box.mirror = true;
-		
-		vert[0] = new ModelRenderer(model, 0, 0);
-	}
-	
-	private boolean render(double x, double y, double z) {
-		GL11.glPushMatrix();
-		GL11.glDisable(GL11.GL_LIGHTING);
-
-		GL11.glTranslated(x, y, z);
-		ForgeHooksClient.bindTexture(Info.TEX_CRATE, 0);
-
-
-		GL11.glEnable(GL11.GL_LIGHTING);
-		GL11.glPopMatrix();
-		return true;
-	}
-	
+			
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer) {
 		Tessellator tessellator = Tessellator.instance;
@@ -91,17 +60,7 @@ public class RenderCrate implements ISimpleBlockRenderingHandler {
 
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-		/*if(modelId == RenderIDs.crateID) {
-			return render((double)x, (double)y, (double)z);
-		}
-		else {
-			return false;
-		}*/
-		
-		ModelCrate crate = ModelCrate.getInstance();		
-		//crate.render(null,  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
-		box.render(factor);
-		
+		renderer.renderStandardBlock(block, x, y, z);
 		return true;
 	}
 
