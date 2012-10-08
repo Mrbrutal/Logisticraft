@@ -36,7 +36,7 @@ public class BlockBox extends Block {
 
     @Override
     public String getTextureFile() {
-	return Info.TEX_BLOCK;
+	return Info.TEX_BOXES;
     }
 
     @Override
@@ -54,115 +54,115 @@ public class BlockBox extends Block {
 	switch (data) {
 	case 0:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base + 1;
+		return base;
 	    }
 	    else { // sides
-		return base;
+		return base + 1;
 	    }
 	case 1:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base + 3;
+		return base;
 	    }
 	    else { // sides
 		return base + 2;
 	    }
 	case 2:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base + 5;
+		return base;
+	    }
+	    else { // sides
+		return base + 3;
+	    }
+	case 3:
+	    if (side == 0 || side == 1) { // top and bottom
+		return base;
 	    }
 	    else { // sides
 		return base + 4;
 	    }
-	case 3:
+	case 4:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base + 7;
+		return base;
+	    }
+	    else { // sides
+		return base + 5;
+	    }
+	case 5:
+	    if (side == 0 || side == 1) { // top and bottom
+		return base;
 	    }
 	    else { // sides
 		return base + 6;
 	    }
-	case 4:
+	case 6:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base + 9;
+		return base;
+	    }
+	    else { // sides
+		return base + 7;
+	    }
+	case 7:
+	    if (side == 0 || side == 1) { // top and bottom
+		return base;
 	    }
 	    else { // sides
 		return base + 8;
 	    }
-	case 5:
+	case 8:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base + 11;
+		return base;
+	    }
+	    else { // sides
+		return base + 9;
+	    }
+	case 9:
+	    if (side == 0 || side == 1) { // top and bottom
+		return base;
 	    }
 	    else { // sides
 		return base + 10;
 	    }
-	case 6:
+	case 10:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base + 13;
+		return base;
+	    }
+	    else { // sides
+		return base + 11;
+	    }
+	case 11:
+	    if (side == 0 || side == 1) { // top and bottom
+		return base;
 	    }
 	    else { // sides
 		return base + 12;
 	    }
-	case 7:
+	case 12:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base + 15;
+		return base;
+	    }
+	    else { // sides
+		return base + 13;
+	    }
+	case 13:
+	    if (side == 0 || side == 1) { // top and bottom
+		return base;
 	    }
 	    else { // sides
 		return base + 14;
 	    }
-	case 8:
-	    if (side == 0 || side == 1) { // top and bottom
-		return base + 17;
-	    }
-	    else { // sides
-		return base + 16;
-	    }
-	case 9:
-	    if (side == 0 || side == 1) { // top and bottom
-		return base + 19;
-	    }
-	    else { // sides
-		return base + 18;
-	    }
-	case 10:
-	    if (side == 0 || side == 1) { // top and bottom
-		return base + 21;
-	    }
-	    else { // sides
-		return base + 20;
-	    }
-	case 11:
-	    if (side == 0 || side == 1) { // top and bottom
-		return base + 23;
-	    }
-	    else { // sides
-		return base + 22;
-	    }
-	case 12:
-	    if (side == 0 || side == 1) { // top and bottom
-		return base + 25;
-	    }
-	    else { // sides
-		return base + 24;
-	    }
-	case 13:
-	    if (side == 0 || side == 1) { // top and bottom
-		return base + 27;
-	    }
-	    else { // sides
-		return base + 26;
-	    }
 	case 14:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base + 29;
+		return base;
 	    }
 	    else { // sides
-		return base + 28;
+		return base + 15;
 	    }
 	case 15:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base + 31;
+		return base;
 	    }
 	    else { // sides
-		return base + 30;
+		return base + 16;
 	    }
 	default:
 	    if (side == 0 || side == 1) { // top and bottom

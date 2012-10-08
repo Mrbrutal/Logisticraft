@@ -76,21 +76,18 @@ public class BlockChimney extends Block {
 	}
 	if (data == 2) {
 	    if (side == 0 || side == 1) { // top and bottom
-		return LCBlocks.crate.blockIndexInTexture;
+		return 32;
 	    }
 	    else { // sides
-		return LCBlocks.crate.blockIndexInTexture + 1;
+		return 33;
 	    }
 	}
 	if (data == 3) {
 	    if (side == 0 || side == 1) { // top and bottom
 		return blockIndexInTexture + 4;
 	    }
-	    else if (side == 3 || side == 2) {
-		return blockIndexInTexture + 5;
-	    }
 	    else { // sides
-		return blockIndexInTexture + 6;
+		return blockIndexInTexture + 5;
 	    }
 	}
 	else {
