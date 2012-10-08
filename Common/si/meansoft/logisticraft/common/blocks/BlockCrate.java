@@ -191,7 +191,6 @@ public class BlockCrate extends Block {
 	    this.dropBlockAsItem_do(par1World, par3, par4, par5, this.createStackedBlock(par6));
 	}
 	else {
-	    //System.out.println("bubu");
 	    super.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
 	}
     }

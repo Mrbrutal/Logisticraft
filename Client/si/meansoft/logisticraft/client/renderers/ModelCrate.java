@@ -14,8 +14,6 @@ import net.minecraft.src.ModelRenderer;
 
 public class ModelCrate extends ModelBase {
 
-    public static ModelCrate instance;
-
     // fields
     ModelRenderer Shape1;
     ModelRenderer Shape2;
@@ -115,8 +113,8 @@ public class ModelCrate extends ModelBase {
 	setRotation(Shape13, 0F, 0F, 0F);
     }
 
-    public void render(float f, float f1, float f2, float f3, float f4, float f5) {
-	setRotationAngles(f, f1, f2, f3, f4, f5);
+    public void render(float f5) {
+	//setRotationAngles(f, f1, f2, f3, f4, f5);
 	Shape1.render(f5);
 	Shape2.render(f5);
 	Shape3.render(f5);

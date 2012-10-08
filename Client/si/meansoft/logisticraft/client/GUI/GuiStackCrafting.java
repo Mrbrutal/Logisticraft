@@ -80,7 +80,7 @@ import net.minecraft.src.World;
 	ItemStack stack = null;
 	Slot slot = null;
 
-	for (int var2 = 0; var2 < 9; ++var2) {
+	for (int var2 = 0; var2 < 10; ++var2) {
 	    slot = (Slot) this.inventorySlots.getSlot(var2);
 	    ItemStack it = slot.getStack();
 	    if (it != null) {
