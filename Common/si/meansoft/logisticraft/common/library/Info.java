@@ -7,6 +7,8 @@
 
 package si.meansoft.logisticraft.common.library;
 
+import net.minecraft.src.Item;
+
 public class Info {
 
 	/*Mod relevant information*/
@@ -31,8 +33,10 @@ public class Info {
 	public static final String DEFAULT_LANGUAGE = "en_US";
 	
 	/* Block/Item name arrays */
-	
 	public static final String[] crateNames = {"wheat", "sugarcane", "apples", "eggs", " cake", "bread", "zombie flesh", "cookies", "melon", "porkchops", "fish", "beef", " chicken", "slimebals", "watermelon", "rott"};
 	public static final String[] glassNames = {"Black", "Red", "Green", "Brown", "Blue", "Purple", "Cyan", "Light grey", "Dark grey", "Pink", "Light green", "Yellow", "Light blue", "Magenta", "Orange", "White"};
 	public static final String[] boxNames = {"Block wheat", "Block sugarcane", "Apple basket", "Egg basket", "Cake basket", "Bread basket", "Zombie basket", "Cookie basket", "Watermelon basket", "Box of pork", "Box of fish", "Box of beef", "Box of chicken", "SlimeBall basket", "Box of watermelon", "Compost basket"};
+	
+	/* Item arrays for crates/boxes */
+	public static final Item[] items = {Item.wheat, Item.reed, Item.appleRed, Item.egg, Item.cake, Item.bread, Item.rottenFlesh, Item.cookie, Item.arrow, Item.porkRaw, Item.fishRaw, Item.beefRaw, Item.chickenRaw, Item.slimeBall, Item.melon, Item.coal};
 }
