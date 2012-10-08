@@ -72,22 +72,6 @@ import net.minecraft.src.World;
 	drawNew();
     }
 
-    public void drawAppropriateIcon() {
-	int var5 = (this.width - this.xSize) / 2;
-	int var6 = (this.height - this.ySize) / 2;
-
-	int var4 = this.mc.renderEngine.getTexture(Info.TEX_GUI_SB);
-	GL11.glColor4f(1.0F, 1.0F, 1.0F, 0.7F);
-	this.mc.renderEngine.bindTexture(var4);
-
-	GL11.glEnable(GL11.GL_BLEND);
-	GL11.glBlendFunc(GL11.GL_DST_COLOR, GL11.GL_DST_COLOR);
-	// this.itemRenderer.renderItemIntoGUI(this.mc.fontRenderer, this.mc.renderEngine, new ItemStack(LCBlocks.chimney, 0, 3), var5 + 124, var6 + 17);
-	// this.itemRenderer.renderItemIntoGUI(this.mc.fontRenderer, this.mc.renderEngine, new ItemStack(LCBlocks.chimney, 0, 2), var5 + 124, var6 + 17);
-	// this.fontRenderer.drawString("?", var5 + 129, var6 + 21, 4210752);
-	GL11.glDisable(GL11.GL_BLEND);
-    }
-
     public void drawNew() {
 	int var5 = (this.width - this.xSize) / 2;
 	int var6 = (this.height - this.ySize) / 2;
@@ -99,7 +83,7 @@ import net.minecraft.src.World;
 	for (int var2 = 0; var2 < 9; ++var2) {
 	    slot = (Slot) this.inventorySlots.getSlot(var2);
 	    ItemStack it = slot.getStack();
-	    if (it != null && it.getItemName().startsWith("tile.box")) {
+	    if (it != null) {
 		hasCorrect = true;
 		stack = it;
 		break;
@@ -110,12 +94,18 @@ import net.minecraft.src.World;
 	this.mc.renderEngine.bindTexture(var4);
 
 	if (stack != null && stack.getItemName().startsWith("tile.box")) {
-	    if (rendered == 0) {
-		rendered = 1;
-	    }
+	    rendered = 1;
 	}
 	else {
-	    rendered = 0;
+	    for (int i = 0; i < Info.items.length; i++) {
+		if(stack != null && stack.getItem() == Info.items[i]) {
+		    rendered = 2;
+		    break;
+		}
+		else {
+		    rendered = 0;
+		}
+	    }
 	}
     }
 }

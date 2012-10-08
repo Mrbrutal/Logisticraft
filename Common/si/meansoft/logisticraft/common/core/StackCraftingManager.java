@@ -17,6 +17,7 @@ import java.util.List;
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.core.interfaces.IStackRecipe;
 import si.meansoft.logisticraft.common.items.LCItems;
+import si.meansoft.logisticraft.common.library.Info;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.CraftingManager;
@@ -48,7 +49,7 @@ public class StackCraftingManager {
 
     private StackCraftingManager() {
 	
-	Item[] items = new Item[] { Item.wheat, Item.reed, Item.appleRed, Item.egg, Item.cake, Item.bread, Item.rottenFlesh, Item.cookie, Item.arrow, Item.porkRaw, Item.fishRaw, Item.beefRaw, Item.chickenRaw, Item.slimeBall, Item.melon, Item.coal };
+	Item[] items = Info.items;
 
 	/*this.addShapelessRecipe(64, new ItemStack(LCItems.coins, 1, 1), null, new Object[] {new ItemStack(LCItems.coins, 1, 0)});
 	this.addShapelessRecipe(64, new ItemStack(LCItems.coins, 1, 2), null, new Object[] {new ItemStack(LCItems.coins, 1, 1)});
@@ -127,7 +128,7 @@ public class StackCraftingManager {
 	}
 
 	this.recipes.add(new StackShapedRecipes(var5, var6, var15, stackGet, addBlock, stackSize));
-	System.out.println("Added: " + var5 + ":" + var6 + "  " + stackGet.getItemName() + " | " + stackSize);
+	//System.out.println("Added: " + var5 + ":" + var6 + "  " + stackGet.getItemName() + " | " + stackSize);
     }
 
     public void addShapelessRecipe(int stackSize, ItemStack stackGet, ItemStack addBlock, Object... par2ArrayOfObj) {
