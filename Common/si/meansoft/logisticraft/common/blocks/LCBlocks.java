@@ -44,8 +44,8 @@ public class LCBlocks {
 	/* Block declarations */
 	public static void loadBlocks() {
 		ores = new BlockOres(BlockIDs.ores, 3);
-		box = new BlockBox(BlockIDs.box, 48);
-		crate = new BlockCrate(BlockIDs.crate, 32);
+		box = new BlockBox(BlockIDs.box, 0);
+		crate = new BlockCrate(BlockIDs.crate, 0);
 		playerPlate = new BlockPlayerPlate(BlockIDs.playerPlate, 0, EnumMobType.players, Material.rock).setHardness(0.5F);
 		coloredGlass = new BlockColorGlass(BlockIDs.coloredGlass, 240, Material.glass);
 		machines = new BlockMachines(BlockIDs.machines, 24, false);

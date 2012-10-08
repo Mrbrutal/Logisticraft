@@ -21,6 +21,8 @@ public class Info {
 	public static final String texPrefix = "/si/meansoft/logisticraft/Resources/";
 	public static final String guiPrefix = "/si/meansoft/logisticraft/Resources/GUI/";
 	public static final String TEX_BLOCK = texPrefix + "Blocks.png";
+	public static final String TEX_CRATES = texPrefix + "Crates.png";
+	public static final String TEX_BOXES = texPrefix + "Boxes.png";
 	public static final String TEX_ITEM = texPrefix + "Items.png";
 	public static final String TEX_CRATE = texPrefix + "Crate.png";
 	public static final String TEX_GUI_SB = guiPrefix + "stackCrafting.png";
