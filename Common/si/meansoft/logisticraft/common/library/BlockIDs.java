@@ -19,5 +19,7 @@ public class BlockIDs {
 	public static int beam;
 	public static int chimney;
 	public static int stackBench;
+	public static int box2;
+	public static int crate2;
 	
 }

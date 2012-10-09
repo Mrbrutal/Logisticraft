@@ -28,7 +28,7 @@ public class ConfigHandler {
         Configuration cf = new Configuration(configFile);
 
         try {
-        	cf.load();
+            cf.load();
 
             /* General */
             AUTO_RESOLVE_IDS = cf.getOrCreateBooleanProperty("AUTO_RESOLVE_IDS", CATEGORY_BLOCK, false).getBoolean(false);
@@ -40,13 +40,15 @@ public class ConfigHandler {
             /* Block */
             BlockIDs.ores = cf.getOrCreateIntProperty("block_ores", CATEGORY_BLOCK, 400).getInt(400);
             BlockIDs.box = cf.getOrCreateIntProperty("block_box", CATEGORY_BLOCK, 401).getInt(401);
-            BlockIDs.crate = cf.getOrCreateIntProperty("block_crate", CATEGORY_BLOCK, 402).getInt(402);
-            BlockIDs.playerPlate = cf.getOrCreateIntProperty("block_player_plate", CATEGORY_BLOCK, 403).getInt(403);
-            BlockIDs.coloredGlass = cf.getOrCreateIntProperty("block_colored_glass", CATEGORY_BLOCK, 404).getInt(404);
-            BlockIDs.machines = cf.getOrCreateIntProperty("block_machines", CATEGORY_BLOCK, 405).getInt(405);
-            BlockIDs.beam = cf.getOrCreateIntProperty("block_beam", CATEGORY_BLOCK, 406).getInt(406);
-            BlockIDs.chimney = cf.getOrCreateIntProperty("block_chimney", CATEGORY_BLOCK, 407).getInt(407);
-            BlockIDs.stackBench = cf.getOrCreateIntProperty("block_stack_bench", CATEGORY_BLOCK, 408).getInt(408);
+            BlockIDs.box2 = cf.getOrCreateIntProperty("block_box2", CATEGORY_BLOCK, 402).getInt(402);
+            BlockIDs.crate = cf.getOrCreateIntProperty("block_crate", CATEGORY_BLOCK, 403).getInt(403);
+            BlockIDs.crate2 = cf.getOrCreateIntProperty("block_crate2", CATEGORY_BLOCK, 404).getInt(404);
+            BlockIDs.playerPlate = cf.getOrCreateIntProperty("block_player_plate", CATEGORY_BLOCK, 405).getInt(405);
+            BlockIDs.coloredGlass = cf.getOrCreateIntProperty("block_colored_glass", CATEGORY_BLOCK, 406).getInt(406);
+            BlockIDs.machines = cf.getOrCreateIntProperty("block_machines", CATEGORY_BLOCK, 407).getInt(407);
+            BlockIDs.beam = cf.getOrCreateIntProperty("block_beam", CATEGORY_BLOCK, 408).getInt(408);
+            BlockIDs.chimney = cf.getOrCreateIntProperty("block_chimney", CATEGORY_BLOCK, 409).getInt(409);
+            BlockIDs.stackBench = cf.getOrCreateIntProperty("block_stack_bench", CATEGORY_BLOCK, 410).getInt(410);
             
             /* Item */
             ItemIDs.ingotCopper = cf.getOrCreateIntProperty("ingot_copper", Configuration.CATEGORY_ITEM, 1100).getInt();

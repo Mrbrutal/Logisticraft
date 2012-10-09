@@ -11,14 +11,14 @@ package si.meansoft.logisticraft.common.items;
 import si.meansoft.logisticraft.common.library.Info;
 import net.minecraft.src.*;
 
-public class ItemBlockCrate extends ItemBlock {
-	public ItemBlockCrate(int i) {
+public class ItemBlockCrate2 extends ItemBlock {
+	public ItemBlockCrate2(int i) {
 		super(i);
 		setMaxDamage(0);
 		setHasSubtypes(true);
 		setMaxStackSize(1);
 	}
-	public String[] blockNames = Info.crateNames;
+	public String[] blockNames = Info.crateNames2;
 
 	public String getItemNameIS(ItemStack itemstack) {
 		return(new StringBuilder()).append(super.getItemName()).append(".").append("Crated " + blockNames[itemstack.getItemDamage()]).toString();

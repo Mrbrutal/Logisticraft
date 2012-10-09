@@ -76,7 +76,7 @@ public class BlockMachines extends Block {
     public int getBlockTextureFromSideAndMetadata(int side, int data) {
 	if (data == 0) {
 	    if (side == 0 || side == 1) { // top and bottom
-		return blockIndexInTexture + 1;
+		return blockIndexInTexture + 3;
 	    }
 	    else { // sides
 		return blockIndexInTexture;
@@ -84,14 +84,14 @@ public class BlockMachines extends Block {
 	}
 	else if (data == 1) {
 	    if (side == 0 || side == 1) { // top and bottom
-		return blockIndexInTexture + 2;
+		return blockIndexInTexture + 1;
 	    }
 	    else { // sides
 		return blockIndexInTexture;
 	    }
 	}
 	else if (data == 2) {
-	    return 27;
+	    return 28;
 	}
 	else if (data == 3) {
 	    return blockIndexInTexture - 5;

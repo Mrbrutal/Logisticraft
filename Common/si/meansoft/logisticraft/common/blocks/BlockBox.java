@@ -42,143 +42,153 @@ public class BlockBox extends Block {
     @Override
     public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int metadata, int fortune) {
 	ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-	Item[] items = new Item[] { Item.wheat, Item.reed, Item.appleRed, Item.egg, Item.cake, Item.bread, Item.rottenFlesh, Item.cookie, Item.arrow, Item.porkRaw, Item.fishRaw, Item.beefRaw, Item.chickenRaw, Item.slimeBall, Item.melon, Item.coal };
-	for (int i = 0; i < 9; i++) {
-	    ret.add(new ItemStack(items[metadata], new ItemStack(items[metadata]).getMaxStackSize(), -1));
+	Item[] items = Info.items;
+	Item[] items2 = Info.items2;
+	if(this.blockID == LCBlocks.box.blockID) {
+	    for (int i = 0; i < 9; i++) {
+		ret.add(new ItemStack(items[metadata], new ItemStack(items[metadata]).getMaxStackSize(), -1));
+	    }
+	}
+	else {
+	    for (int i = 0; i < 9; i++) {
+		ret.add(new ItemStack(items2[metadata], new ItemStack(items2[metadata]).getMaxStackSize(), -1));
+	    }
 	}
 	return ret;
     }
 
     public int getBlockTextureFromSideAndMetadata(int side, int data) {
 	int base = blockIndexInTexture;
+	int top = 255;
 	switch (data) {
 	case 0:
 	    if (side == 0 || side == 1) { // top and bottom
+		return top;
+	    }
+	    else { // sides
 		return base;
+	    }
+	case 1:
+	    if (side == 0 || side == 1) { // top and bottom
+		return top;
 	    }
 	    else { // sides
 		return base + 1;
 	    }
-	case 1:
+	case 2:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base;
+		return top;
 	    }
 	    else { // sides
 		return base + 2;
 	    }
-	case 2:
+	case 3:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base;
+		return top;
 	    }
 	    else { // sides
 		return base + 3;
 	    }
-	case 3:
+	case 4:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base;
+		return top;
 	    }
 	    else { // sides
 		return base + 4;
 	    }
-	case 4:
+	case 5:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base;
+		return top;
 	    }
 	    else { // sides
 		return base + 5;
 	    }
-	case 5:
+	case 6:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base;
+		return top;
 	    }
 	    else { // sides
 		return base + 6;
 	    }
-	case 6:
+	case 7:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base;
+		return top;
 	    }
 	    else { // sides
 		return base + 7;
 	    }
-	case 7:
+	case 8:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base;
+		return top;
 	    }
 	    else { // sides
 		return base + 8;
 	    }
-	case 8:
+	case 9:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base;
+		return top;
 	    }
 	    else { // sides
 		return base + 9;
 	    }
-	case 9:
+	case 10:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base;
+		return top;
 	    }
 	    else { // sides
 		return base + 10;
 	    }
-	case 10:
+	case 11:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base;
+		return top;
 	    }
 	    else { // sides
 		return base + 11;
 	    }
-	case 11:
+	case 12:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base;
+		return top;
 	    }
 	    else { // sides
 		return base + 12;
 	    }
-	case 12:
+	case 13:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base;
+		return top;
 	    }
 	    else { // sides
 		return base + 13;
 	    }
-	case 13:
+	case 14:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base;
+		return top;
 	    }
 	    else { // sides
 		return base + 14;
 	    }
-	case 14:
+	case 15:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base;
+		return top;
 	    }
 	    else { // sides
 		return base + 15;
 	    }
-	case 15:
-	    if (side == 0 || side == 1) { // top and bottom
-		return base;
-	    }
-	    else { // sides
-		return base + 16;
-	    }
 	default:
 	    if (side == 0 || side == 1) { // top and bottom
-		return base;
+		return top;
 	    }
 	    else { // sides
-		return base + 1;
+		return top;
 	    }
 	}
     }
 
     @Override
     public void getSubBlocks(int par1, CreativeTabs tabs, List list) {
-	for (int var4 = 0; var4 < 16; ++var4) {
-	    list.add(new ItemStack(this, 1, var4));
-	}
+	int size = 16;
+	for (int var4 = 0; var4 < size; ++var4) {
+		list.add(new ItemStack(this, 1, var4));
+	    }
     }
 
     public void harvestBlock(World par1World, EntityPlayer par2EntityPlayer, int par3, int par4, int par5, int par6) {
@@ -193,21 +203,21 @@ public class BlockBox extends Block {
     public void updateTick(World world, int x, int y, int z, Random random) {
 	int getId = world.getBlockId(x, y, z);
 	int meta = world.getBlockMetadata(x, y, z);
-	int crate = LCBlocks.box.blockID;
-	if (getId == crate && meta != 0) {
-	    if(world.isRaining()) {
-		if (!Crate.checkRain(world, x, y, z)) {
-		    world.setBlockAndMetadataWithNotify(x, y, z, crate, 15);
-		}
+	int crate = LCBlocks.chimney.blockID;
+	if (world.isRaining()) {
+	    if (!Crate.checkRain(world, x, y, z)) {
+		world.setBlockAndMetadataWithNotify(x, y, z, crate, 5);
 	    }
+	}
 
-	    if (Crate.checkWater(world, x, y, z)) {
-		world.setBlockAndMetadataWithNotify(x, y, z, crate, 15);
-	    }
+	if (Crate.checkWater(world, x, y, z)) {
+	    world.setBlockAndMetadataWithNotify(x, y, z, crate, 5);
+	}
 
-	    if (meta == 5 || meta == 10 || meta == 11 || meta == 12 || meta == 13) {
+	if(this.blockID == LCBlocks.box.blockID) {
+	    if (meta == 4 || meta == 9 || meta == 10 || meta == 11 || meta == 12) {
 		if (!Crate.checkIce(world, x, y, z)) {
-		    world.setBlockAndMetadataWithNotify(x, y, z, crate, 15);
+		    world.setBlockAndMetadataWithNotify(x, y, z, crate, 5);
 		}
 	    }
 	}

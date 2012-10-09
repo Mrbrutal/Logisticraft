@@ -37,9 +37,11 @@ public class BlockChimney extends Block {
 
     @Override
     public void getSubBlocks(int par1, CreativeTabs tabs, List list) {
-	list.add(new ItemStack(this, 1, 1));
+	list.add(new ItemStack(this, 1, 0));
 	list.add(new ItemStack(this, 1, 2));
 	list.add(new ItemStack(this, 1, 3));
+	list.add(new ItemStack(this, 1, 4));
+	list.add(new ItemStack(this, 1, 5));
     }
 
     public int idDropped(int par1, Random par2Random, int par3) {
@@ -76,18 +78,34 @@ public class BlockChimney extends Block {
 	}
 	if (data == 2) {
 	    if (side == 0 || side == 1) { // top and bottom
-		return 32;
-	    }
-	    else { // sides
-		return 33;
-	    }
-	}
-	if (data == 3) {
-	    if (side == 0 || side == 1) { // top and bottom
 		return blockIndexInTexture + 4;
 	    }
 	    else { // sides
 		return blockIndexInTexture + 5;
+	    }
+	}
+	if (data == 3) {
+	    if (side == 0 || side == 1) { // top and bottom
+		return blockIndexInTexture + 6;
+	    }
+	    else { // sides
+		return blockIndexInTexture + 7;
+	    }
+	}
+	if (data == 4) {
+	    if (side == 0 || side == 1) { // top and bottom
+		return blockIndexInTexture + 8;
+	    }
+	    else { // sides
+		return blockIndexInTexture + 9;
+	    }
+	}
+	if (data == 5) {
+	    if (side == 0 || side == 1) { // top and bottom
+		return blockIndexInTexture + 10;
+	    }
+	    else { // sides
+		return blockIndexInTexture + 11;
 	    }
 	}
 	else {

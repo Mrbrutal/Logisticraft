@@ -12,12 +12,12 @@ import si.meansoft.logisticraft.common.library.Info;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;
 
-public class ItemIngot extends Item{
+public class ItemIngot extends Item {
 
-	protected ItemIngot(int par1) {
-		super(par1);
-		setMaxStackSize(64);
-		setTabToDisplayOn(CreativeTabs.tabMaterials);
-		setTextureFile(Info.TEX_ITEM);
-	}
+    protected ItemIngot(int par1) {
+	super(par1);
+	setMaxStackSize(64);
+	setTabToDisplayOn(CreativeTabs.tabMaterials);
+	setTextureFile(Info.TEX_ITEM);
+    }
 }

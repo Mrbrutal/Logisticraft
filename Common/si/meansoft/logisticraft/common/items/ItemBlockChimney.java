@@ -9,7 +9,7 @@ public class ItemBlockChimney extends ItemBlock {
 		setHasSubtypes(true);
 		setMaxStackSize(64);
 	}
-	public String[] blockNames = { "Chimney", "Chimney top", "Crate", "Box"};
+	public String[] blockNames = { "Chimney", "Chimney top", "Crate", "Box", "Rotten crate", "Rotten box"};
 
 	public String getItemNameIS(ItemStack itemstack) {
 		return(new StringBuilder()).append(super.getItemName()).append(".").append(blockNames[itemstack.getItemDamage()]).toString();
