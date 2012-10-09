@@ -50,15 +50,40 @@ public class StackCraftingManager {
     private StackCraftingManager() {
 	
 	Item[] items = Info.items;
-
-	/*this.addShapelessRecipe(64, new ItemStack(LCItems.coins, 1, 1), null, new Object[] {new ItemStack(LCItems.coins, 1, 0)});
-	this.addShapelessRecipe(64, new ItemStack(LCItems.coins, 1, 2), null, new Object[] {new ItemStack(LCItems.coins, 1, 1)});
-	this.addShapelessRecipe(64, new ItemStack(LCItems.coins, 1, 3), null, new Object[] {new ItemStack(LCItems.coins, 1, 2)});*/
+	Item[] items2 = Info.items2;
 	
 	for (int i = 0; i < 16; i++) {
-	    this.addRecipe(items[i].getItemStackLimit(), new ItemStack(LCBlocks.box.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', items[i] });
 	    this.addRecipe(1, new ItemStack(LCBlocks.crate.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 2), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, i) });
+	    this.addRecipe(1, new ItemStack(LCBlocks.crate2.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 2), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box2.blockID, 1, i) });
+	    if(i == 15) {
+		this.addRecipe(items[i].getItemStackLimit(), new ItemStack(LCBlocks.box.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', new ItemStack(Item.dyePowder, 1, 3) });
+	    }
+	    else {
+		this.addRecipe(items[i].getItemStackLimit(), new ItemStack(LCBlocks.box.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', items[i] });
+	    }
 	}
+	
+	for (int i = 0; i < 16; i++) {
+	    if(i == 9 ) {
+		this.addRecipe(LCItems.ingotSilver.getItemStackLimit(), new ItemStack(LCBlocks.box2.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', new ItemStack(LCItems.ingotSilver, 1, 0) });
+	    }
+	    else if(i == 10 ) {
+		this.addRecipe(LCItems.ingotCopper.getItemStackLimit(), new ItemStack(LCBlocks.box2.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', new ItemStack(LCItems.ingotCopper, 1, 0) });
+	    }
+	    else if(i == 0) {
+		this.addRecipe(items2[i].getItemStackLimit(), new ItemStack(LCBlocks.box2.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', new ItemStack(items2[i], 1, 15) });
+	    }
+	    else if(i == 4) {
+		this.addRecipe(items2[i].getItemStackLimit(), new ItemStack(LCBlocks.box2.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', new ItemStack(items2[i], 1, 0) });
+	    }
+	    else {
+		this.addRecipe(items2[i].getItemStackLimit(), new ItemStack(LCBlocks.box2.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', new ItemStack(items2[i], 1, 0) });
+	    }
+	}
+	
+	this.addShapelessRecipe(64, new ItemStack(LCItems.coins, 1, 1), null, new Object[] {new ItemStack(LCItems.coins, 1, 0)});
+	this.addShapelessRecipe(64, new ItemStack(LCItems.coins, 1, 2), null, new Object[] {new ItemStack(LCItems.coins, 1, 1)});
+	this.addShapelessRecipe(64, new ItemStack(LCItems.coins, 1, 3), null, new Object[] {new ItemStack(LCItems.coins, 1, 2)});
 
 	Collections.sort(this.recipes, new StackRecipeSorter(this));
 	System.out.println(this.recipes.size() + " stack recipes.");
@@ -67,15 +92,15 @@ public class StackCraftingManager {
     /**
      * Adds a recipe. See spreadsheet on first page for details.
      */
-    public void addRecipe(int stackSize, ItemStack stackGet, ItemStack addBlock, Object... par2ArrayOfObj) {
+    public void addRecipe(int stackSize, ItemStack stackGet, ItemStack addBlock, Object... obj) {
 	String var3 = "";
 	int var4 = 0;
 	int var5 = 0;
 	int var6 = 0;
 	int var9;
 
-	if (par2ArrayOfObj[var4] instanceof String[]) {
-	    String[] var7 = (String[]) ((String[]) par2ArrayOfObj[var4++]);
+	if (obj[var4] instanceof String[]) {
+	    String[] var7 = (String[]) ((String[]) obj[var4++]);
 	    String[] var8 = var7;
 	    var9 = var7.length;
 
@@ -87,8 +112,8 @@ public class StackCraftingManager {
 	    }
 	}
 	else {
-	    while (par2ArrayOfObj[var4] instanceof String) {
-		String var13 = (String) par2ArrayOfObj[var4++];
+	    while (obj[var4] instanceof String) {
+		String var13 = (String) obj[var4++];
 		++var6;
 		var5 = var13.length();
 		var3 = var3 + var13;
@@ -97,18 +122,18 @@ public class StackCraftingManager {
 
 	HashMap var14;
 
-	for (var14 = new HashMap(); var4 < par2ArrayOfObj.length; var4 += 2) {
-	    Character var16 = (Character) par2ArrayOfObj[var4];
+	for (var14 = new HashMap(); var4 < obj.length; var4 += 2) {
+	    Character var16 = (Character) obj[var4];
 	    ItemStack var17 = null;
 
-	    if (par2ArrayOfObj[var4 + 1] instanceof Item) {
-		var17 = new ItemStack((Item) par2ArrayOfObj[var4 + 1]);
+	    if (obj[var4 + 1] instanceof Item) {
+		var17 = new ItemStack((Item) obj[var4 + 1]);
 	    }
-	    else if (par2ArrayOfObj[var4 + 1] instanceof Block) {
-		var17 = new ItemStack((Block) par2ArrayOfObj[var4 + 1], 1, -1);
+	    else if (obj[var4 + 1] instanceof Block) {
+		var17 = new ItemStack((Block) obj[var4 + 1], 1, -1);
 	    }
-	    else if (par2ArrayOfObj[var4 + 1] instanceof ItemStack) {
-		var17 = (ItemStack) par2ArrayOfObj[var4 + 1];
+	    else if (obj[var4 + 1] instanceof ItemStack) {
+		var17 = (ItemStack) obj[var4 + 1];
 	    }
 
 	    var14.put(var16, var17);
@@ -131,10 +156,10 @@ public class StackCraftingManager {
 	//System.out.println("Added: " + var5 + ":" + var6 + "  " + stackGet.getItemName() + " | " + stackSize);
     }
 
-    public void addShapelessRecipe(int stackSize, ItemStack stackGet, ItemStack addBlock, Object... par2ArrayOfObj) {
+    public void addShapelessRecipe(int stackSize, ItemStack stackGet, ItemStack addBlock, Object... obj) {
 	ArrayList var3 = new ArrayList();
-	Object[] var4 = par2ArrayOfObj;
-	int var5 = par2ArrayOfObj.length;
+	Object[] var4 = obj;
+	int var5 = obj.length;
 
 	for (int var6 = 0; var6 < var5; ++var6) {
 	    Object var7 = var4[var6];
@@ -155,6 +180,7 @@ public class StackCraftingManager {
 	}
 
 	this.recipes.add(new StackShapelessRecipes(stackGet, addBlock, var3, stackSize));
+	//System.out.println("Added: " + var3 + "  " + stackGet.getItemName() + " | " + stackSize);
     }
     
     public ItemStack findMatchingRecipe(InventoryCrafting par1InventoryCrafting, InventoryCrafting par1InventoryCrafting2) {
