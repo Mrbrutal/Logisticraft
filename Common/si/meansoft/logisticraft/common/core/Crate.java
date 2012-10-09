@@ -37,7 +37,7 @@ public class Crate {
 		int md = world.getBlockMetadata(x, y, z);
 		int bl = world.getBlockId(x, y, z);
 		
-		if((bl==LCBlocks.crate.blockID && md!=15) || (bl==LCBlocks.box.blockID && md!=14)) {
+		if((bl==LCBlocks.crate.blockID && md!=3) || (bl==LCBlocks.crate.blockID && md!=13)) {
 			if((up == ma) || (dn == ma) || (so == ma) || (no == ma) || (ea == ma) || (we == ma)){
 				return true;
 			}
