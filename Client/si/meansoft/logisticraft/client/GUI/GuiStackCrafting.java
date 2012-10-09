@@ -15,6 +15,7 @@ import net.minecraft.src.FontRenderer;
 import net.minecraft.src.GuiContainer;
 import net.minecraft.src.InventoryCrafting;
 import net.minecraft.src.InventoryPlayer;
+import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.OpenGlHelper;
 import net.minecraft.src.RenderHelper;
@@ -98,9 +99,18 @@ import net.minecraft.src.World;
 	}
 	else {
 	    for (int i = 0; i < Info.items.length; i++) {
-		if(stack != null && stack.getItem() == Info.items[i]) {
-		    rendered = 2;
-		    break;
+		if (stack != null && stack.getItem() == Info.items[i] || stack != null && stack.getItem() == Info.items2[i]) {
+		    //System.out.println(stack.getItemName());
+		    if (stack.getItem() == Item.dyePowder) {
+			if(stack.getItemDamage() == 15 || stack.getItemDamage() == 3) {
+			    rendered = 2;
+			    break;
+			}
+		    }
+		    else {
+			rendered = 2;
+			break;
+		    }
 		}
 		else {
 		    rendered = 0;
