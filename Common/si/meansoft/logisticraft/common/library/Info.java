@@ -31,6 +31,7 @@ public class Info {
 
     /* Additional information and constants */
     public static final String MOD_PFX = "[" + modID + "]";
+    public static final String LANG_FILES = texPrefix + "lang/";
 
     /* Language */
     public static final String DEFAULT_LANGUAGE = "en_US";

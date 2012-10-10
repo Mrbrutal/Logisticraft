@@ -49,10 +49,12 @@ public class LCItems {
 	
 	/* Item names and translations */
 	public static void nameItems() {
-		ingotCopper.setItemName("Copper Ingot");
-		ingotSilver.setItemName("Silver Ingot");
-		ingotPlatinum.setItemName("Platinum Ingot");
-		knife.setItemName("Knife");
+		ingotCopper.setItemName("copperIngot");
+		ingotSilver.setItemName("silverIngot");
+		ingotPlatinum.setItemName("platinumIngot");
+		knife.setItemName("knife");
+		dusts.setItemName("dusts");
+		coins.setItemName("coins");
 		
 		LanguageRegistry.addName(ingotCopper, "Copper Ingot");
 		LanguageRegistry.addName(ingotSilver, "Silver Ingot");
