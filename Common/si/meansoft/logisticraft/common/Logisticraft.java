@@ -108,7 +108,7 @@ public class Logisticraft {
 		
 		/* Localisations */
 		Localization.getFiles(Info.texPrefix);
-		//LocalizationHandler.loadLanguages();
+		LocalizationHandler.load();
 	}
 
 	@PostInit

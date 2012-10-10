@@ -14,7 +14,7 @@ public class LocalizationHandler {
     public static void load() {
 	// For every file specified in the Localization library class, load them into the Language Registry
 	for (String localizationFile : Localization.files) {
-		//LanguageRegistry.instance().loadLocalization(localizationFile, LocalizationHelper.getLocaleFromFileName(localizationFile), LocalizationHelper.isXMLLanguageFile(localizationFile));
+		LanguageRegistry.instance().loadLocalization(localizationFile, LocalizationHelper.getLocaleFromFileName(localizationFile), LocalizationHelper.isXMLLanguageFile(localizationFile));
 	}
     }
 }

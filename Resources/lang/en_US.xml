@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+    <comment>English (US) Localization File</comment>
+    <entry key="item.copperIngot.name">Copper Ingot</entry>
+    <entry key="item.silverIngot.name">Silver Ingot</entry>
+    <entry key="item.platinumIngot.name">Platinum Ingot</entry>
+    <entry key="item.dust.copper.name">Copper dust</entry>
+    <entry key="item.dust.silver.name">Silver dust</entry>
+    <entry key="item.dust.platinum.name">Platinum dust</entry>
+    <entry key="item.coin.copper.name">Copper coin</entry>
+    <entry key="item.coin.silver.name">Silver coin</entry>
+    <entry key="item.coin.gold.name">Gold coin</entry>
+    <entry key="item.coin.platinum.name">Platinum coin</entry>
+    <entry key="item.knife.name">Knife</entry>
+    <!-- entry key="tile.block.name">block</entry -->
+</properties>
