@@ -27,7 +27,7 @@ public class ItemDusts extends Item{
 		setMaxDamage(0);
 		setMaxStackSize(64);
 		setHasSubtypes(true);
-		setTabToDisplayOn(CreativeTabs.tabMaterials);
+		setCreativeTab(CreativeTabs.tabMaterials);
 	}
 	
 	public String getTextureFile() {

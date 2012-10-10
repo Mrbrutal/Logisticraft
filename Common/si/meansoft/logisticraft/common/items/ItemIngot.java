@@ -17,7 +17,7 @@ public class ItemIngot extends Item {
     protected ItemIngot(int par1) {
 	super(par1);
 	setMaxStackSize(64);
-	setTabToDisplayOn(CreativeTabs.tabMaterials);
+	setCreativeTab(CreativeTabs.tabMaterials);
 	setTextureFile(Info.TEX_ITEM);
     }
 }

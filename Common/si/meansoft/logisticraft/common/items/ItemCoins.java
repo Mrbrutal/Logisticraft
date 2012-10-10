@@ -20,35 +20,35 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.MathHelper;
 import si.meansoft.logisticraft.common.library.Info;
 
-public class ItemCoins extends Item{
-	
-	public static final String[] coinNames = new String[] {"Copper coin", "Silver coin", "Gold coin", "Platinum coin"};
-	
-	public ItemCoins(int par1) {
-		super(par1);
-		setMaxDamage(0);
-		setMaxStackSize(64);
-		setHasSubtypes(true);
-		setTabToDisplayOn(CreativeTabs.tabBrewing);
-	}
-	
-	public String getTextureFile() {
-		return Info.TEX_ITEM;
-	}
-	
-	public int getIconFromDamage(int par1) {
-        int var2 = MathHelper.clamp_int(par1, 0, 4);
-        return this.iconIndex - var2;
+public class ItemCoins extends Item {
+
+    public static final String[] coinNames = new String[] { "Copper coin", "Silver coin", "Gold coin", "Platinum coin" };
+
+    public ItemCoins(int par1) {
+	super(par1);
+	setMaxDamage(0);
+	setMaxStackSize(64);
+	setHasSubtypes(true);
+	setCreativeTab(CreativeTabs.tabBrewing);
+    }
+
+    public String getTextureFile() {
+	return Info.TEX_ITEM;
+    }
+
+    public int getIconFromDamage(int par1) {
+	int var2 = MathHelper.clamp_int(par1, 0, 4);
+	return this.iconIndex - var2;
     }
 
     public String getItemNameIS(ItemStack par1ItemStack) {
-        return coinNames[par1ItemStack.getItemDamage()];
+	return coinNames[par1ItemStack.getItemDamage()];
     }
 
     @SideOnly(Side.CLIENT)
     public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List) {
-        for (int var4 = 0; var4 < 4; ++var4) {
-            par3List.add(new ItemStack(this, 1, var4));
-        }
+	for (int var4 = 0; var4 < 4; ++var4) {
+	    par3List.add(new ItemStack(this, 1, var4));
+	}
     }
 }
