@@ -35,9 +35,9 @@ public class LCItems {
 	
 	/* Item declarations */
 	public static void loadItems() {
-		ingotCopper = new ItemIngot(ItemIDs.ingotCopper).setIconIndex(18).setTabToDisplayOn(CreativeTabs.tabMaterials);
-		ingotSilver = new ItemIngot(ItemIDs.ingotSilver).setIconIndex(17).setTabToDisplayOn(CreativeTabs.tabMaterials);
-		ingotPlatinum = new ItemIngot(ItemIDs.ingotPlatinum).setIconIndex(16).setTabToDisplayOn(CreativeTabs.tabMaterials);
+		ingotCopper = new ItemIngot(ItemIDs.ingotCopper).setIconIndex(18).setCreativeTab(CreativeTabs.tabMaterials);
+		ingotSilver = new ItemIngot(ItemIDs.ingotSilver).setIconIndex(17).setCreativeTab(CreativeTabs.tabMaterials);
+		ingotPlatinum = new ItemIngot(ItemIDs.ingotPlatinum).setIconIndex(16).setCreativeTab(CreativeTabs.tabMaterials);
 		
 		coins = new ItemCoins(ItemIDs.coins).setIconCoord(5, 0);
 		
