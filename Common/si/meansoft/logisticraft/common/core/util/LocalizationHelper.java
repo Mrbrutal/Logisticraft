@@ -10,7 +10,7 @@ package si.meansoft.logisticraft.common.core.util;
 
 public class LocalizationHelper {
 
-    public static boolean isXMLLanguageFile(String fileName) {
+    public static boolean isXml(String fileName) {
 	return fileName.endsWith(".xml");
     }
 
