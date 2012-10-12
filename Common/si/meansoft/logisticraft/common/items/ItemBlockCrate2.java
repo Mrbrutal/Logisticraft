@@ -21,7 +21,7 @@ public class ItemBlockCrate2 extends ItemBlock {
 	public String[] blockNames = Info.crateNames2;
 
 	public String getItemNameIS(ItemStack itemstack) {
-		return(new StringBuilder()).append(super.getItemName()).append(".").append("Crated " + blockNames[itemstack.getItemDamage()]).toString();
+		return(new StringBuilder()).append(super.getItemName()).append(".").append(blockNames[itemstack.getItemDamage()]).toString();
 	}
 	
 	public int getMetadata(int i) {

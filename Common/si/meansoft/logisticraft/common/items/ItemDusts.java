@@ -20,7 +20,7 @@ import net.minecraft.src.MathHelper;
 
 public class ItemDusts extends Item{
 	
-	public static final String[] dustNames = new String[] {"Copper dust", "Silver dust", "Platinum dust"};
+	public static final String[] dustNames = new String[] {"copper", "silver", "platinum"};
 	
 	public ItemDusts(int par1) {
 		super(par1);
@@ -47,7 +47,7 @@ public class ItemDusts extends Item{
     }
 
     public String getItemNameIS(ItemStack par1ItemStack) {
-        return dustNames[par1ItemStack.getItemDamage()];
+        return (new StringBuilder()).append(super.getItemName()).append(".").append(dustNames[par1ItemStack.getItemDamage()]).toString();
     }
 
     @SideOnly(Side.CLIENT)

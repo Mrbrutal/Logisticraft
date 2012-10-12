@@ -37,9 +37,9 @@ public class Info {
     public static final String DEFAULT_LANGUAGE = "en_US";
 
     /* Block/Item name arrays */
-    public static final String[] crateNames = { "wheat", "sugarcane", "apples", "eggs", "cake", "bread", "zombie flesh", "cookies", "melon", "porkchops", "fish", "beef", "chicken", "slimebals", "watermelon", "cocoa" };
-    public static final String[] crateNames2 = { "bonemeal", "blaze rods", "ender pearls", "leather", "ink sacks", "glowstone dust", "redstone", "gun powder", "iron ingots", "silver ingots", "copper ingots", "flint", "coal", "string", "seeds", "arrows" };
-    public static final String[] glassNames = { "Black", "Red", "Green", "Brown", "Blue", "Purple", "Cyan", "Light grey", "Dark grey", "Pink", "Light green", "Yellow", "Light blue", "Magenta", "Orange", "White" };
+    public static final String[] crateNames = { "wheat", "sugarcane", "apples", "eggs", "cake", "bread", "zombieFlesh", "cookies", "melon", "porkchops", "fish", "beef", "chicken", "slime", "watermelon", "cocoa" };
+    public static final String[] crateNames2 = { "bonemeal", "blazeRods", "enderPearls", "leather", "inkSacks", "glowstoneDust", "redstone", "gunPowder", "ironIngots", "silverIngots", "copperIngots", "flint", "coal", "string", "seeds", "arrows" };
+    public static final String[] glassNames = { "black", "red", "green", "brown", "blue", "purple", "cyan", "lightGrey", "darkGrey", "pink", "lightGreen", "yellow", "lightBlue", "magenta", "orange", "white" };
 
     /* Item arrays for crates/boxes */
     public static final Item[] items = { Item.wheat, Item.reed, Item.appleRed, Item.egg, Item.cake, Item.bread, Item.rottenFlesh, Item.cookie, Item.arrow, Item.porkRaw, Item.fishRaw, Item.beefRaw, Item.chickenRaw, Item.slimeBall, Item.melon, Item.dyePowder };

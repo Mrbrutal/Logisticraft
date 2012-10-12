@@ -7,24 +7,26 @@
 
 package si.meansoft.logisticraft.common.items;
 
+import si.meansoft.logisticraft.common.library.Info;
 import net.minecraft.src.*;
 
 public class ItemBlockBox2 extends ItemBlock {
-	
-	public ItemBlockBox2(int i) {
-		super(i);
-		setMaxDamage(0);
-		setHasSubtypes(true);
-		setMaxStackSize(64);
-	}
-	public String[] blockNames = { "Block of wheat", "Block of sugarcane", "Apple basket", "Egg basket", "Cake basket", "Bread basket", "Zombie basket", "Cookie basket", "Watermelon basket", "Box of pork", "Box of fish", "Box of beef", "Box of chicken", "SlimeBall basket", "Box of watermelon", ""};
 
-	public String getItemNameIS(ItemStack itemstack) {
-		return(new StringBuilder()).append(super.getItemName()).append(".").append(blockNames[itemstack.getItemDamage()]).toString();
-	}
-	
-	public int getMetadata(int i) {
-		return i;
-	}
-	
+    public ItemBlockBox2(int i) {
+	super(i);
+	setMaxDamage(0);
+	setHasSubtypes(true);
+	setMaxStackSize(64);
+    }
+
+    public String[] blockNames = Info.crateNames2;
+
+    public String getItemNameIS(ItemStack itemstack) {
+	return (new StringBuilder()).append(super.getItemName()).append(".").append(blockNames[itemstack.getItemDamage()]).toString();
+    }
+
+    public int getMetadata(int i) {
+	return i;
+    }
+
 }

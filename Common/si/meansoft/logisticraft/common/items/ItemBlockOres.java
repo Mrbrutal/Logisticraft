@@ -21,10 +21,10 @@ public class ItemBlockOres extends ItemBlock {
 		setHasSubtypes(true);
 		setMaxStackSize(64);
 	}
-	public String[] blockNames = { "Platinum ore", "Silver ore", "Copper ore"};
+	public String[] blockNames = { "platinum", "silver", "copper"};
 	
 	public String getItemNameIS(ItemStack par1ItemStack) {
-        return blockNames[par1ItemStack.getItemDamage()];
+        return (new StringBuilder()).append(super.getItemName()).append(".").append(blockNames[par1ItemStack.getItemDamage()]).toString();
     }
 	
 	public int getMetadata(int i) {

@@ -19,7 +19,7 @@ public class ItemBlockMachines extends ItemBlock {
 		setMaxStackSize(64);
 	}
 	
-	public String[] blockNames = { "Lava remover", "Lava remover on", "Lava remover block", "Time setter", "Reflector", "Reflector on" };
+	public String[] blockNames = { "lavaRemover", "lavaRemoverOn", "lavaRemoverBlock", "timeSetter", "reflector", "reflectorOn" };
 
 	public String getItemNameIS(ItemStack itemstack) {
 		return(new StringBuilder()).append(super.getItemName()).append(".").append(blockNames[itemstack.getItemDamage()]).toString();

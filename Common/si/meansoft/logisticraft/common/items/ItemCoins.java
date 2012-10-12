@@ -22,7 +22,7 @@ import si.meansoft.logisticraft.common.library.Info;
 
 public class ItemCoins extends Item {
 
-    public static final String[] coinNames = new String[] { "Copper coin", "Silver coin", "Gold coin", "Platinum coin" };
+    public static final String[] coinNames = new String[] { "copper", "silver", "gold", "platinum" };
 
     public ItemCoins(int par1) {
 	super(par1);
@@ -42,7 +42,7 @@ public class ItemCoins extends Item {
     }
 
     public String getItemNameIS(ItemStack par1ItemStack) {
-	return coinNames[par1ItemStack.getItemDamage()];
+	return (new StringBuilder()).append(super.getItemName()).append(".").append(coinNames[par1ItemStack.getItemDamage()]).toString();
     }
 
     @SideOnly(Side.CLIENT)

@@ -53,7 +53,7 @@ import si.meansoft.logisticraft.common.recipes.RecipesItems;
 public class Logisticraft {
 
 	/* Logisticraft instance */
-	@Instance
+	@Instance(Info.modID)
 	public static Logisticraft instance;
 	
 	/* Sided proxies and proxy */
@@ -68,6 +68,9 @@ public class Logisticraft {
 		event.getModMetadata().version = Version.fullVer();
 		lcLog.setParent(FMLLog.getLogger());
 		lcLog.info("Starting Logisticraft " + Version.fullVer() + "!");
+		
+		/* Localisation */
+		LocalizationHandler.load();
 
 		/* Register config file */
 		ConfigHandler.init(new File(event.getModConfigurationDirectory(), Info.modName + ".cfg"));
@@ -106,9 +109,6 @@ public class Logisticraft {
 		
 		/* Bonemeal */
 		
-		/* Localisations */
-		Localization.getFiles(Info.texPrefix);
-		LocalizationHandler.load();
 	}
 
 	@PostInit
