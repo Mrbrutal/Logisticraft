@@ -7,6 +7,7 @@ import si.meansoft.logisticraft.common.containers.ContainerStackbench;
 import si.meansoft.logisticraft.common.library.Info;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.src.Block;
 import net.minecraft.src.Container;
 import net.minecraft.src.ContainerEnchantment;
@@ -35,7 +36,7 @@ import net.minecraft.src.World;
     }
 
     public void drawGuiContainerForegroundLayer() {
-	this.fontRenderer.drawString("Stack crafting", 28, 6, 4210752);
+	this.fontRenderer.drawString(LanguageRegistry.instance().getStringLocalization("gui.stackCrafting.name"), 28, 6, 4210752);
 	this.fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
     }
 
