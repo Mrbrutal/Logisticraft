@@ -2,7 +2,9 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties version="1.0">
     <comment>English (US) Localization File</comment>
+    <!-- GUI -->
     <entry key="gui.stackCrafting.name">Stack crafting bench</entry>
+    <!-- ITEMS -->
     <entry key="item.copperIngot.name">Copper Ingot</entry>
     <entry key="item.silverIngot.name">Silver Ingot</entry>
     <entry key="item.platinumIngot.name">Platinum Ingot</entry>
@@ -14,11 +16,13 @@
     <entry key="item.coin.gold.name">Gold coin</entry>
     <entry key="item.coin.platinum.name">Platinum coin</entry>
     <entry key="item.knife.name">Knife</entry>
+    <!-- BlOCKS -->
     <entry key="tile.pressurePlate.name">Player pressure plate</entry>
     <entry key="tile.stackBench.name">Stackbench</entry>
     <entry key="tile.ore.copper.name">Copper ore</entry>
     <entry key="tile.ore.silver.name">Silver ore</entry>
     <entry key="tile.ore.platinum.name">Platinum ore</entry>
+    <!-- BlOCKS BOX -->
     <entry key="tile.box.wheat.name">Box of wheat</entry>
     <entry key="tile.box.sugarcane.name">Box of sugarcane</entry>
     <entry key="tile.box.apples.name">Box of apples</entry>
@@ -35,6 +39,7 @@
     <entry key="tile.box.slime.name">Box of slime</entry>
     <entry key="tile.box.watermelon.name">Box of watermelon</entry>
     <entry key="tile.box.cocoa.name">Box of cocoa</entry>
+    
     <entry key="tile.box2.bonemeal.name">Box of bonemeal</entry>
     <entry key="tile.box2.blazeRods.name">Box of blaze rods</entry>
     <entry key="tile.box2.enderPearls.name">Box of ender pearls</entry>
@@ -51,6 +56,42 @@
     <entry key="tile.box2.string.name">Box of string</entry>
     <entry key="tile.box2.seeds.name">Box of seeds</entry>
     <entry key="tile.box2.arrows.name">Box of arrows</entry>
+    
+    <entry key="tile.box3.smoothStone.name">Box of smooth stone</entry>
+    <entry key="tile.box3.cobbleStone.name">Box of cobblestone</entry>
+    <entry key="tile.box3.dirt.name">Box of dirt</entry>
+    <entry key="tile.box3.sand.name">Box of sand</entry>
+    <entry key="tile.box3.gravel.name">Box of gravel</entry>
+    <entry key="tile.box3.bricks.name">Box of bricks</entry>
+    <entry key="tile.box3.mossy.name">Box of mossy cobblestone</entry>
+    <entry key="tile.box3.obsidian.name">Box of obsidian</entry>
+    <entry key="tile.box3.stoneBricks.name">Box of stone bricks</entry>
+    <entry key="tile.box3.cacti.name">Box of cacti</entry>
+    <entry key="tile.box3.netherRack.name">Box of netherrack</entry>
+    <entry key="tile.box3.slowSand.name">Box of slowsand</entry>
+    <entry key="tile.box3.glowStone.name">Box of glowstone</entry>
+    <entry key="tile.box3.pumpkins.name">Box of pumpkins</entry>
+    <entry key="tile.box3.glass.name">Box of glass</entry>
+    <entry key="tile.box3.sandStone.name">Box of sandstone</entry>
+    
+    <entry key="tile.box4.oakWood.name">Box of oak wood</entry>
+    <entry key="tile.box4.pineWood.name">Box of pine wood</entry>
+    <entry key="tile.box4.birchWood.name">Box of birch wood</entry>
+    <entry key="tile.box4.jungleWood.name">Box of jungle wood</entry>
+    <entry key="tile.box4.oakPlanks.name">Box of oak planks</entry>
+    <entry key="tile.box4.pinePlanks.name">Box of pine planks</entry>
+    <entry key="tile.box4.birchPlanks.name">Box of birch planks</entry>
+    <entry key="tile.box4.junglePlanks.name">Box of jungle planks</entry>
+    <entry key="tile.box4.mossyStoneBricks.name">Box of mossy stone</entry>
+    <entry key="tile.box4.brokenStoneBricks.name">Box broken stone</entry>
+    <entry key="tile.box4.decStoneBricks.name">Box of decorative stone</entry>
+    <entry key="tile.box4.creeperSandStone.name">Box of creep sandstone</entry>
+    <entry key="tile.box4.smoothSandStone.name">Box of smooth sandstone</entry>
+    <entry key="tile.box4.netherBricks.name">Box of netherbricks</entry>
+    <entry key="tile.box4.redstoneLamp.name">Box of redstone lamps</entry>
+    <entry key="tile.box4.torches.name">Box of torches</entry>
+    
+    <!-- BlOCKS CRATE -->
     <entry key="tile.crate.wheat.name">Crate of wheat</entry>
     <entry key="tile.crate.sugarcane.name">Crate of sugarcane</entry>
     <entry key="tile.crate.apples.name">Crate of apples</entry>
@@ -66,6 +107,7 @@
     <entry key="tile.crate.chicken.name">Crate of chicken</entry>
     <entry key="tile.crate.slime.name">Crate of slime</entry>
     <entry key="tile.crate.watermelon.name">Crate of watermelon</entry>
+    
     <entry key="tile.crate2.bonemeal.name">Crate of bonemeal</entry>
     <entry key="tile.crate2.blazeRods.name">Crate of blaze rods</entry>
     <entry key="tile.crate2.enderPearls.name">Crate of ender pearls</entry>
@@ -82,6 +124,41 @@
     <entry key="tile.crate2.string.name">Crate of string</entry>
     <entry key="tile.crate2.seeds.name">Crate of seeds</entry>
     <entry key="tile.crate2.arrows.name">Crate of arrows</entry>
+    
+    <entry key="tile.crate3.smoothStone.name">Crate of smooth stone</entry>
+    <entry key="tile.crate3.cobbleStone.name">Crate of cobblestone</entry>
+    <entry key="tile.crate3.dirt.name">Crate of dirt</entry>
+    <entry key="tile.crate3.sand.name">Crate of sand</entry>
+    <entry key="tile.crate3.gravel.name">Crate of gravel</entry>
+    <entry key="tile.crate3.bricks.name">Crate of bricks</entry>
+    <entry key="tile.crate3.mossy.name">Crate of mossy cobblestone</entry>
+    <entry key="tile.crate3.obsidian.name">Crate of obsidian</entry>
+    <entry key="tile.crate3.stoneBricks.name">Crate of stone bricks</entry>
+    <entry key="tile.crate3.cacti.name">Crate of cacti</entry>
+    <entry key="tile.crate3.netherRack.name">Crate of netherrack</entry>
+    <entry key="tile.crate3.slowSand.name">Crate of slowsand</entry>
+    <entry key="tile.crate3.glowStone.name">Crate of glowstone</entry>
+    <entry key="tile.crate3.pumpkins.name">Crate of pumpkins</entry>
+    <entry key="tile.crate3.glass.name">Crate of glass</entry>
+    <entry key="tile.crate3.sandStone.name">Crate of sandstone</entry>
+    
+    <entry key="tile.crate4.oakWood.name">Crate of oak wood</entry>
+    <entry key="tile.crate4.pineWood.name">Crate of pine wood</entry>
+    <entry key="tile.crate4.birchWood.name">Crate of birch wood</entry>
+    <entry key="tile.crate4.jungleWood.name">Crate of jungle wood</entry>
+    <entry key="tile.crate4.oakPlanks.name">Crate of oak planks</entry>
+    <entry key="tile.crate4.pinePlanks.name">Crate of pine planks</entry>
+    <entry key="tile.crate4.birchPlanks.name">Crate of birch planks</entry>
+    <entry key="tile.crate4.junglePlanks.name">Crate of jungle planks</entry>
+    <entry key="tile.crate4.mossyStoneBricks.name">Crate of mossy stone</entry>
+    <entry key="tile.crate4.brokenStoneBricks.name">Crate broken stone</entry>
+    <entry key="tile.crate4.decStoneBricks.name">Crate of decorative stone</entry>
+    <entry key="tile.crate4.creeperSandStone.name">Crate of creep sandstone</entry>
+    <entry key="tile.crate4.smoothSandStone.name">Crate of smooth sandstone</entry>
+    <entry key="tile.crate4.netherBricks.name">Crate of netherbricks</entry>
+    <entry key="tile.crate4.redstoneLamp.name">Crate of redstone lamps</entry>
+    <entry key="tile.crate4.torches.name">Crate of torches</entry>
+    
     <entry key="tile.coloredGlass.black.name">Black tinted glass</entry>
     <entry key="tile.coloredGlass.red.name">Red tinted glass</entry>
     <entry key="tile.coloredGlass.green.name">Green tinted glass</entry>
@@ -98,16 +175,19 @@
     <entry key="tile.coloredGlass.magenta.name">Magenta tinted glass</entry>
     <entry key="tile.coloredGlass.orange.name">Orange tinted glass</entry>
     <entry key="tile.coloredGlass.white.name">White tinted glass</entry>
+    
     <entry key="tile.machine.lavaRemover.name">Lava remover</entry>
     <entry key="tile.machine.lavaRemoverOn.name">Lava remover on</entry>
     <entry key="tile.machine.lavaRemoverBlock.name">Lava remover block</entry>
     <entry key="tile.machine.timeSetter.name">Time setter</entry>
     <entry key="tile.machine.reflector.name">Reflector</entry>
     <entry key="tile.machine.reflectorOn.name">Reflector on</entry>
+    
     <entry key="tile.chimney.chimney.name">Chimney</entry>
     <entry key="tile.chimney.chimneyTop.name">Chimney top</entry>
     <entry key="tile.chimney.crate.name">Crate</entry>
     <entry key="tile.chimney.box.name">Box</entry>
     <entry key="tile.chimney.rottenCrate.name">Rotten crate</entry>
     <entry key="tile.chimney.rottenBox.name">Rotten box</entry>
+    <!-- OTHER -->
 </properties>
