@@ -100,6 +100,8 @@ public class Logisticraft {
 		LCItems.loadItems();
 		LCItems.nameItems();
 		
+		Info.initArrays();
+		
 		/* Ores */
 		OreHandler.registerOres();
 		
@@ -108,7 +110,6 @@ public class Logisticraft {
 		RecipesItems.itemRecipes();
 		
 		/* Bonemeal */
-		
 	}
 
 	@PostInit

@@ -101,7 +101,9 @@ import net.minecraft.src.World;
 	GL11.glColor4f(1.0F, 1.0F, 1.0F, 0.7F);
 	this.mc.renderEngine.bindTexture(var4);
 
-	if (stack != null && (stack.getItem().getItemName().startsWith("tile.box")|| stack.getItem().getItemName().startsWith("tile.box2"))) {
+	if (stack != null
+		&& (stack.getItem().getItemName().startsWith("tile.box") || stack.getItem().getItemName().startsWith("tile.box2") || stack.getItem()
+			.getItemName().startsWith("tile.box3"))) {
 	    rendered = 1;
 	    return;
 	}
@@ -110,22 +112,22 @@ import net.minecraft.src.World;
 	Iterator var11 = recipes.iterator();
 	Boolean render = false;
 
-	while(var11.hasNext() && render == false) {
+	while (var11.hasNext() && render == false) {
 	    IStackRecipe var13 = (IStackRecipe) var11.next();
 	    ItemStack[] items = var13.getRecipeItems();
 	    if (items != null) {
 		for (int i = 0; i < items.length; i++) {
-		    if (items[i] != null && !items[i].getItemName().startsWith("tile")) {
+		    if (items[i] != null) {
 			if (stack != null && stack.getItem().getItemName().equals(items[i].getItem().getItemName())) {
-			    //System.out.println("Item in crafting: " + items[i].getItemName());
+			    //System.out.println("Item in crafting: " + items[i].getItemName() + " | " + stack.getItem().getItemName());
 			    render = true;
 			    rendered = 2;
 			    break;
 			}
-		    }
-		    else {
-			rendered = 0;
-			break;
+			else {
+			    rendered = 0;
+			    break;
+			}
 		    }
 		}
 	    }

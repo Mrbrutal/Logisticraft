@@ -51,9 +51,10 @@ public class StackCraftingManager {
 	
 	for (int i = 0; i < 16; i++) {
 	    this.addRecipe(Info.items[i].getItem().getItemStackLimit(), new ItemStack(LCBlocks.box.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', Info.items[i]});
+	    this.addRecipe(Info.items2[i].getMaxStackSize(), new ItemStack(LCBlocks.box2.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', Info.items2[i]});
+	    this.addRecipe(Info.items3[i].getMaxStackSize(), new ItemStack(LCBlocks.box3.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', Info.items3[i]});
 	    this.addRecipe(1, new ItemStack(LCBlocks.crate.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 2), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, i)});
 	    this.addRecipe(1, new ItemStack(LCBlocks.crate2.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 2), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box2.blockID, 1, i)});
-	    this.addRecipe(Info.items2[i].getMaxStackSize(), new ItemStack(LCBlocks.box2.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', Info.items2[i]});
 	}
 	
 	/*for (int i = 0; i < 16; i++) {

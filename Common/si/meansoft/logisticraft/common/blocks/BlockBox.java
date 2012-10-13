@@ -56,7 +56,7 @@ public class BlockBox extends Block {
 	}
 	else if(this.blockID == LCBlocks.box3.blockID){
 	    for (int i = 0; i < 9; i++) {
-		ret.add(new ItemStack(Info.items2[metadata].getItem(), Info.items2[metadata].getMaxStackSize(), Info.items2[i].getItemDamage()));
+		ret.add(new ItemStack(Info.items3[metadata].getItem(), Info.items3[metadata].getMaxStackSize(), Info.items3[i].getItemDamage()));
 	    }
 	}
 	else {
