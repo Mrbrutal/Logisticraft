@@ -11,15 +11,19 @@ package si.meansoft.logisticraft.common.library;
 public class BlockIDs {
 
 	public static int ores;
-	public static int crate;
 	public static int playerPlate;
 	public static int coloredGlass;
-	public static int box;
 	public static int machines;
 	public static int beam;
 	public static int chimney;
 	public static int stackBench;
+	public static int box;
 	public static int box2;
+	public static int box3;
+	public static int box4;
+	public static int crate;
 	public static int crate2;
+	public static int crate3;
+	public static int crate4;
 	
 }

@@ -8,36 +8,29 @@
 
 package si.meansoft.logisticraft.common.blocks;
 
+import net.minecraft.src.Block;
+import net.minecraft.src.EnumMobType;
+import net.minecraft.src.Material;
 import si.meansoft.logisticraft.common.items.ItemBlockBox;
-import si.meansoft.logisticraft.common.items.ItemBlockBox2;
 import si.meansoft.logisticraft.common.items.ItemBlockChimney;
 import si.meansoft.logisticraft.common.items.ItemBlockCrate;
-import si.meansoft.logisticraft.common.items.ItemBlockCrate2;
 import si.meansoft.logisticraft.common.items.ItemBlockGlass;
 import si.meansoft.logisticraft.common.items.ItemBlockMachines;
 import si.meansoft.logisticraft.common.items.ItemBlockOres;
-import si.meansoft.logisticraft.common.items.LCItems;
 import si.meansoft.logisticraft.common.library.BlockIDs;
-import si.meansoft.logisticraft.common.library.Info;
-import si.meansoft.logisticraft.common.library.ItemIDs;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraft.src.Block;
-import net.minecraft.src.BlockPressurePlate;
-import net.minecraft.src.EnumMobType;
-import net.minecraft.src.FurnaceRecipes;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.Material;
-import net.minecraft.src.ModLoader;
 
 public class LCBlocks {
 
     public static Block ores;
     public static Block box;
     public static Block box2;
+    public static Block box3;
+    public static Block box4;
     public static Block crate;
     public static Block crate2;
+    public static Block crate3;
+    public static Block crate4;
     public static Block playerPlate;
     public static Block coloredGlass;
     public static Block machines;
@@ -50,8 +43,12 @@ public class LCBlocks {
 	ores = new BlockOres(BlockIDs.ores, 3);
 	box = new BlockBox(BlockIDs.box, 0);
 	box2 = new BlockBox(BlockIDs.box2, 16);
+	box3 = new BlockBox(BlockIDs.box3, 32+16);
+	box4 = new BlockBox(BlockIDs.box4, 48+16);
 	crate = new BlockCrate(BlockIDs.crate, 0);
 	crate2 = new BlockCrate(BlockIDs.crate2, 16);
+	crate3 = new BlockCrate(BlockIDs.crate3, 32+16);
+	crate4 = new BlockCrate(BlockIDs.crate4, 48+16);
 	playerPlate = new BlockPlayerPlate(BlockIDs.playerPlate, 0, EnumMobType.players, Material.rock).setHardness(0.5F);
 	coloredGlass = new BlockColorGlass(BlockIDs.coloredGlass, 240, Material.glass);
 	machines = new BlockMachines(BlockIDs.machines, 24, false);
@@ -66,9 +63,13 @@ public class LCBlocks {
 	GameRegistry.registerBlock(stackBench);
 	GameRegistry.registerBlock(machines, ItemBlockMachines.class);
 	GameRegistry.registerBlock(box, ItemBlockBox.class);
-	GameRegistry.registerBlock(box2, ItemBlockBox2.class);
+	GameRegistry.registerBlock(box2, ItemBlockBox.class);
+	GameRegistry.registerBlock(box3, ItemBlockBox.class);
+	GameRegistry.registerBlock(box4, ItemBlockBox.class);
 	GameRegistry.registerBlock(crate, ItemBlockCrate.class);
-	GameRegistry.registerBlock(crate2, ItemBlockCrate2.class);
+	GameRegistry.registerBlock(crate2, ItemBlockCrate.class);
+	GameRegistry.registerBlock(crate3, ItemBlockCrate.class);
+	GameRegistry.registerBlock(crate4, ItemBlockCrate.class);
 	GameRegistry.registerBlock(ores, ItemBlockOres.class);
 	GameRegistry.registerBlock(coloredGlass, ItemBlockGlass.class);
 	GameRegistry.registerBlock(beam, ItemBlockGlass.class);
@@ -82,8 +83,12 @@ public class LCBlocks {
 	ores.setBlockName("ore");
 	box.setBlockName("box");
 	box2.setBlockName("box2");
+	box3.setBlockName("box3");
+	box4.setBlockName("box4");
 	crate.setBlockName("crate");
 	crate2.setBlockName("crate2");
+	crate3.setBlockName("crate3");
+	crate4.setBlockName("crate4");
 	machines.setBlockName("machine");
 	coloredGlass.setBlockName("coloredGlass");
 	beam.setBlockName("beam");

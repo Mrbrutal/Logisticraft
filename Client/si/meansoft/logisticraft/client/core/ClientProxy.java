@@ -21,7 +21,6 @@ import cpw.mods.fml.client.registry.KeyBindingRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import si.meansoft.logisticraft.client.GUI.GuiStackCrafting;
-import si.meansoft.logisticraft.client.renderers.RenderCrate;
 import si.meansoft.logisticraft.common.core.CommonProxy;
 import si.meansoft.logisticraft.common.library.GuiIDs;
 import si.meansoft.logisticraft.common.library.Info;
@@ -49,7 +48,7 @@ public class ClientProxy extends CommonProxy {
 	MinecraftForgeClient.preloadTexture(Info.TEX_CRATE);
 
 	RenderIDs.crateID = RenderingRegistry.getNextAvailableRenderId();
-	RenderingRegistry.registerBlockHandler(new RenderCrate());
+	//RenderingRegistry.registerBlockHandler(new RenderCrate());
     }
 
     @Override

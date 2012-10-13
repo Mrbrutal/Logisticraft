@@ -22,6 +22,8 @@ public interface IStackRecipe {
      * Returns an Item that is the result of this recipe
      */
     ItemStack getCraftingResult(InventoryCrafting var1);
+    
+    ItemStack[] getRecipeItems();
 
     /**
      * Returns the size of the recipe area

@@ -20,9 +20,24 @@ public class ItemBlockBox extends ItemBlock {
     }
 
     public String[] blockNames = Info.crateNames;
+    public String[] blockNames2 = Info.crateNames2;
+    public String[] blockNames3 = Info.crateNames3;
+    public String[] blockNames4 = Info.crateNames4;
 
     public String getItemNameIS(ItemStack itemstack) {
-	return (new StringBuilder()).append(super.getItemName()).append(".").append(blockNames[itemstack.getItemDamage()]).toString();
+	Item stack = itemstack.getItem();
+	if(stack.getItemName().endsWith("box")) {
+	    return (new StringBuilder()).append(super.getItemName()).append(".").append(blockNames[itemstack.getItemDamage()]).toString();
+	}
+	else if(stack.getItemName().endsWith("box2")){
+	    return (new StringBuilder()).append(super.getItemName()).append(".").append(blockNames2[itemstack.getItemDamage()]).toString();
+	}
+	else if(stack.getItemName().endsWith("box3")) {
+	    return (new StringBuilder()).append(super.getItemName()).append(".").append(blockNames3[itemstack.getItemDamage()]).toString();
+	}
+	else {
+	    return (new StringBuilder()).append(super.getItemName()).append(".").append(blockNames4[itemstack.getItemDamage()]).toString();
+	}
     }
 
     public int getMetadata(int i) {

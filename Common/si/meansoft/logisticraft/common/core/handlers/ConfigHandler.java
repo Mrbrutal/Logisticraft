@@ -41,14 +41,18 @@ public class ConfigHandler {
             BlockIDs.ores = cf.getOrCreateIntProperty("block_ores", CATEGORY_BLOCK, 400).getInt(400);
             BlockIDs.box = cf.getOrCreateIntProperty("block_box", CATEGORY_BLOCK, 401).getInt(401);
             BlockIDs.box2 = cf.getOrCreateIntProperty("block_box2", CATEGORY_BLOCK, 402).getInt(402);
-            BlockIDs.crate = cf.getOrCreateIntProperty("block_crate", CATEGORY_BLOCK, 403).getInt(403);
-            BlockIDs.crate2 = cf.getOrCreateIntProperty("block_crate2", CATEGORY_BLOCK, 404).getInt(404);
-            BlockIDs.playerPlate = cf.getOrCreateIntProperty("block_player_plate", CATEGORY_BLOCK, 405).getInt(405);
-            BlockIDs.coloredGlass = cf.getOrCreateIntProperty("block_colored_glass", CATEGORY_BLOCK, 406).getInt(406);
-            BlockIDs.machines = cf.getOrCreateIntProperty("block_machines", CATEGORY_BLOCK, 407).getInt(407);
-            BlockIDs.beam = cf.getOrCreateIntProperty("block_beam", CATEGORY_BLOCK, 408).getInt(408);
-            BlockIDs.chimney = cf.getOrCreateIntProperty("block_chimney", CATEGORY_BLOCK, 409).getInt(409);
-            BlockIDs.stackBench = cf.getOrCreateIntProperty("block_stack_bench", CATEGORY_BLOCK, 410).getInt(410);
+            BlockIDs.box3 = cf.getOrCreateIntProperty("block_box3", CATEGORY_BLOCK, 403).getInt(403);
+            BlockIDs.box4 = cf.getOrCreateIntProperty("block_box4", CATEGORY_BLOCK, 404).getInt(404);
+            BlockIDs.crate = cf.getOrCreateIntProperty("block_crate", CATEGORY_BLOCK, 405).getInt(405);
+            BlockIDs.crate2 = cf.getOrCreateIntProperty("block_crate2", CATEGORY_BLOCK, 406).getInt(406);
+            BlockIDs.crate3 = cf.getOrCreateIntProperty("block_crate3", CATEGORY_BLOCK, 407).getInt(407);
+            BlockIDs.crate4 = cf.getOrCreateIntProperty("block_crate4", CATEGORY_BLOCK, 408).getInt(408);
+            BlockIDs.playerPlate = cf.getOrCreateIntProperty("block_player_plate", CATEGORY_BLOCK, 409).getInt(409);
+            BlockIDs.coloredGlass = cf.getOrCreateIntProperty("block_colored_glass", CATEGORY_BLOCK, 410).getInt(410);
+            BlockIDs.machines = cf.getOrCreateIntProperty("block_machines", CATEGORY_BLOCK, 411).getInt(411);
+            BlockIDs.beam = cf.getOrCreateIntProperty("block_beam", CATEGORY_BLOCK, 412).getInt(412);
+            BlockIDs.chimney = cf.getOrCreateIntProperty("block_chimney", CATEGORY_BLOCK, 413).getInt(413);
+            BlockIDs.stackBench = cf.getOrCreateIntProperty("block_stack_bench", CATEGORY_BLOCK, 414).getInt(414);
             
             /* Item */
             ItemIDs.ingotCopper = cf.getOrCreateIntProperty("ingot_copper", Configuration.CATEGORY_ITEM, 1100).getInt();

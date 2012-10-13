@@ -1,9 +1,14 @@
 package si.meansoft.logisticraft.client.GUI;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.lwjgl.opengl.GL11;
 
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.containers.ContainerStackbench;
+import si.meansoft.logisticraft.common.core.StackCraftingManager;
+import si.meansoft.logisticraft.common.core.interfaces.IStackRecipe;
 import si.meansoft.logisticraft.common.library.Info;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
@@ -71,6 +76,7 @@ import net.minecraft.src.World;
 
     public void updateScreen() {
 	super.updateScreen();
+	// System.out.println(rendered);
 	drawNew();
     }
 
@@ -95,26 +101,32 @@ import net.minecraft.src.World;
 	GL11.glColor4f(1.0F, 1.0F, 1.0F, 0.7F);
 	this.mc.renderEngine.bindTexture(var4);
 
-	if (stack != null && stack.getItemName().startsWith("tile.box")) {
+	if (stack != null && (stack.getItem().getItemName().startsWith("tile.box")|| stack.getItem().getItemName().startsWith("tile.box2"))) {
 	    rendered = 1;
+	    return;
 	}
-	else {
-	    for (int i = 0; i < Info.items.length; i++) {
-		if (stack != null && stack.getItem() == Info.items[i] || stack != null && stack.getItem() == Info.items2[i]) {
-		    //System.out.println(stack.getItemName());
-		    if (stack.getItem() == Item.dyePowder) {
-			if(stack.getItemDamage() == 15 || stack.getItemDamage() == 3) {
+
+	List recipes = StackCraftingManager.getInstance().getRecipeList();
+	Iterator var11 = recipes.iterator();
+	Boolean render = false;
+
+	while(var11.hasNext() && render == false) {
+	    IStackRecipe var13 = (IStackRecipe) var11.next();
+	    ItemStack[] items = var13.getRecipeItems();
+	    if (items != null) {
+		for (int i = 0; i < items.length; i++) {
+		    if (items[i] != null && !items[i].getItemName().startsWith("tile")) {
+			if (stack != null && stack.getItem().getItemName().equals(items[i].getItem().getItemName())) {
+			    //System.out.println("Item in crafting: " + items[i].getItemName());
+			    render = true;
 			    rendered = 2;
 			    break;
 			}
 		    }
 		    else {
-			rendered = 2;
+			rendered = 0;
 			break;
 		    }
-		}
-		else {
-		    rendered = 0;
 		}
 	    }
 	}

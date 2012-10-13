@@ -42,16 +42,26 @@ public class BlockBox extends Block {
     @Override
     public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int metadata, int fortune) {
 	ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-	Item[] items = Info.items;
-	Item[] items2 = Info.items2;
+	//Item[] items = Info.items;
+	//Item[] items2 = Info.items2;
 	if(this.blockID == LCBlocks.box.blockID) {
 	    for (int i = 0; i < 9; i++) {
-		ret.add(new ItemStack(items[metadata], new ItemStack(items[metadata]).getMaxStackSize(), -1));
+		ret.add(new ItemStack(Info.items[metadata].getItem(), Info.items[metadata].getMaxStackSize(), Info.items[i].getItemDamage()));
+	    }
+	}
+	else if(this.blockID == LCBlocks.box2.blockID){
+	    for (int i = 0; i < 9; i++) {
+		ret.add(new ItemStack(Info.items2[metadata].getItem(), Info.items2[metadata].getMaxStackSize(), Info.items2[i].getItemDamage()));
+	    }
+	}
+	else if(this.blockID == LCBlocks.box3.blockID){
+	    for (int i = 0; i < 9; i++) {
+		ret.add(new ItemStack(Info.items2[metadata].getItem(), Info.items2[metadata].getMaxStackSize(), Info.items2[i].getItemDamage()));
 	    }
 	}
 	else {
 	    for (int i = 0; i < 9; i++) {
-		ret.add(new ItemStack(items2[metadata], new ItemStack(items2[metadata]).getMaxStackSize(), -1));
+		ret.add(new ItemStack(Info.items2[metadata].getItem(), Info.items2[metadata].getMaxStackSize(), Info.items2[i].getItemDamage()));
 	    }
 	}
 	return ret;
