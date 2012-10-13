@@ -15,23 +15,20 @@ import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.ItemTool;
 
 public class ItemKnife extends ItemTool {
-	private static Block[] blocksEffectiveAgainst = new Block[] {LCBlocks.crate, LCBlocks.box};
-	
-	public ItemKnife(int par1, EnumToolMaterial toolMaterial) {
-		super(par1, par1, toolMaterial, blocksEffectiveAgainst);
-		setMaxStackSize(1);
-	}
-	
-	public boolean canHarvestBlock(Block block) {
-		if(block.blockID == LCBlocks.box.blockID || block.blockID == LCBlocks.crate.blockID) {
-			return true;
-		}
-		else {
-			return false;
-		}
+    private static Block[] blocksEffectiveAgainst = new Block[] { LCBlocks.crate, LCBlocks.box };
+
+    public ItemKnife(int par1, EnumToolMaterial toolMaterial) {
+	super(par1, par1, toolMaterial, blocksEffectiveAgainst);
+	setMaxStackSize(1);
+	setTextureFile(Info.TEX_ITEM);
     }
-	
-	public String getTextureFile() {
-		return Info.TEX_ITEM;
+
+    public boolean canHarvestBlock(Block block) {
+	if (block.blockID == LCBlocks.box.blockID || block.blockID == LCBlocks.crate.blockID) {
+	    return true;
 	}
+	else {
+	    return false;
+	}
+    }
 }

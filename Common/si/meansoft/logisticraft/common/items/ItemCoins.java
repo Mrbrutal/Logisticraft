@@ -30,10 +30,7 @@ public class ItemCoins extends Item {
 	setMaxStackSize(64);
 	setHasSubtypes(true);
 	setCreativeTab(CreativeTabs.tabBrewing);
-    }
-
-    public String getTextureFile() {
-	return Info.TEX_ITEM;
+	setTextureFile(Info.TEX_ITEM);
     }
 
     public int getIconFromDamage(int par1) {

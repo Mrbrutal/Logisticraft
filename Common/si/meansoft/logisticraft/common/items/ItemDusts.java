@@ -28,10 +28,7 @@ public class ItemDusts extends Item{
 		setMaxStackSize(64);
 		setHasSubtypes(true);
 		setCreativeTab(CreativeTabs.tabMaterials);
-	}
-	
-	public String getTextureFile() {
-		return Info.TEX_ITEM;
+		setTextureFile(Info.TEX_ITEM);
 	}
 	
 	public int getIconFromDamage(int par1) {
