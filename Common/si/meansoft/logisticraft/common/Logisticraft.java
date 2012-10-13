@@ -90,17 +90,16 @@ public class Logisticraft {
 		
 		// Register the Crafting Handler
 	        GameRegistry.registerCraftingHandler(new CraftingHandler());
-		
-		/* Blocks */
-		LCBlocks.loadBlocks();
-		LCBlocks.registerBlocks();
-		LCBlocks.nameBlocks();
-		
+				
 		/* Items */
 		LCItems.loadItems();
 		LCItems.nameItems();
 		
-		Info.initArrays();
+
+		/* Blocks */
+		LCBlocks.loadBlocks();
+		LCBlocks.registerBlocks();
+		LCBlocks.nameBlocks();
 		
 		/* Ores */
 		OreHandler.registerOres();

@@ -101,9 +101,7 @@ import net.minecraft.src.World;
 	GL11.glColor4f(1.0F, 1.0F, 1.0F, 0.7F);
 	this.mc.renderEngine.bindTexture(var4);
 
-	if (stack != null
-		&& (stack.getItem().getItemName().startsWith("tile.box") || stack.getItem().getItemName().startsWith("tile.box2") || stack.getItem()
-			.getItemName().startsWith("tile.box3"))) {
+	if (stack != null && stack.getItem().getItemName().startsWith("tile.box")) {
 	    rendered = 1;
 	    return;
 	}

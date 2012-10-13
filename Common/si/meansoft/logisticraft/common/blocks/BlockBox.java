@@ -42,8 +42,6 @@ public class BlockBox extends Block {
     @Override
     public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int metadata, int fortune) {
 	ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-	//Item[] items = Info.items;
-	//Item[] items2 = Info.items2;
 	if(this.blockID == LCBlocks.box.blockID) {
 	    for (int i = 0; i < 9; i++) {
 		ret.add(new ItemStack(Info.items[metadata].getItem(), Info.items[metadata].getMaxStackSize(), Info.items[i].getItemDamage()));
