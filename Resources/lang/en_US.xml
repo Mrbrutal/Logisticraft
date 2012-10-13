@@ -16,6 +16,13 @@
     <entry key="item.coin.gold.name">Gold coin</entry>
     <entry key="item.coin.platinum.name">Platinum coin</entry>
     <entry key="item.knife.name">Knife</entry>
+    <entry key="item.nails.name">Nails</entry>
+    <entry key="item.cardboard.name">Cardboard</entry>
+    <entry key="item.boards.name">Boards</entry>
+    <entry key="item.compost.name">Compost</entry>
+    <entry key="item.cantaloupe.name">Canteloupe</entry>
+    <entry key="item.cantaloupeSeeds.name">Canteloupe seeds</entry>
+    
     <!-- BlOCKS -->
     <entry key="tile.pressurePlate.name">Player pressure plate</entry>
     <entry key="tile.stackBench.name">Stackbench</entry>
