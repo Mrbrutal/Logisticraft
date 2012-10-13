@@ -62,7 +62,12 @@ public class ConfigHandler {
             ItemIDs.dusts = cf.getOrCreateIntProperty("dusts", Configuration.CATEGORY_ITEM, 1103).getInt();
             ItemIDs.coins = cf.getOrCreateIntProperty("coins", Configuration.CATEGORY_ITEM, 1104).getInt();
             ItemIDs.knife = cf.getOrCreateIntProperty("knife", Configuration.CATEGORY_ITEM, 1105).getInt();
-            
+            ItemIDs.nails = cf.getOrCreateIntProperty("nails", Configuration.CATEGORY_ITEM, 1106).getInt();
+            ItemIDs.cardboard = cf.getOrCreateIntProperty("cardboard", Configuration.CATEGORY_ITEM, 1107).getInt();
+            ItemIDs.boards = cf.getOrCreateIntProperty("boards", Configuration.CATEGORY_ITEM, 1108).getInt();
+            ItemIDs.compost = cf.getOrCreateIntProperty("compost", Configuration.CATEGORY_ITEM, 1109).getInt();
+            ItemIDs.cantaloupe = cf.getOrCreateIntProperty("cantaloupe", Configuration.CATEGORY_ITEM, 1110).getInt();
+            ItemIDs.cantaloupeSeeds = cf.getOrCreateIntProperty("cantaloupeSeeds", Configuration.CATEGORY_ITEM, 1111).getInt();            
         }
         catch (Exception e) {
             Logisticraft.lcLog.severe("Logisticraft had a problem loading its configuration\n" + e);
