@@ -62,14 +62,7 @@ public class StackShapedRecipes implements IStackRecipe {
 			return true;
 		    }
 		}
-		else {  
-		    /*if (this.checkMatch2(inv1, inv2, var2, var3, true)) {
-			return true;
-		    }
-		    if (this.checkMatch2(inv1, inv2, var2, var3, false)) {
-			return true;
-		    }*/
-		}
+		else {}
 	    }
 	}
 
@@ -107,12 +100,12 @@ public class StackShapedRecipes implements IStackRecipe {
 		    }
 
 		    if (getStackSize() != 1 && var10.stackSize != getStackSize()) {
-			//System.out.println("StSize: " + getStackSize() + " Damages: 10:" + var10.stackSize + " 10:" + getStackSize());
+			//System.out.println("StSize1: " + getStackSize() + " Damages: 10:" + var10.stackSize + " 10:" + getStackSize());
 			return false;
 		    }
 
 		    if (var10.getItemDamage() != -1 && var9.getItemDamage() != var10.getItemDamage()) {
-			//System.out.println("StSize: " + getStackSize() + " Damages: 9:" + var9.getItemDamage() + " 10:" + var10.getItemDamage());
+			//System.out.println("StSize2: " + getStackSize() + " Damages: 9:" + var9.getItemDamage() + " 10:" + var10.getItemDamage());
 			return false;
 		    }
 
@@ -191,6 +184,11 @@ public class StackShapedRecipes implements IStackRecipe {
 
     public int getStackSize() {
 	return stSize;
+    }
+
+    @Override
+    public ItemStack[] getRecipeItems() {
+	return recipeItems;
     }
 
 }

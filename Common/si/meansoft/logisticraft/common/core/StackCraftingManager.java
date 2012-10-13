@@ -49,21 +49,14 @@ public class StackCraftingManager {
 
     private StackCraftingManager() {
 	
-	Item[] items = Info.items;
-	Item[] items2 = Info.items2;
-	
 	for (int i = 0; i < 16; i++) {
-	    this.addRecipe(1, new ItemStack(LCBlocks.crate.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 2), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, i) });
-	    this.addRecipe(1, new ItemStack(LCBlocks.crate2.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 2), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box2.blockID, 1, i) });
-	    if(i == 15) {
-		this.addRecipe(items[i].getItemStackLimit(), new ItemStack(LCBlocks.box.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', new ItemStack(Item.dyePowder, 1, 3) });
-	    }
-	    else {
-		this.addRecipe(items[i].getItemStackLimit(), new ItemStack(LCBlocks.box.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', items[i] });
-	    }
+	    this.addRecipe(Info.items[i].getItem().getItemStackLimit(), new ItemStack(LCBlocks.box.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', Info.items[i]});
+	    this.addRecipe(1, new ItemStack(LCBlocks.crate.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 2), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box.blockID, 1, i)});
+	    this.addRecipe(1, new ItemStack(LCBlocks.crate2.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 2), new Object[] { "###", "###", "###", '#', new ItemStack(LCBlocks.box2.blockID, 1, i)});
+	    this.addRecipe(Info.items2[i].getMaxStackSize(), new ItemStack(LCBlocks.box2.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', Info.items2[i]});
 	}
 	
-	for (int i = 0; i < 16; i++) {
+	/*for (int i = 0; i < 16; i++) {
 	    if(i == 9 ) {
 		this.addRecipe(LCItems.ingotSilver.getItemStackLimit(), new ItemStack(LCBlocks.box2.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', new ItemStack(LCItems.ingotSilver, 1, 0) });
 	    }
@@ -79,7 +72,7 @@ public class StackCraftingManager {
 	    else {
 		this.addRecipe(items2[i].getItemStackLimit(), new ItemStack(LCBlocks.box2.blockID, 1, i), new ItemStack(LCBlocks.chimney, 1, 3), new Object[] { "###", "###", "###", '#', new ItemStack(items2[i], 1, 0) });
 	    }
-	}
+	}*/
 	
 	this.addShapelessRecipe(64, new ItemStack(LCItems.coins, 1, 1), null, new Object[] {new ItemStack(LCItems.coins, 1, 0)});
 	this.addShapelessRecipe(64, new ItemStack(LCItems.coins, 1, 2), null, new Object[] {new ItemStack(LCItems.coins, 1, 1)});

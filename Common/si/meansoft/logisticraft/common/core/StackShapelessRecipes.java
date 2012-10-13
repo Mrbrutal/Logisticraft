@@ -102,4 +102,9 @@ public class StackShapelessRecipes implements IStackRecipe {
 	return stack;
     }
 
+    @Override
+    public ItemStack[] getRecipeItems() {
+	return /*(ItemStack[]) recipeItems.toArray()*/null;
+    }
+
 }
