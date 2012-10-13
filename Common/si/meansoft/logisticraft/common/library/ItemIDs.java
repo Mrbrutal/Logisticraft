@@ -17,5 +17,11 @@ public class ItemIDs {
 	public static int coins;
 	public static int dusts;
 	public static int knife;
+	public static int nails;
+	public static int cardboard;
+	public static int boards;
+	public static int compost;
+	public static int cantaloupe;
+	public static int cantaloupeSeeds;
 	
 }

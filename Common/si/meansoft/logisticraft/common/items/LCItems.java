@@ -30,6 +30,12 @@ public class LCItems {
     public static Item coins;
     public static Item dusts;
     public static Item knife;
+    public static Item nails;
+    public static Item cardboard;
+    public static Item boards;
+    public static Item compost;
+    public static Item cantaloupe;
+    public static Item cantaloupeSeeds;
 
     public static ItemBlockOres ores;
 
@@ -45,6 +51,12 @@ public class LCItems {
 
 	EnumToolMaterial materialKnife = EnumHelper.addToolMaterial("Knife", 1, 50, 5.0F, 1, 7);
 	knife = new ItemKnife(ItemIDs.knife, materialKnife).setIconCoord(1, 0);
+	nails = new ItemNails(ItemIDs.nails).setIconCoord(0, 0);
+	cardboard = new ItemCardboard(ItemIDs.cardboard).setIconCoord(1, 3);
+	boards = new ItemBoards(ItemIDs.boards).setIconCoord(0, 3);
+	compost = new ItemCompost(ItemIDs.compost).setIconCoord(2, 2);
+	cantaloupe = new ItemCantaloupe(ItemIDs.cantaloupe).setIconCoord(0,2);
+	cantaloupeSeeds = new ItemCantaloupeSeeds(ItemIDs.cantaloupeSeeds).setIconCoord(1,2);
     }
 
     /* Item names and translations */
@@ -55,5 +67,9 @@ public class LCItems {
 	knife.setItemName("knife");
 	dusts.setItemName("dust");
 	coins.setItemName("coin");
+	nails.setItemName("nails");
+	cardboard.setItemName("cardboard");
+	boards.setItemName("boards");
+	compost.setItemName("compost");
     }
 }
