@@ -109,6 +109,8 @@ public class Logisticraft {
 		
 		/* Bonemeal */
 		
+		/* Info */
+		Info.initArrays();
 	}
 
 	@PostInit
