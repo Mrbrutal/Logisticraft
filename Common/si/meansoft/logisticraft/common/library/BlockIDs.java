@@ -25,5 +25,7 @@ public class BlockIDs {
 	public static int crate2;
 	public static int crate3;
 	public static int crate4;
+	public static int cantaloupe;
+	public static int cantaloupeStem;
 	
 }

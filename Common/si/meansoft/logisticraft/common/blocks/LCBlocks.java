@@ -9,6 +9,7 @@
 package si.meansoft.logisticraft.common.blocks;
 
 import net.minecraft.src.Block;
+import net.minecraft.src.BlockStem;
 import net.minecraft.src.EnumMobType;
 import net.minecraft.src.Material;
 import si.meansoft.logisticraft.common.items.ItemBlockBox;
@@ -37,6 +38,8 @@ public class LCBlocks {
     public static Block beam;
     public static Block chimney;
     public static Block stackBench;
+    public static Block cantaloupe;
+    public static Block cantaloupeStem;
 
     /* Block declarations */
     public static void loadBlocks() {
@@ -55,12 +58,16 @@ public class LCBlocks {
 	beam = new BlockColorGlass(BlockIDs.beam, 240 - 16, Material.vine).setLightOpacity(0).setLightValue(1.0F);
 	chimney = new BlockChimney(BlockIDs.chimney, 32);
 	stackBench = new BlockStackBench(BlockIDs.stackBench, 20);
+	cantaloupe = new BlockCantaloupe(BlockIDs.cantaloupe, 6);
+	cantaloupeStem = new BlockStem2(BlockIDs.cantaloupeStem, cantaloupe);
     }
 
     /* Block registration */
     public static void registerBlocks() {
 	GameRegistry.registerBlock(playerPlate);
 	GameRegistry.registerBlock(stackBench);
+	GameRegistry.registerBlock(cantaloupe);
+	GameRegistry.registerBlock(cantaloupeStem);
 	GameRegistry.registerBlock(machines, ItemBlockMachines.class);
 	GameRegistry.registerBlock(box, ItemBlockBox.class);
 	GameRegistry.registerBlock(box2, ItemBlockBox.class);
@@ -80,6 +87,8 @@ public class LCBlocks {
     public static void nameBlocks() {
 	playerPlate.setBlockName("pressurePlate");
 	stackBench.setBlockName("stackBench");
+	cantaloupe.setBlockName("cantaloupe");
+	cantaloupeStem.setBlockName("cantaloupeStem");
 	ores.setBlockName("ore");
 	box.setBlockName("box");
 	box2.setBlockName("box2");
