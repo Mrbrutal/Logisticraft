@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import net.minecraft.src.FurnaceRecipes;
+import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.ForgeHooks;
@@ -34,6 +35,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.core.CommonProxy;
 import si.meansoft.logisticraft.common.core.Version;
+import si.meansoft.logisticraft.common.core.handlers.BonemealHandler;
 import si.meansoft.logisticraft.common.core.handlers.ConfigHandler;
 import si.meansoft.logisticraft.common.core.handlers.CraftingHandler;
 import si.meansoft.logisticraft.common.core.handlers.OreHandler;
@@ -80,6 +82,13 @@ public class Logisticraft {
 		
 		/* Generators */
 		GameRegistry.registerWorldGenerator(new WorldGenWorld());
+		
+		/* Register events */
+		MinecraftForge.EVENT_BUS.register(new BonemealHandler());
+		
+		/* Seeds to grass */
+		MinecraftForge.addGrassSeed(new ItemStack(Item.melonSeeds), 8);
+		MinecraftForge.addGrassSeed(new ItemStack(LCItems.cantaloupeSeeds), 12);
 	}
 
 	@Init
@@ -93,13 +102,15 @@ public class Logisticraft {
 				
 		/* Items */
 		LCItems.loadItems();
-		LCItems.nameItems();
-		
+		LCItems.nameItems();		
 
 		/* Blocks */
 		LCBlocks.loadBlocks();
 		LCBlocks.registerBlocks();
 		LCBlocks.nameBlocks();
+		
+		/* Other items/blocks */
+		LCItems.loadItems2();
 		
 		/* Ores */
 		OreHandler.registerOres();
