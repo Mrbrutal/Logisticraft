@@ -23,5 +23,6 @@ public class RecipesItems {
 	GameRegistry.addRecipe(new ItemStack(LCItems.cardboard, 9, 0), new Object[] {"###", "#$#", "###", Character.valueOf('#'), Item.paper, Character.valueOf('$'), Item.slimeBall});
 	GameRegistry.addRecipe(new ItemStack(LCItems.boards, 6, 0), new Object[] {" # ", " # ", " # ", Character.valueOf('#'), Block.wood});
 	GameRegistry.addRecipe(new ItemStack(LCItems.nails, 6, 0), new Object[] {" # ", " # ", " # ", Character.valueOf('#'), Item.ingotIron});
+	GameRegistry.addRecipe(new ItemStack(LCItems.knife), new Object[] {"  #", " # ", "$  ", Character.valueOf('#'), Item.ingotIron, Character.valueOf('$'), Item.stick});
     }
 }
