@@ -14,6 +14,7 @@ import cpw.mods.fml.common.IWorldGenerator;
 public class WorldGenWorld implements IWorldGenerator {
 
     WorldGenMelon watermelon;
+    WorldGenMelon cantaloupe;
 
     public WorldGenWorld() {}
 
@@ -22,6 +23,10 @@ public class WorldGenWorld implements IWorldGenerator {
 
 	watermelon = new WorldGenMelon(Block.melon.blockID);
 	watermelon.watermelon(random, chunkX, chunkZ, world);
+	
+	cantaloupe = new WorldGenMelon(LCBlocks.cantaloupe.blockID);
+	cantaloupe.watermelon(random, chunkX, chunkZ, world);
+	
 
 	WorldGenOres CopperOres = new WorldGenOres(LCBlocks.ores.blockID, 2, 10);
 	WorldGenOres SilverOres = new WorldGenOres(LCBlocks.ores.blockID, 1, 6);
