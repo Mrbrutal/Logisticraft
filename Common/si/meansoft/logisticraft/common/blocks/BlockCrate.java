@@ -48,8 +48,14 @@ public class BlockCrate extends Block {
 	if (this.blockID == LCBlocks.crate.blockID) {
 	    ret.add(new ItemStack(LCBlocks.box, 9, this.damageDropped(metadata)));
 	}
-	else {
+	else if (this.blockID == LCBlocks.crate2.blockID) {
 	    ret.add(new ItemStack(LCBlocks.box2, 9, this.damageDropped(metadata)));
+	}
+	else if (this.blockID == LCBlocks.crate3.blockID) {
+	    ret.add(new ItemStack(LCBlocks.box3, 9, this.damageDropped(metadata)));
+	}
+	else {
+	    ret.add(new ItemStack(LCBlocks.box4, 9, this.damageDropped(metadata)));
 	}
 	return ret;
     }

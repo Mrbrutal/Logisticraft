@@ -47,11 +47,7 @@ public class BlockMachines extends Block {
 	blockIndexInTexture = par2;
 	onState = state;
 	setCreativeTab(CreativeTabs.tabBlock);
-    }
-
-    @Override
-    public String getTextureFile() {
-	return Info.TEX_BLOCK;
+	setTextureFile(Info.TEX_BLOCK);
     }
 
     @Override
@@ -143,67 +139,57 @@ public class BlockMachines extends Block {
 
     public void onBlockAdded(World world, int x, int y, int z) {
 	int mb = world.getBlockMetadata(x, y, z);
-	if (!world.isRemote) {
-	    if (mb == 0 || mb == 1) {
-		Material mat = world.getBlockMaterial(x, y - 1, z);
-		if (isActive(world, x, y, z) && (mat == Material.lava)) {
-		    world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 1);
-		    world.setBlockMetadataWithNotify(x, y - 1, z, 2);
-		    expand(world, x, y - 1, z);
-		}
-		else {
-		    onState = false;
-		    world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 0);
-		}
+	if (mb == 0 || mb == 1) {
+	    Material mat = world.getBlockMaterial(x, y - 1, z);
+	    if (isActive(world, x, y, z) && (mat == Material.lava)) {
+		world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 1);
+		world.setBlockMetadataWithNotify(x, y - 1, z, 2);
+		expand(world, x, y - 1, z);
 	    }
-	    else if (mb == 4 || mb == 5) {
-		world.setBlockAndMetadata(x, y, z, blockID, 0);
-		update(world, x, y, z);
+	    else {
+		onState = false;
+		world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 0);
 	    }
-	    else if (mb == 3) {
-		if (isActive(world, x, y, z)) {
-		    world.setWorldTime(1000);
-		    EntityPlayer player = FMLClientHandler.instance().getClient().thePlayer;
-		    player.sendChatToPlayer("Setting time to day!");
-		}
+	}
+	else if (mb == 4 || mb == 5) {
+	    world.setBlockAndMetadata(x, y, z, blockID, 0);
+	    update(world, x, y, z);
+	}
+	else if (mb == 3) {
+	    if (isActive(world, x, y, z)) {
+		world.setWorldTime(1000);
 	    }
 	}
     }
 
     public void onBlockRemoval(World world, int x, int y, int z) {
-	if (!world.isRemote) {
-	    if (world.getBlockMetadata(x, y, z) == 4 || world.getBlockMetadata(x, y, z) == 5) {
-		update(world, x, y, z);
-	    }
+	if (world.getBlockMetadata(x, y, z) == 4 || world.getBlockMetadata(x, y, z) == 5) {
+	    update(world, x, y, z);
 	}
     }
 
     public void onNeighborBlockChange(World world, int x, int y, int z, int neighborBlockID) {
 	int mb = world.getBlockMetadata(x, y, z);
-	if (!world.isRemote) {
-	    if (mb == 0 || mb == 1) {
-		Material mat = world.getBlockMaterial(x, y - 1, z);
-		if (isActive(world, x, y, z) && (mat == Material.lava)) {
-		    world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 1);
-		    world.setBlockMetadataWithNotify(x, y - 1, z, 2);
-		    expand(world, x, y - 1, z);
-		}
-		else {
-		    onState = false;
-		    world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 0);
-		}
+	if (mb == 0 || mb == 1) {
+	    Material mat = world.getBlockMaterial(x, y - 1, z);
+	    if (isActive(world, x, y, z) && (mat == Material.lava)) {
+		world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 1);
+		world.setBlockMetadataWithNotify(x, y - 1, z, 2);
+		expand(world, x, y - 1, z);
 	    }
-	    else if (mb == 4 || mb == 5) {
-		update(world, x, y, z);
+	    else {
+		onState = false;
+		world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, 0);
 	    }
-	    else if (mb == 3) {
-		if (isActive(world, x, y, z)) {
-		    world.setWorldTime(1000);
-		    EntityPlayer player = FMLClientHandler.instance().getClient().thePlayer;
-		    player.sendChatToPlayer("Setting time to day!");
-		    //world.spawnParticle("portal", player.posX, player.posY, player.posZ, 0.0D, 0.0D, 0.0D);
-		    //world.spawnParticle("largesmoke", player.posX, player.posY, player.posZ, 0.0D, 1.0D, 0.0D);
-		}
+	}
+	else if (mb == 4 || mb == 5) {
+	    update(world, x, y, z);
+	}
+	else if (mb == 3) {
+	    if (isActive(world, x, y, z)) {
+		world.setWorldTime(1000);
+		//EntityPlayer player = FMLClientHandler.instance().getClient().thePlayer;
+		//player.sendChatToPlayer("Setting time to day!");
 	    }
 	}
     }
@@ -225,11 +211,13 @@ public class BlockMachines extends Block {
     }
 
     public void setMetadata(World world, int x, int y, int z, boolean isActive) {
-	int oldMeta = world.getBlockMetadata(x, y, z);
-	int newMeta = (oldMeta & 0xe) | (isActive ? 5 : 4);
-	if (oldMeta != newMeta) {
-	    world.setBlockMetadata(x, y, z, newMeta);
-	    world.markBlockNeedsUpdate(x, y, z);
+	if (!world.isRemote) {
+	    int oldMeta = world.getBlockMetadata(x, y, z);
+	    int newMeta = (oldMeta & 0xe) | (isActive ? 5 : 4);
+	    if (oldMeta != newMeta) {
+		world.setBlockMetadata(x, y, z, newMeta);
+		world.markBlockNeedsUpdate(x, y, z);
+	    }
 	}
     }
 
@@ -295,32 +283,34 @@ public class BlockMachines extends Block {
 	float var8;
 	float var9;
 	double doub = 0.0D;
-	if (world.getBlockMetadata(par2, par3, par4) == 2) {
-	    for (var6 = 0; var6 < var5; ++var6) {
-		var7 = (float) par2 + random.nextFloat() * 0.1F;
-		var8 = (float) par3 + random.nextFloat();
-		var9 = (float) par4 + random.nextFloat();
-		world.spawnParticle("largesmoke", (double) var7, (double) var8, (double) var9, doub, doub, doub);
+	if (!world.isRemote) {
+	    if (world.getBlockMetadata(par2, par3, par4) == 2) {
+		for (var6 = 0; var6 < var5; ++var6) {
+		    var7 = (float) par2 + random.nextFloat() * 0.1F;
+		    var8 = (float) par3 + random.nextFloat();
+		    var9 = (float) par4 + random.nextFloat();
+		    world.spawnParticle("largesmoke", (double) var7, (double) var8, (double) var9, doub, doub, doub);
 
-		var7 = (float) (par2 + 1) - random.nextFloat() * 0.1F;
-		var8 = (float) par3 + random.nextFloat();
-		var9 = (float) par4 + random.nextFloat();
-		world.spawnParticle("largesmoke", (double) var7, (double) var8, (double) var9, doub, doub, doub);
+		    var7 = (float) (par2 + 1) - random.nextFloat() * 0.1F;
+		    var8 = (float) par3 + random.nextFloat();
+		    var9 = (float) par4 + random.nextFloat();
+		    world.spawnParticle("largesmoke", (double) var7, (double) var8, (double) var9, doub, doub, doub);
 
-		var7 = (float) par2 + random.nextFloat();
-		var8 = (float) par3 + random.nextFloat();
-		var9 = (float) par4 + random.nextFloat() * 0.1F;
-		world.spawnParticle("largesmoke", (double) var7, (double) var8, (double) var9, doub, doub, doub);
+		    var7 = (float) par2 + random.nextFloat();
+		    var8 = (float) par3 + random.nextFloat();
+		    var9 = (float) par4 + random.nextFloat() * 0.1F;
+		    world.spawnParticle("largesmoke", (double) var7, (double) var8, (double) var9, doub, doub, doub);
 
-		var7 = (float) par2 + random.nextFloat();
-		var8 = (float) par3 + random.nextFloat();
-		var9 = (float) (par4 + 1) - random.nextFloat() * 0.1F;
-		world.spawnParticle("largesmoke", (double) var7, (double) var8, (double) var9, doub, doub, doub);
+		    var7 = (float) par2 + random.nextFloat();
+		    var8 = (float) par3 + random.nextFloat();
+		    var9 = (float) (par4 + 1) - random.nextFloat() * 0.1F;
+		    world.spawnParticle("largesmoke", (double) var7, (double) var8, (double) var9, doub, doub, doub);
 
-		var7 = (float) par2 + random.nextFloat();
-		var8 = (float) par3 + random.nextFloat() * 0.5F + 0.5F;
-		var9 = (float) par4 + random.nextFloat();
-		world.spawnParticle("largesmoke", (double) par2, (double) var8, (double) par4, doub, doub, doub);
+		    var7 = (float) par2 + random.nextFloat();
+		    var8 = (float) par3 + random.nextFloat() * 0.5F + 0.5F;
+		    var9 = (float) par4 + random.nextFloat();
+		    world.spawnParticle("largesmoke", (double) par2, (double) var8, (double) par4, doub, doub, doub);
+		}
 	    }
 	}
     }

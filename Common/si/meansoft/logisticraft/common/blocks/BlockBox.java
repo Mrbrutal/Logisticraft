@@ -59,7 +59,7 @@ public class BlockBox extends Block {
 	}
 	else {
 	    for (int i = 0; i < 9; i++) {
-		ret.add(new ItemStack(Info.items2[metadata].getItem(), Info.items2[metadata].getMaxStackSize(), Info.items2[i].getItemDamage()));
+		ret.add(new ItemStack(Info.items4[metadata].getItem(), Info.items4[metadata].getMaxStackSize(), Info.items4[i].getItemDamage()));
 	    }
 	}
 	return ret;
