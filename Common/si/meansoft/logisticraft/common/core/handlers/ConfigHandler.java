@@ -53,6 +53,8 @@ public class ConfigHandler {
             BlockIDs.beam = cf.getOrCreateIntProperty("block_beam", CATEGORY_BLOCK, 412).getInt(412);
             BlockIDs.chimney = cf.getOrCreateIntProperty("block_chimney", CATEGORY_BLOCK, 413).getInt(413);
             BlockIDs.stackBench = cf.getOrCreateIntProperty("block_stack_bench", CATEGORY_BLOCK, 414).getInt(414);
+            BlockIDs.cantaloupe = cf.getOrCreateIntProperty("block_cantaloupe", CATEGORY_BLOCK, 415).getInt(415);
+            BlockIDs.cantaloupeStem = cf.getOrCreateIntProperty("block_cantaloupe_stem", CATEGORY_BLOCK, 416).getInt(416);
             
             /* Item */
             ItemIDs.ingotCopper = cf.getOrCreateIntProperty("ingot_copper", Configuration.CATEGORY_ITEM, 1100).getInt();
