@@ -8,17 +8,22 @@
 
 package si.meansoft.logisticraft.common.items;
 
+import net.minecraft.src.Block;
 import net.minecraft.src.CraftingManager;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemBlock;
+import net.minecraft.src.ItemFood;
+import net.minecraft.src.ItemSeeds;
 import net.minecraft.src.ItemStack;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.library.BlockIDs;
+import si.meansoft.logisticraft.common.library.Info;
 import si.meansoft.logisticraft.common.library.ItemIDs;
 
 public class LCItems {
@@ -55,8 +60,14 @@ public class LCItems {
 	cardboard = new ItemCardboard(ItemIDs.cardboard).setIconCoord(1, 3);
 	boards = new ItemBoards(ItemIDs.boards).setIconCoord(0, 3);
 	compost = new ItemCompost(ItemIDs.compost).setIconCoord(2, 2);
-	cantaloupe = new ItemCantaloupe(ItemIDs.cantaloupe).setIconCoord(0,2);
-	cantaloupeSeeds = new ItemCantaloupeSeeds(ItemIDs.cantaloupeSeeds).setIconCoord(1,2);
+	cantaloupe = new ItemFood(ItemIDs.cantaloupe, 2, 0.3F, false).setIconCoord(0,2);
+	cantaloupe.setTextureFile(Info.TEX_ITEM);
+    }
+    
+    public static void loadItems2() {
+	cantaloupeSeeds = new ItemSeeds(ItemIDs.cantaloupeSeeds, LCBlocks.cantaloupeStem.blockID, Block.tilledField.blockID).setIconCoord(1,2);
+	cantaloupeSeeds.setTextureFile(Info.TEX_ITEM);
+	cantaloupeSeeds.setItemName("cantaloupeSeeds");
     }
 
     /* Item names and translations */
@@ -71,5 +82,6 @@ public class LCItems {
 	cardboard.setItemName("cardboard");
 	boards.setItemName("boards");
 	compost.setItemName("compost");
+	cantaloupe.setItemName("cantaloupe");
     }
 }
