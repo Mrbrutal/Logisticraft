@@ -20,7 +20,7 @@
     <entry key="item.cardboard.name">Cardboard</entry>
     <entry key="item.boards.name">Boards</entry>
     <entry key="item.compost.name">Compost</entry>
-    <entry key="item.cantaloupe.name">Canteloupe</entry>
+    <entry key="item.cantaloupe.name">Canteloupe slice</entry>
     <entry key="item.cantaloupeSeeds.name">Canteloupe seeds</entry>
     
     <!-- BlOCKS -->
@@ -29,6 +29,7 @@
     <entry key="tile.ore.copper.name">Copper ore</entry>
     <entry key="tile.ore.silver.name">Silver ore</entry>
     <entry key="tile.ore.platinum.name">Platinum ore</entry>
+    <entry key="tile.cantaloupe.name">Cantaloupe</entry>
     <!-- BlOCKS BOX -->
     <entry key="tile.box.wheat.name">Box of wheat</entry>
     <entry key="tile.box.sugarcane.name">Box of sugarcane</entry>
@@ -98,6 +99,23 @@
     <entry key="tile.box4.redstoneLamp.name">Box of redstone lamps</entry>
     <entry key="tile.box4.torches.name">Box of torches</entry>
     
+    <entry key="tile.box5.rubberWood.name">Box of rubber wood</entry>
+    <entry key="tile.box5.reinforcedStone.name">Box of reinforced stone</entry>
+    <entry key="tile.box5.reinforcedGlass.name">Box of reinforced glass</entry>
+    <entry key="tile.box5.scaffoldWooden.name">Box of wood scaffolding</entry>
+    <entry key="tile.box5.scaffoldIron.name">Box of iron scaffolding</entry>
+    <entry key="tile.box5.rubberSapling.name">Box of rubber saplings</entry>
+    <entry key="tile.box5.rubber.name">Box of rubber</entry>
+    <entry key="tile.box5.refinedIron.name">Box of refined iron</entry>
+    <entry key="tile.box5.tin.name">Box of tin</entry>
+    <entry key="tile.box5.bronze.name">Box bronze</entry>
+    <entry key="tile.box5.uranium.name">Box of uranium</entry>
+    <entry key="tile.box5.scrap.name">Box of scrap</entry>
+    <entry key="tile.box5.uuMatter.name">Box of uu matter</entry>
+    <entry key="tile.box5.advancedAlloy.name">Box advanced alloy</entry>
+    <entry key="tile.box5.iridiumOre.name">Box of iridium ore</entry>
+    <entry key="tile.box5.plantBall.name">Box of plant balls</entry>
+    
     <!-- BlOCKS CRATE -->
     <entry key="tile.crate.wheat.name">Crate of wheat</entry>
     <entry key="tile.crate.sugarcane.name">Crate of sugarcane</entry>
@@ -165,6 +183,23 @@
     <entry key="tile.crate4.netherBricks.name">Crate of netherbricks</entry>
     <entry key="tile.crate4.redstoneLamp.name">Crate of redstone lamps</entry>
     <entry key="tile.crate4.torches.name">Crate of torches</entry>
+    
+    <entry key="tile.crate5.rubberWood.name">Crate of rubber wood</entry>
+    <entry key="tile.crate5.reinforcedStone.name">Crate of reinforced stone</entry>
+    <entry key="tile.crate5.reinforcedGlass.name">Crate of reinforced glass</entry>
+    <entry key="tile.crate5.scaffoldWooden.name">Crate of wood scaffolding</entry>
+    <entry key="tile.crate5.scaffoldIron.name">Crate of iron scaffolding</entry>
+    <entry key="tile.crate5.rubberSapling.name">Crate of rubber saplings</entry>
+    <entry key="tile.crate5.rubber.name">Crate of rubber</entry>
+    <entry key="tile.crate5.refinedIron.name">Crate of refined iron</entry>
+    <entry key="tile.crate5.tin.name">Crate of tin</entry>
+    <entry key="tile.crate5.bronze.name">Crate bronze</entry>
+    <entry key="tile.crate5.uranium.name">Crate of uranium</entry>
+    <entry key="tile.crate5.scrap.name">Crate of scrap</entry>
+    <entry key="tile.crate5.uuMatter.name">Crate of uu matter</entry>
+    <entry key="tile.crate5.advancedAlloy.name">Crate advanced alloy</entry>
+    <entry key="tile.crate5.iridiumOre.name">Crate of iridium ore</entry>
+    <entry key="tile.crate5.plantBall.name">Crate of plant balls</entry>
     
     <entry key="tile.coloredGlass.black.name">Black tinted glass</entry>
     <entry key="tile.coloredGlass.red.name">Red tinted glass</entry>
