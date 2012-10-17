@@ -27,14 +27,14 @@ public class WorldGenMelon extends WorldGenerator {
     }
 
     public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5) {
-	for (int var6 = 0; var6 < 64; ++var6) {
+	for (int var6 = 0; var6 < 128; ++var6) {
 	    int var7 = par3 + par2Random.nextInt(8) - par2Random.nextInt(8);
 	    int var8 = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
 	    int var9 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
 
 	    if (par1World.isAirBlock(var7, var8, var9) && (par1World.getBlockId(var7, var8 - 1, var9) == Block.grass.blockID || par1World.getBlockId(var7, var8 - 1, var9) == Block.dirt.blockID) && Block.melon.canPlaceBlockAt(par1World, var7, var8, var9)) {
 		par1World.setBlock(var7, var8, var9, genBlockId);
-		// System.out.println("Generating melons at " + var7 +" | "+ var8 +" | " + var9);
+		//System.out.println("Generating melons at " + var7 +" | "+ var8 +" | " + var9);
 	    }
 	}
 	return true;
@@ -45,7 +45,13 @@ public class WorldGenMelon extends WorldGenerator {
 	if (b.biomeName.equals("Forest") || b.biomeName.equals("Plains") || b.biomeName.equals("ForestHills") || b.biomeName.equals("Extreme Hills") && !b.getEnableSnow()) {
 	    if (random.nextInt(64) == 0) {
 		int var2 = chunkX * 16 - random.nextInt(16);
-		int var3 = world.getTopSolidOrLiquidBlock(chunkX, chunkZ);
+		int var3;
+		if(world.getTopSolidOrLiquidBlock(chunkX, chunkZ) > 64) {
+		    var3 = world.getTopSolidOrLiquidBlock(chunkX, chunkZ);
+		}
+		else {
+		    var3 = 64 + random.nextInt(16);
+		}
 		int var4 = chunkZ * 16 - random.nextInt(16);
 		generate(world, random, var2, var3, var4);
 	    }

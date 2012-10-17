@@ -22,10 +22,14 @@ public class WorldGenWorld implements IWorldGenerator {
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 
 	watermelon = new WorldGenMelon(Block.melon.blockID);
-	watermelon.watermelon(random, chunkX, chunkZ, world);
+	if (ConfigHandler.GEN_MELON) {
+	    watermelon.watermelon(random, chunkX, chunkZ, world);
+	}
 	
 	cantaloupe = new WorldGenMelon(LCBlocks.cantaloupe.blockID);
-	cantaloupe.watermelon(random, chunkX, chunkZ, world);
+	if (ConfigHandler.GEN_CANTALOUPE) {
+	    cantaloupe.watermelon(random, chunkX, chunkZ, world);
+	}
 	
 
 	WorldGenOres CopperOres = new WorldGenOres(LCBlocks.ores.blockID, 2, 10);
@@ -33,10 +37,10 @@ public class WorldGenWorld implements IWorldGenerator {
 	WorldGenOres PlatinumOres = new WorldGenOres(LCBlocks.ores.blockID, 0, 3);
 
 	if (ConfigHandler.GEN_ORE_COPPER) {
-	    CopperOres.generateVeins(world, random, chunkX * 16, chunkZ * 16, 12, 128);
+	    CopperOres.generateVeins(world, random, chunkX * 16, chunkZ * 16, 24, 128);
 	}
 	if (ConfigHandler.GEN_ORE_SILVER) {
-	    SilverOres.generateVeins(world, random, chunkX * 16, chunkZ * 16, 6, 32);
+	    SilverOres.generateVeins(world, random, chunkX * 16, chunkZ * 16, 12, 32);
 	}
 	if (ConfigHandler.GEN_ORE_PLATINUM) {
 	    PlatinumOres.generateVeins(world, random, chunkX * 16, chunkZ * 16, 2, 14);
