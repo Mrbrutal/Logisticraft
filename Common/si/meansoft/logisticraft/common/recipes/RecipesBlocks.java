@@ -30,5 +30,6 @@ public class RecipesBlocks {
 		GameRegistry.addRecipe(new ItemStack(LCBlocks.machines, 1, 0), new Object[]{"$&$","X#X","XXX", Character.valueOf('#'), Item.bucketWater, Character.valueOf('X'), Block.cobblestone, Character.valueOf('$'), Item.ingotIron, Character.valueOf('&'), Item.diamond});
 		GameRegistry.addRecipe(new ItemStack(LCBlocks.machines, 1, 3), new Object[]{"XXX","X#X","XXX", Character.valueOf('#'), Item.bed, Character.valueOf('X'), Block.stone});
 		GameRegistry.addRecipe(new ItemStack(LCBlocks.machines, 1, 4), new Object[]{"X$X","X#X","XXX", Character.valueOf('#'), Block.redstoneLampIdle, Character.valueOf('X'), Block.stone, Character.valueOf('$'), Block.glass});
+		GameRegistry.addRecipe(new ItemStack(LCBlocks.playerPlate, 1, 0), new Object[]{"   ","   ","XXX", Character.valueOf('X'), Block.stoneBrick});
 	}
 }

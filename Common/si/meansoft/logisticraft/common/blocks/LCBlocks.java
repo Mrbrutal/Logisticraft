@@ -28,10 +28,16 @@ public class LCBlocks {
     public static Block box2;
     public static Block box3;
     public static Block box4;
+    public static Block box5;
+    public static Block box6;
+    public static Block box7;
     public static Block crate;
     public static Block crate2;
     public static Block crate3;
     public static Block crate4;
+    public static Block crate5;
+    public static Block crate6;
+    public static Block crate7;
     public static Block playerPlate;
     public static Block coloredGlass;
     public static Block machines;

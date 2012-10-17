@@ -54,6 +54,9 @@ public class BlockCrate extends Block {
 	else if (this.blockID == LCBlocks.crate3.blockID) {
 	    ret.add(new ItemStack(LCBlocks.box3, 9, this.damageDropped(metadata)));
 	}
+	else if (this.blockID == LCBlocks.crate5.blockID) {
+	    ret.add(new ItemStack(LCBlocks.box5, 9, this.damageDropped(metadata)));
+	}
 	else {
 	    ret.add(new ItemStack(LCBlocks.box4, 9, this.damageDropped(metadata)));
 	}
@@ -208,7 +211,7 @@ public class BlockCrate extends Block {
 	}
     }
 
-    public void updateTick(World world, int x, int y, int z, Random random) {
+    /*public void updateTick(World world, int x, int y, int z, Random random) {
 	int getId = world.getBlockId(x, y, z);
 	int meta = world.getBlockMetadata(x, y, z);
 	int crate = LCBlocks.chimney.blockID;
@@ -228,5 +231,5 @@ public class BlockCrate extends Block {
 		}
 	    }
 	}
-    }
+    }*/
 }

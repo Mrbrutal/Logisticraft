@@ -43,6 +43,7 @@ public class Info {
     public static final String[] crateNames2 = { "bonemeal", "blazeRods", "enderPearls", "leather", "inkSacks", "glowstoneDust", "redstone", "gunPowder", "ironIngots", "silverIngots", "copperIngots", "flint", "coal", "string", "seeds", "arrows" };
     public static final String[] crateNames3 = { "smoothStone", "cobbleStone", "dirt", "sand", "gravel", "bricks", "mossy", "obsidian", "stoneBricks", "cacti", "netherRack", "slowSand", "glowStone", "pumpkins", "glass", "sandStone" };
     public static final String[] crateNames4 = { "oakWood", "pineWood", "birchWood", "jungleWood", "oakPlanks", "pinePlanks", "birchPlanks", "junglePlanks", "mossyStoneBricks", "brokenStoneBricks", "decStoneBricks", "creeperSandStone", "smoothSandStone", "netherBricks", "redstoneLamp", "torches" };
+    public static final String[] crateNames5 = { "rubberWood", "reinforcedStone", "reinforcedGlass", "scaffoldWooden", "scaffoldIron", "rubberSapling", "rubber", "refinedIron", "tin", "bronze", "uranium", "scrap", "uuMatter", "advancedAlloy", "iridiumOre", "plantBall" };
     public static final String[] glassNames = { "black", "red", "green", "brown", "blue", "purple", "cyan", "lightGrey", "darkGrey", "pink", "lightGreen", "yellow", "lightBlue", "magenta", "orange", "white" };
     
     /* Item arrays for crates/boxes */    

@@ -5,6 +5,7 @@ import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.items.LCItems;
 import net.minecraft.src.Block;
 import net.minecraft.src.CraftingManager;
+import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
@@ -24,5 +25,10 @@ public class RecipesItems {
 	GameRegistry.addRecipe(new ItemStack(LCItems.boards, 6, 0), new Object[] {" # ", " # ", " # ", Character.valueOf('#'), Block.wood});
 	GameRegistry.addRecipe(new ItemStack(LCItems.nails, 6, 0), new Object[] {" # ", " # ", " # ", Character.valueOf('#'), Item.ingotIron});
 	GameRegistry.addRecipe(new ItemStack(LCItems.knife), new Object[] {"  #", " # ", "$  ", Character.valueOf('#'), Item.ingotIron, Character.valueOf('$'), Item.stick});
+	
+	/* Furnace recipes */
+	FurnaceRecipes.smelting().addSmelting(LCItems.dusts.shiftedIndex, 0, new ItemStack(LCItems.ingotCopper));
+	FurnaceRecipes.smelting().addSmelting(LCItems.dusts.shiftedIndex, 1, new ItemStack(LCItems.ingotSilver));
+	FurnaceRecipes.smelting().addSmelting(LCItems.dusts.shiftedIndex, 2, new ItemStack(LCItems.ingotPlatinum));
     }
 }

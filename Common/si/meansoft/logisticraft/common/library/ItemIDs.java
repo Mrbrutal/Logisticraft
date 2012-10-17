@@ -24,4 +24,17 @@ public class ItemIDs {
 	public static int cantaloupe;
 	public static int cantaloupeSeeds;
 	
+	/* Mod IDs */
+		/* IC2 */
+		public static int rubberSapling;
+		public static int rubber;
+		public static int refinedIron;
+		public static int tin;
+		public static int bronze;
+		public static int uranium;
+		public static int scrap;
+		public static int uuMatter;
+		public static int advancedAlloy;
+		public static int iridiumOre;
+		public static int plantBall;
 }

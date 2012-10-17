@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 import si.meansoft.logisticraft.common.core.Crate;
+import si.meansoft.logisticraft.common.core.handlers.ModHandler;
 import si.meansoft.logisticraft.common.items.LCItems;
 import si.meansoft.logisticraft.common.library.Info;
 import net.minecraft.src.Block;
@@ -55,6 +56,11 @@ public class BlockBox extends Block {
 	else if(this.blockID == LCBlocks.box3.blockID){
 	    for (int i = 0; i < 9; i++) {
 		ret.add(new ItemStack(Info.items3[metadata].getItem(), Info.items3[metadata].getMaxStackSize(), Info.items3[i].getItemDamage()));
+	    }
+	}
+	else if(this.blockID == LCBlocks.box5.blockID){
+	    for (int i = 0; i < 9; i++) {
+		ret.add(new ItemStack(ModHandler.ic2Items[metadata].getItem(), ModHandler.ic2Items[metadata].getMaxStackSize(), ModHandler.ic2Items[i].getItemDamage()));
 	    }
 	}
 	else {
@@ -208,7 +214,7 @@ public class BlockBox extends Block {
 	}
     }
 
-    public void updateTick(World world, int x, int y, int z, Random random) {
+    /*public void updateTick(World world, int x, int y, int z, Random random) {
 	int getId = world.getBlockId(x, y, z);
 	int meta = world.getBlockMetadata(x, y, z);
 	int crate = LCBlocks.chimney.blockID;
@@ -229,5 +235,5 @@ public class BlockBox extends Block {
 		}
 	    }
 	}
-    }
+    }*/
 }

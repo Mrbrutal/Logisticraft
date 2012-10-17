@@ -9,6 +9,7 @@ package si.meansoft.logisticraft.common;
 
 import java.io.File;
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,7 +20,9 @@ import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PostInit;
@@ -38,6 +41,7 @@ import si.meansoft.logisticraft.common.core.Version;
 import si.meansoft.logisticraft.common.core.handlers.BonemealHandler;
 import si.meansoft.logisticraft.common.core.handlers.ConfigHandler;
 import si.meansoft.logisticraft.common.core.handlers.CraftingHandler;
+import si.meansoft.logisticraft.common.core.handlers.ModHandler;
 import si.meansoft.logisticraft.common.core.handlers.OreHandler;
 import si.meansoft.logisticraft.common.core.handlers.PacketHandler;
 import si.meansoft.logisticraft.common.core.util.Localization;
@@ -48,82 +52,83 @@ import si.meansoft.logisticraft.common.items.LCItems;
 import si.meansoft.logisticraft.common.library.BlockIDs;
 import si.meansoft.logisticraft.common.library.Info;
 import si.meansoft.logisticraft.common.recipes.RecipesBlocks;
+import si.meansoft.logisticraft.common.recipes.RecipesIC2;
 import si.meansoft.logisticraft.common.recipes.RecipesItems;
+import si.meansoft.logisticraft.common.recipes.RecipesStack;
 
-@Mod(modid = Info.modID, name = Info.modName, version = Info.modVersion)
-@NetworkMod(channels = { Info.channel }, clientSideRequired = true, serverSideRequired = true, packetHandler = PacketHandler.class)
+@Mod(modid = Info.modID, name = Info.modName, version = Info.modVersion) 
+@NetworkMod(channels = { Info.channel }, clientSideRequired = true, serverSideRequired = true, packetHandler = PacketHandler.class) 
 public class Logisticraft {
 
-	/* Logisticraft instance */
-	@Instance(Info.modID)
-	public static Logisticraft instance;
-	
-	/* Sided proxies and proxy */
-	@SidedProxy(clientSide = "si.meansoft.logisticraft.client.core.ClientProxy", serverSide = "si.meansoft.logisticraft.common.core.CommonProxy")
-	public static CommonProxy proxy;
-	
-	/* Logger */
-	public static Logger lcLog = Logger.getLogger(Info.modID);
+    /* Logisticraft instance */
+    @Instance(Info.modID) public static Logisticraft instance;
 
-	@PreInit
-	public void preInit(FMLPreInitializationEvent event) {
-		event.getModMetadata().version = Version.fullVer();
-		lcLog.setParent(FMLLog.getLogger());
-		lcLog.info("Starting Logisticraft " + Version.fullVer() + "!");
-		
-		/* Localisation */
-		LocalizationHandler.load();
+    /* Sided proxies and proxy */
+    @SidedProxy(clientSide = "si.meansoft.logisticraft.client.core.ClientProxy", serverSide = "si.meansoft.logisticraft.common.core.CommonProxy") public static CommonProxy proxy;
 
-		/* Register config file */
-		ConfigHandler.init(new File(event.getModConfigurationDirectory(), Info.modName + ".cfg"));
-		
-		/* Preload textures */
-		proxy.preloadTextures();
-		
-		/* Generators */
-		GameRegistry.registerWorldGenerator(new WorldGenWorld());
-		
-		/* Register events */
-		MinecraftForge.EVENT_BUS.register(new BonemealHandler());
-		
-		/* Seeds to grass */
-		MinecraftForge.addGrassSeed(new ItemStack(Item.melonSeeds), 8);
-		MinecraftForge.addGrassSeed(new ItemStack(LCItems.cantaloupeSeeds), 12);
-	}
+    /* Logger */
+    public static Logger lcLog = Logger.getLogger(Info.modID);
 
-	@Init
-	public void load(FMLInitializationEvent evt) {
-		
-	    	// Register the GUI Handler
-		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
-		
-		// Register the Crafting Handler
-	        GameRegistry.registerCraftingHandler(new CraftingHandler());
-				
-		/* Items */
-		LCItems.loadItems();
-		LCItems.nameItems();		
+    @PreInit
+    public void preInit(FMLPreInitializationEvent event) {
+	event.getModMetadata().version = Version.fullVer();
+	lcLog.setParent(FMLLog.getLogger());
+	lcLog.info("Starting Logisticraft " + Version.fullVer() + "!");
 
-		/* Blocks */
-		LCBlocks.loadBlocks();
-		LCBlocks.registerBlocks();
-		LCBlocks.nameBlocks();
-		
-		/* Other items/blocks */
-		LCItems.loadItems2();
-		
-		/* Ores */
-		OreHandler.registerOres();
-		
-		/* Recipes */
-		RecipesBlocks.blockRecipes();
-		RecipesItems.itemRecipes();
-		
-		/* Bonemeal */
-	}
+	/* Localisation */
+	LocalizationHandler.load();
 
-	@PostInit
-	public void modsLoaded(FMLPostInitializationEvent evt) {
-		// All the mod checking here
-	}
+	/* Register config file */
+	ConfigHandler.init(new File(event.getModConfigurationDirectory(), Info.modName + ".cfg"));
+
+	/* Preload textures */
+	proxy.preloadTextures();
+
+	/* Generators */
+	GameRegistry.registerWorldGenerator(new WorldGenWorld());
+
+	/* Register events */
+	MinecraftForge.EVENT_BUS.register(new BonemealHandler());
+    }
+
+    @Init
+    public void load(FMLInitializationEvent evt) {
+
+	// Register the GUI Handler
+	NetworkRegistry.instance().registerGuiHandler(instance, proxy);
+
+	// Register the Crafting Handler
+	GameRegistry.registerCraftingHandler(new CraftingHandler());
+
+	/* Items */
+	LCItems.loadItems();
+	LCItems.nameItems();
+
+	/* Blocks */
+	LCBlocks.loadBlocks();
+	LCBlocks.registerBlocks();
+	LCBlocks.nameBlocks();
+
+	/* Other items/blocks */
+	LCItems.loadItems2();
+
+	/* Ores */
+	OreHandler.registerOres();
+
+	/* Recipes */
+	RecipesBlocks.blockRecipes();
+	RecipesItems.itemRecipes();
+	//RecipesStack.addRecipes();
+
+	/* Seeds to grass */
+	MinecraftForge.addGrassSeed(new ItemStack(Item.melonSeeds), 6);
+	MinecraftForge.addGrassSeed(new ItemStack(LCItems.cantaloupeSeeds), 10);
+    }
+
+    @PostInit
+    public void modsLoaded(FMLPostInitializationEvent evt) {
+	ModHandler.init();
+
+	RecipesIC2.addIC2Recipes();
+    }
 }

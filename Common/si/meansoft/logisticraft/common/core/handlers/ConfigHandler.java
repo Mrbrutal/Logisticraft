@@ -23,6 +23,8 @@ public class ConfigHandler {
     public static boolean GEN_ORE_COPPER;
     public static boolean GEN_ORE_SILVER;
     public static boolean GEN_ORE_PLATINUM;
+    public static boolean GEN_MELON;
+    public static boolean GEN_CANTALOUPE;
 
     public static void init(File configFile) {
         Configuration cf = new Configuration(configFile);
@@ -31,45 +33,50 @@ public class ConfigHandler {
             cf.load();
 
             /* General */
-            AUTO_RESOLVE_IDS = cf.getOrCreateBooleanProperty("AUTO_RESOLVE_IDS", CATEGORY_BLOCK, false).getBoolean(false);
-            ENABLE_PARTICLES = cf.getOrCreateBooleanProperty("ENABLE_PARTICLES", CATEGORY_GENERAL, true).getBoolean(true);
-            GEN_ORE_COPPER = cf.getOrCreateBooleanProperty("GEN_ORE_COPPER", CATEGORY_GENERAL, true).getBoolean(true);
-            GEN_ORE_SILVER = cf.getOrCreateBooleanProperty("GEN_ORE_SILVER", CATEGORY_GENERAL, true).getBoolean(true);
-            GEN_ORE_PLATINUM = cf.getOrCreateBooleanProperty("GEN_ORE_PLATINUM", CATEGORY_GENERAL, true).getBoolean(true);
+            AUTO_RESOLVE_IDS = cf.get("AUTO_RESOLVE_IDS", CATEGORY_BLOCK, false).getBoolean(false);
+            ENABLE_PARTICLES = cf.get("ENABLE_PARTICLES", CATEGORY_GENERAL, true).getBoolean(true);
+            GEN_ORE_COPPER = cf.get("GEN_ORE_COPPER", CATEGORY_GENERAL, true).getBoolean(true);
+            GEN_ORE_SILVER = cf.get("GEN_ORE_SILVER", CATEGORY_GENERAL, true).getBoolean(true);
+            GEN_ORE_PLATINUM = cf.get("GEN_ORE_PLATINUM", CATEGORY_GENERAL, true).getBoolean(true);
+            GEN_MELON = cf.get("GEN_MELON", CATEGORY_GENERAL, true).getBoolean(true);
+            GEN_CANTALOUPE = cf.get("GEN_CANTALOUPE", CATEGORY_GENERAL, true).getBoolean(true);
             
             /* Block */
-            BlockIDs.ores = cf.getOrCreateIntProperty("block_ores", CATEGORY_BLOCK, 400).getInt(400);
-            BlockIDs.box = cf.getOrCreateIntProperty("block_box", CATEGORY_BLOCK, 401).getInt(401);
-            BlockIDs.box2 = cf.getOrCreateIntProperty("block_box2", CATEGORY_BLOCK, 402).getInt(402);
-            BlockIDs.box3 = cf.getOrCreateIntProperty("block_box3", CATEGORY_BLOCK, 403).getInt(403);
-            BlockIDs.box4 = cf.getOrCreateIntProperty("block_box4", CATEGORY_BLOCK, 404).getInt(404);
-            BlockIDs.crate = cf.getOrCreateIntProperty("block_crate", CATEGORY_BLOCK, 405).getInt(405);
-            BlockIDs.crate2 = cf.getOrCreateIntProperty("block_crate2", CATEGORY_BLOCK, 406).getInt(406);
-            BlockIDs.crate3 = cf.getOrCreateIntProperty("block_crate3", CATEGORY_BLOCK, 407).getInt(407);
-            BlockIDs.crate4 = cf.getOrCreateIntProperty("block_crate4", CATEGORY_BLOCK, 408).getInt(408);
-            BlockIDs.playerPlate = cf.getOrCreateIntProperty("block_player_plate", CATEGORY_BLOCK, 409).getInt(409);
-            BlockIDs.coloredGlass = cf.getOrCreateIntProperty("block_colored_glass", CATEGORY_BLOCK, 410).getInt(410);
-            BlockIDs.machines = cf.getOrCreateIntProperty("block_machines", CATEGORY_BLOCK, 411).getInt(411);
-            BlockIDs.beam = cf.getOrCreateIntProperty("block_beam", CATEGORY_BLOCK, 412).getInt(412);
-            BlockIDs.chimney = cf.getOrCreateIntProperty("block_chimney", CATEGORY_BLOCK, 413).getInt(413);
-            BlockIDs.stackBench = cf.getOrCreateIntProperty("block_stack_bench", CATEGORY_BLOCK, 414).getInt(414);
-            BlockIDs.cantaloupe = cf.getOrCreateIntProperty("block_cantaloupe", CATEGORY_BLOCK, 415).getInt(415);
-            BlockIDs.cantaloupeStem = cf.getOrCreateIntProperty("block_cantaloupe_stem", CATEGORY_BLOCK, 416).getInt(416);
+            BlockIDs.ores = cf.getBlock("block_ores", CATEGORY_BLOCK, 400).getInt(400);
+            BlockIDs.box = cf.getBlock("block_box", CATEGORY_BLOCK, 401).getInt(401);
+            BlockIDs.box2 = cf.getBlock("block_box2", CATEGORY_BLOCK, 402).getInt(402);
+            BlockIDs.box3 = cf.getBlock("block_box3", CATEGORY_BLOCK, 403).getInt(403);
+            BlockIDs.box4 = cf.getBlock("block_box4", CATEGORY_BLOCK, 404).getInt(404);
+            BlockIDs.box4 = cf.getBlock("block_box4", CATEGORY_BLOCK, 405).getInt(405);
+            BlockIDs.box5 = cf.getBlock("block_box5", CATEGORY_BLOCK, 406).getInt(406);
+            BlockIDs.crate = cf.getBlock("block_crate", CATEGORY_BLOCK, 410).getInt(410);
+            BlockIDs.crate2 = cf.getBlock("block_crate2", CATEGORY_BLOCK, 411).getInt(411);
+            BlockIDs.crate3 = cf.getBlock("block_crate3", CATEGORY_BLOCK, 412).getInt(412);
+            BlockIDs.crate4 = cf.getBlock("block_crate4", CATEGORY_BLOCK, 413).getInt(413);
+            BlockIDs.crate5 = cf.getBlock("block_crate5", CATEGORY_BLOCK, 414).getInt(414);
+            BlockIDs.playerPlate = cf.getBlock("block_player_plate", CATEGORY_BLOCK, 419).getInt(419);
+            BlockIDs.coloredGlass = cf.getBlock("block_colored_glass", CATEGORY_BLOCK, 420).getInt(420);
+            BlockIDs.machines = cf.getBlock("block_machines", CATEGORY_BLOCK, 421).getInt(421);
+            BlockIDs.beam = cf.getBlock("block_beam", CATEGORY_BLOCK, 422).getInt(422);
+            BlockIDs.chimney = cf.getBlock("block_chimney", CATEGORY_BLOCK, 423).getInt(423);
+            BlockIDs.stackBench = cf.getBlock("block_stack_bench", CATEGORY_BLOCK, 424).getInt(424);
+            BlockIDs.cantaloupe = cf.getBlock("block_cantaloupe", CATEGORY_BLOCK, 425).getInt(425);
+            BlockIDs.cantaloupeStem = cf.getBlock("block_cantaloupe_stem", CATEGORY_BLOCK, 426).getInt(426);
             
             /* Item */
-            ItemIDs.ingotCopper = cf.getOrCreateIntProperty("ingot_copper", Configuration.CATEGORY_ITEM, 1100).getInt();
-            ItemIDs.ingotSilver = cf.getOrCreateIntProperty("ingot_silver", Configuration.CATEGORY_ITEM, 1101).getInt();
-            ItemIDs.ingotPlatinum = cf.getOrCreateIntProperty("ingot_platinum", Configuration.CATEGORY_ITEM, 1102).getInt();
+            ItemIDs.ingotCopper = cf.getItem("ingot_copper", CATEGORY_ITEM, 1100).getInt();
+            ItemIDs.ingotSilver = cf.getItem("ingot_silver", CATEGORY_ITEM, 1101).getInt();
+            ItemIDs.ingotPlatinum = cf.getItem("ingot_platinum", CATEGORY_ITEM, 1102).getInt();
             
-            ItemIDs.dusts = cf.getOrCreateIntProperty("dusts", Configuration.CATEGORY_ITEM, 1103).getInt();
-            ItemIDs.coins = cf.getOrCreateIntProperty("coins", Configuration.CATEGORY_ITEM, 1104).getInt();
-            ItemIDs.knife = cf.getOrCreateIntProperty("knife", Configuration.CATEGORY_ITEM, 1105).getInt();
-            ItemIDs.nails = cf.getOrCreateIntProperty("nails", Configuration.CATEGORY_ITEM, 1106).getInt();
-            ItemIDs.cardboard = cf.getOrCreateIntProperty("cardboard", Configuration.CATEGORY_ITEM, 1107).getInt();
-            ItemIDs.boards = cf.getOrCreateIntProperty("boards", Configuration.CATEGORY_ITEM, 1108).getInt();
-            ItemIDs.compost = cf.getOrCreateIntProperty("compost", Configuration.CATEGORY_ITEM, 1109).getInt();
-            ItemIDs.cantaloupe = cf.getOrCreateIntProperty("cantaloupe", Configuration.CATEGORY_ITEM, 1110).getInt();
-            ItemIDs.cantaloupeSeeds = cf.getOrCreateIntProperty("cantaloupeSeeds", Configuration.CATEGORY_ITEM, 1111).getInt();            
+            ItemIDs.dusts = cf.getItem("dusts", CATEGORY_ITEM, 1103).getInt();
+            ItemIDs.coins = cf.getItem("coins", CATEGORY_ITEM, 1104).getInt();
+            ItemIDs.knife = cf.getItem("knife", CATEGORY_ITEM, 1105).getInt();
+            ItemIDs.nails = cf.getItem("nails", CATEGORY_ITEM, 1106).getInt();
+            ItemIDs.cardboard = cf.getItem("cardboard", CATEGORY_ITEM, 1107).getInt();
+            ItemIDs.boards = cf.getItem("boards", CATEGORY_ITEM, 1108).getInt();
+            ItemIDs.compost = cf.getItem("compost", CATEGORY_ITEM, 1109).getInt();
+            ItemIDs.cantaloupe = cf.getItem("cantaloupe", CATEGORY_ITEM, 1110).getInt();
+            ItemIDs.cantaloupeSeeds = cf.getItem("cantaloupeSeeds", CATEGORY_ITEM, 1111).getInt();            
         }
         catch (Exception e) {
             Logisticraft.lcLog.severe("Logisticraft had a problem loading its configuration\n" + e);

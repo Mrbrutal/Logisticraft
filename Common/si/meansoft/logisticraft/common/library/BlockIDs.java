@@ -28,4 +28,13 @@ public class BlockIDs {
 	public static int cantaloupe;
 	public static int cantaloupeStem;
 	
+	/* Mod IDs */
+		/* IC2 */
+		public static int rubberWood;
+		public static int reinforcedStone;
+		public static int reinforcedGlass;
+		public static int scaffold;
+		public static int box5;
+		public static int crate5;
+		
 }
