@@ -53,7 +53,7 @@ public class BlockChimney extends Block {
     }
 
     protected int damageDropped(int i) {
-	return 0;
+	return i;
     }
 
     public int getBlockTextureFromSideAndMetadata(int side, int data) {

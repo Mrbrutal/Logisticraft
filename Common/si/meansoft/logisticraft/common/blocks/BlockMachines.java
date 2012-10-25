@@ -314,4 +314,8 @@ public class BlockMachines extends Block {
 	    }
 	}
     }
+    
+    public boolean canProvidePower() {
+	return false;
+    }
 }

@@ -30,11 +30,12 @@ public class BlockIDs {
 	
 	/* Mod IDs */
 		/* IC2 */
-		public static int rubberWood;
-		public static int reinforcedStone;
-		public static int reinforcedGlass;
-		public static int scaffold;
 		public static int box5;
 		public static int crate5;
 		
+		/* Forestry */
+		public static int box6;
+		public static int box7;
+		public static int crate6;
+		public static int crate7;
 }

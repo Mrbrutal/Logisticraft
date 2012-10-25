@@ -45,27 +45,38 @@ public class BlockBox extends Block {
 	ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 	if(this.blockID == LCBlocks.box.blockID) {
 	    for (int i = 0; i < 9; i++) {
-		ret.add(new ItemStack(Info.items[metadata].getItem(), Info.items[metadata].getMaxStackSize(), Info.items[i].getItemDamage()));
+		ret.add(new ItemStack(Info.items[metadata].getItem(), Info.items[metadata].getMaxStackSize(), Info.items[metadata].getItemDamage()));
 	    }
 	}
 	else if(this.blockID == LCBlocks.box2.blockID){
 	    for (int i = 0; i < 9; i++) {
-		ret.add(new ItemStack(Info.items2[metadata].getItem(), Info.items2[metadata].getMaxStackSize(), Info.items2[i].getItemDamage()));
+		ret.add(new ItemStack(Info.items2[metadata].getItem(), Info.items2[metadata].getMaxStackSize(), Info.items2[metadata].getItemDamage()));
 	    }
 	}
 	else if(this.blockID == LCBlocks.box3.blockID){
 	    for (int i = 0; i < 9; i++) {
-		ret.add(new ItemStack(Info.items3[metadata].getItem(), Info.items3[metadata].getMaxStackSize(), Info.items3[i].getItemDamage()));
+		ret.add(new ItemStack(Info.items3[metadata].getItem(), Info.items3[metadata].getMaxStackSize(), Info.items3[metadata].getItemDamage()));
+	    }
+	}
+	else if(this.blockID == LCBlocks.box4.blockID){
+	    for (int i = 0; i < 9; i++) {
+		ret.add(new ItemStack(Info.items4[metadata].getItem(), Info.items4[metadata].getMaxStackSize(), Info.items4[metadata].getItemDamage()));
 	    }
 	}
 	else if(this.blockID == LCBlocks.box5.blockID){
 	    for (int i = 0; i < 9; i++) {
-		ret.add(new ItemStack(ModHandler.ic2Items[metadata].getItem(), ModHandler.ic2Items[metadata].getMaxStackSize(), ModHandler.ic2Items[i].getItemDamage()));
+		ret.add(new ItemStack(ModHandler.ic2Items[metadata].getItem(), ModHandler.ic2Items[metadata].getMaxStackSize(), ModHandler.ic2Items[metadata].getItemDamage()));
+	    }
+	}
+	else if(this.blockID == LCBlocks.box6.blockID){
+	    System.out.println("Using Forestry block!");
+	    for (int i = 0; i < 9; i++) {
+		ret.add(new ItemStack(ModHandler.foItems[metadata].getItem(), ModHandler.foItems[metadata].getMaxStackSize(), ModHandler.foItems[metadata].getItemDamage()));
 	    }
 	}
 	else {
 	    for (int i = 0; i < 9; i++) {
-		ret.add(new ItemStack(Info.items4[metadata].getItem(), Info.items4[metadata].getMaxStackSize(), Info.items4[i].getItemDamage()));
+		ret.add(new ItemStack(ModHandler.foItems2[metadata].getItem(), ModHandler.foItems2[metadata].getMaxStackSize(), ModHandler.foItems2[metadata].getItemDamage()));
 	    }
 	}
 	return ret;
@@ -196,6 +207,10 @@ public class BlockBox extends Block {
 	    }
 	}
     }
+    
+    protected int damageDropped(int i) {
+	return i;
+    }
 
     @Override
     public void getSubBlocks(int par1, CreativeTabs tabs, List list) {
@@ -214,17 +229,17 @@ public class BlockBox extends Block {
 	}
     }
 
-    /*public void updateTick(World world, int x, int y, int z, Random random) {
+    public void updateTick(World world, int x, int y, int z, Random random) {
 	int getId = world.getBlockId(x, y, z);
 	int meta = world.getBlockMetadata(x, y, z);
 	int crate = LCBlocks.chimney.blockID;
 	if (world.isRaining()) {
-	    if (!Crate.checkRain(world, x, y, z)) {
+	    if (!Crate.checkRainBox(world, x, y, z)) {
 		world.setBlockAndMetadataWithNotify(x, y, z, crate, 5);
 	    }
 	}
 
-	if (Crate.checkWater(world, x, y, z)) {
+	if (Crate.checkWaterBox(world, x, y, z)) {
 	    world.setBlockAndMetadataWithNotify(x, y, z, crate, 5);
 	}
 
@@ -235,5 +250,5 @@ public class BlockBox extends Block {
 		}
 	    }
 	}
-    }*/
+    }
 }

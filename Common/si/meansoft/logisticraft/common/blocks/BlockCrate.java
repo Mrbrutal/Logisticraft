@@ -54,11 +54,17 @@ public class BlockCrate extends Block {
 	else if (this.blockID == LCBlocks.crate3.blockID) {
 	    ret.add(new ItemStack(LCBlocks.box3, 9, this.damageDropped(metadata)));
 	}
+	else if (this.blockID == LCBlocks.crate4.blockID) {
+	    ret.add(new ItemStack(LCBlocks.box4, 9, this.damageDropped(metadata)));
+	}
 	else if (this.blockID == LCBlocks.crate5.blockID) {
 	    ret.add(new ItemStack(LCBlocks.box5, 9, this.damageDropped(metadata)));
 	}
+	else if (this.blockID == LCBlocks.crate6.blockID) {
+	    ret.add(new ItemStack(LCBlocks.box6, 9, this.damageDropped(metadata)));
+	}
 	else {
-	    ret.add(new ItemStack(LCBlocks.box4, 9, this.damageDropped(metadata)));
+	    ret.add(new ItemStack(LCBlocks.box7, 9, this.damageDropped(metadata)));
 	}
 	return ret;
     }
@@ -211,19 +217,20 @@ public class BlockCrate extends Block {
 	}
     }
 
-    /*public void updateTick(World world, int x, int y, int z, Random random) {
+    public void updateTick(World world, int x, int y, int z, Random random) {
 	int getId = world.getBlockId(x, y, z);
 	int meta = world.getBlockMetadata(x, y, z);
 	int crate = LCBlocks.chimney.blockID;
 	if (world.isRaining()) {
-	    if (!Crate.checkRain(world, x, y, z)) {
+	    if (!Crate.checkRainCrate(world, x, y, z)) {
 		world.setBlockAndMetadataWithNotify(x, y, z, crate, 4);
 	    }
 	}
 
-	if (Crate.checkWater(world, x, y, z)) {
+	if (Crate.checkWaterCrate(world, x, y, z)) {
 	    world.setBlockAndMetadataWithNotify(x, y, z, crate, 4);
 	}
+	
 	if (this.blockID == LCBlocks.crate.blockID) {
 	    if (meta == 4 || meta == 9 || meta == 10 || meta == 11 || meta == 12) {
 		if (!Crate.checkIce(world, x, y, z)) {
@@ -231,5 +238,5 @@ public class BlockCrate extends Block {
 		}
 	    }
 	}
-    }*/
+    }
 }
