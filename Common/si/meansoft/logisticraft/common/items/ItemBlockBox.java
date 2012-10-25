@@ -24,6 +24,8 @@ public class ItemBlockBox extends ItemBlock {
     public String[] blockNames3 = Info.crateNames3;
     public String[] blockNames4 = Info.crateNames4;
     public String[] blockNames5 = Info.crateNames5;
+    public String[] blockNames6 = Info.crateNames6;
+    public String[] blockNames7 = Info.crateNames7;
 
     public String getItemNameIS(ItemStack itemstack) {
 	Item stack = itemstack.getItem();
@@ -39,8 +41,14 @@ public class ItemBlockBox extends ItemBlock {
 	else if(stack.getItemName().endsWith("box4")) {
 	    return (new StringBuilder()).append(super.getItemName()).append(".").append(blockNames4[itemstack.getItemDamage()]).toString();
 	}
-	else {
+	else if(stack.getItemName().endsWith("box5")) {
 	    return (new StringBuilder()).append(super.getItemName()).append(".").append(blockNames5[itemstack.getItemDamage()]).toString();
+	}
+	else if(stack.getItemName().endsWith("box6")) {
+	    return (new StringBuilder()).append(super.getItemName()).append(".").append(blockNames6[itemstack.getItemDamage()]).toString();
+	}
+	else {
+	    return (new StringBuilder()).append(super.getItemName()).append(".").append(blockNames7[itemstack.getItemDamage()]).toString();
 	}
     }
 

@@ -112,9 +112,43 @@
     <entry key="tile.box5.uranium.name">Box of uranium</entry>
     <entry key="tile.box5.scrap.name">Box of scrap</entry>
     <entry key="tile.box5.uuMatter.name">Box of uu matter</entry>
-    <entry key="tile.box5.advancedAlloy.name">Box advanced alloy</entry>
+    <entry key="tile.box5.advancedAlloy.name">Box of advanced alloy</entry>
     <entry key="tile.box5.iridiumOre.name">Box of iridium ore</entry>
     <entry key="tile.box5.plantBall.name">Box of plant balls</entry>
+    
+    <entry key="tile.box6.waxCapsule.name">Box of wax capsules</entry>
+    <entry key="tile.box6.refactoryCapsule.name">Box of refactory capsules</entry>
+    <entry key="tile.box6.can.name">Box of cans</entry>
+    <entry key="tile.box6.moldyWheat.name">Box of moldy wheat</entry>
+    <entry key="tile.box6.compost.name">Box of compost</entry>
+    <entry key="tile.box6.fertiliser.name">Box of fertiliser</entry>
+    <entry key="tile.box6.mulch.name">Box of mulch</entry>
+    <entry key="tile.box6.woodPulp.name">Box of wood pulp</entry>
+    <entry key="tile.box6.beeswax.name">Box of beeswax</entry>
+    <entry key="tile.box6.refactoryWax.name">Box of refactory wax</entry>
+    <entry key="tile.box6.peat.name">Box of peat</entry>
+    <entry key="tile.box6.bituminousPeat.name">Box of bitouminous peat</entry>
+    <entry key="tile.box6.ash.name">Box of ash</entry>
+    <entry key="tile.box6.phosphor.name">Box of phosphor</entry>
+    <entry key="tile.box6.apatite.name">Box of apatite</entry>
+    <entry key="tile.box6.honeyedSlice.name">Box of honeyed slices</entry>
+    
+    <entry key="tile.box7.honeyComb.name">Box of honey combs</entry>
+    <entry key="tile.box7.cocoaCombs.name">Box of cocoa combs</entry>
+    <entry key="tile.box7.simmeringComb.name">Box of simmering combs</entry>
+    <entry key="tile.box7.stringyComb.name">Box of stringy combs</entry>
+    <entry key="tile.box7.frozenComb.name">Box of frozen combs</entry>
+    <entry key="tile.box7.drippingComb.name">Box of dripping combs</entry>
+    <entry key="tile.box7.silkyComb.name">Box of silky combs</entry>
+    <entry key="tile.box7.parchedComb.name">Box of parched combs</entry>
+    <entry key="tile.box7.mossyComb.name">Box of mossy combs</entry>
+    <entry key="tile.box7.honeyDrop.name">Box of honey drops</entry>
+    <entry key="tile.box7.honeyDew.name">Box of honey dew</entry>
+    <entry key="tile.box7.pollen.name">Box of pollen</entry>
+    <entry key="tile.box7.crysPollen.name">Box of crystaline pollen</entry>
+    <entry key="tile.box7.propolis.name">Box of propolis</entry>
+    <entry key="tile.box7.stickyPropolis.name">Box of sticky propolis</entry>
+    <entry key="tile.box7.silkyPropolis.name">Box of silky propolis</entry>
     
     <!-- BlOCKS CRATE -->
     <entry key="tile.crate.wheat.name">Crate of wheat</entry>
@@ -197,9 +231,43 @@
     <entry key="tile.crate5.uranium.name">Crate of uranium</entry>
     <entry key="tile.crate5.scrap.name">Crate of scrap</entry>
     <entry key="tile.crate5.uuMatter.name">Crate of uu matter</entry>
-    <entry key="tile.crate5.advancedAlloy.name">Crate advanced alloy</entry>
+    <entry key="tile.crate5.advancedAlloy.name">Crate of advanced alloy</entry>
     <entry key="tile.crate5.iridiumOre.name">Crate of iridium ore</entry>
     <entry key="tile.crate5.plantBall.name">Crate of plant balls</entry>
+    
+    <entry key="tile.crate6.waxCapsule.name">Crate of wax capsules</entry>
+    <entry key="tile.crate6.refactoryCapsule.name">Crate of refactory capsules</entry>
+    <entry key="tile.crate6.can.name">Crate of cans</entry>
+    <entry key="tile.crate6.moldyWheat.name">Crate of moldy wheat</entry>
+    <entry key="tile.crate6.compost.name">Crate of compost</entry>
+    <entry key="tile.crate6.fertiliser.name">Crate of fertiliser</entry>
+    <entry key="tile.crate6.mulch.name">Crate of mulch</entry>
+    <entry key="tile.crate6.woodPulp.name">Crate of wood pulp</entry>
+    <entry key="tile.crate6.beeswax.name">Crate of beeswax</entry>
+    <entry key="tile.crate6.refactoryWax.name">Crate of refactory wax</entry>
+    <entry key="tile.crate6.peat.name">Crate of peat</entry>
+    <entry key="tile.crate6.bituminousPeat.name">Crate of bitouminous peat</entry>
+    <entry key="tile.crate6.ash.name">Crate of ash</entry>
+    <entry key="tile.crate6.phosphor.name">Crate of phosphor</entry>
+    <entry key="tile.crate6.apatite.name">Crate of apatite</entry>
+    <entry key="tile.crate6.honeyedSlice.name">Crate of honeyed slices</entry>
+    
+    <entry key="tile.crate7.honeyComb.name">Crate of honey combs</entry>
+    <entry key="tile.crate7.cocoaCombs.name">Crate of cocoa combs</entry>
+    <entry key="tile.crate7.simmeringComb.name">Crate of simmering combs</entry>
+    <entry key="tile.crate7.stringyComb.name">Crate of stringy combs</entry>
+    <entry key="tile.crate7.frozenComb.name">Crate of frozen combs</entry>
+    <entry key="tile.crate7.drippingComb.name">Crate of dripping combs</entry>
+    <entry key="tile.crate7.silkyComb.name">Crate of silky combs</entry>
+    <entry key="tile.crate7.parchedComb.name">Crate of parched combs</entry>
+    <entry key="tile.crate7.mossyComb.name">Crate of mossy combs</entry>
+    <entry key="tile.crate7.honeyDrop.name">Crate of honey drops</entry>
+    <entry key="tile.crate7.honeyDew.name">Crate of honey dew</entry>
+    <entry key="tile.crate7.pollen.name">Crate of pollen</entry>
+    <entry key="tile.crate7.crysPollen.name">Crate of crystaline pollen</entry>
+    <entry key="tile.crate7.propolis.name">Crate of propolis</entry>
+    <entry key="tile.crate7.stickyPropolis.name">Crate of sticky propolis</entry>
+    <entry key="tile.crate7.silkyPropolis.name">Crate of silky propolis</entry>
     
     <entry key="tile.coloredGlass.black.name">Black tinted glass</entry>
     <entry key="tile.coloredGlass.red.name">Red tinted glass</entry>

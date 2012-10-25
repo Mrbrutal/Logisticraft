@@ -52,6 +52,7 @@ import si.meansoft.logisticraft.common.items.LCItems;
 import si.meansoft.logisticraft.common.library.BlockIDs;
 import si.meansoft.logisticraft.common.library.Info;
 import si.meansoft.logisticraft.common.recipes.RecipesBlocks;
+import si.meansoft.logisticraft.common.recipes.RecipesForestry;
 import si.meansoft.logisticraft.common.recipes.RecipesIC2;
 import si.meansoft.logisticraft.common.recipes.RecipesItems;
 import si.meansoft.logisticraft.common.recipes.RecipesStack;
@@ -130,5 +131,6 @@ public class Logisticraft {
 	ModHandler.init();
 
 	RecipesIC2.addIC2Recipes();
+	RecipesForestry.addFORecipes();
     }
 }

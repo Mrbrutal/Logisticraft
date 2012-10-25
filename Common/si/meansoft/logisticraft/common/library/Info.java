@@ -44,6 +44,8 @@ public class Info {
     public static final String[] crateNames3 = { "smoothStone", "cobbleStone", "dirt", "sand", "gravel", "bricks", "mossy", "obsidian", "stoneBricks", "cacti", "netherRack", "slowSand", "glowStone", "pumpkins", "glass", "sandStone" };
     public static final String[] crateNames4 = { "oakWood", "pineWood", "birchWood", "jungleWood", "oakPlanks", "pinePlanks", "birchPlanks", "junglePlanks", "mossyStoneBricks", "brokenStoneBricks", "decStoneBricks", "creeperSandStone", "smoothSandStone", "netherBricks", "redstoneLamp", "torches" };
     public static final String[] crateNames5 = { "rubberWood", "reinforcedStone", "reinforcedGlass", "scaffoldWooden", "scaffoldIron", "rubberSapling", "rubber", "refinedIron", "tin", "bronze", "uranium", "scrap", "uuMatter", "advancedAlloy", "iridiumOre", "plantBall" };
+    public static final String[] crateNames6 = { "waxCapsule", "refactoryCapsule", "can", "moldyWheat", "compost", "fertiliser", "mulch", "woodPulp", "beesWax", "refactoryWax", "peat", "bituminousPeat", "ash", "phosphor", "apatite", "honeyedSlice" };
+    public static final String[] crateNames7 = { "honeyComb", "cocoaCombs", "simmeringComb", "stringyComb", "frozenComb", "drippingComb", "silkyComb", "parchedComb", "mossyComb", "honeyDrop", "honeyDew", "pollen", "crysPollen", "propolis", "stickyPropolis", "silkyPropolis" };
     public static final String[] glassNames = { "black", "red", "green", "brown", "blue", "purple", "cyan", "lightGrey", "darkGrey", "pink", "lightGreen", "yellow", "lightBlue", "magenta", "orange", "white" };
     
     /* Item arrays for crates/boxes */    

@@ -49,11 +49,15 @@ public class ConfigHandler {
             BlockIDs.box4 = cf.getBlock("block_box4", CATEGORY_BLOCK, 404).getInt(404);
             BlockIDs.box4 = cf.getBlock("block_box4", CATEGORY_BLOCK, 405).getInt(405);
             BlockIDs.box5 = cf.getBlock("block_box5", CATEGORY_BLOCK, 406).getInt(406);
+            BlockIDs.box6 = cf.getBlock("block_box6", CATEGORY_BLOCK, 407).getInt(407);
+            BlockIDs.box7 = cf.getBlock("block_box7", CATEGORY_BLOCK, 408).getInt(408);
             BlockIDs.crate = cf.getBlock("block_crate", CATEGORY_BLOCK, 410).getInt(410);
             BlockIDs.crate2 = cf.getBlock("block_crate2", CATEGORY_BLOCK, 411).getInt(411);
             BlockIDs.crate3 = cf.getBlock("block_crate3", CATEGORY_BLOCK, 412).getInt(412);
             BlockIDs.crate4 = cf.getBlock("block_crate4", CATEGORY_BLOCK, 413).getInt(413);
             BlockIDs.crate5 = cf.getBlock("block_crate5", CATEGORY_BLOCK, 414).getInt(414);
+            BlockIDs.crate6 = cf.getBlock("block_crate6", CATEGORY_BLOCK, 415).getInt(415);
+            BlockIDs.crate7 = cf.getBlock("block_crate7", CATEGORY_BLOCK, 416).getInt(416);
             BlockIDs.playerPlate = cf.getBlock("block_player_plate", CATEGORY_BLOCK, 419).getInt(419);
             BlockIDs.coloredGlass = cf.getBlock("block_colored_glass", CATEGORY_BLOCK, 420).getInt(420);
             BlockIDs.machines = cf.getBlock("block_machines", CATEGORY_BLOCK, 421).getInt(421);

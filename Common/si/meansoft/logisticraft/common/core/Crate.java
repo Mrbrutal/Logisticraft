@@ -9,6 +9,9 @@ public class Crate {
 
     /* True == OK, False == NOT OK */
 
+    public static Block[] boxes = { LCBlocks.box, LCBlocks.box2, LCBlocks.box3, LCBlocks.box4, LCBlocks.box5, LCBlocks.box6, LCBlocks.box7 };
+    public static Block[] crates = { LCBlocks.crate, LCBlocks.crate2, LCBlocks.crate3, LCBlocks.crate4, LCBlocks.crate5, LCBlocks.crate6, LCBlocks.crate7 };
+
     public static boolean checkIce(World world, int x, int y, int z) {
 	int size = 3;
 	for (int var5 = x - size; var5 <= x + size; ++var5) {
@@ -24,7 +27,8 @@ public class Crate {
 	return false;
     }
 
-    public static boolean checkWater(World world, int x, int y, int z) {
+    public static boolean checkWaterBox(World world, int x, int y, int z) {
+	Boolean isBox = false;
 	Material up = world.getBlockMaterial(x, y + 1, z);
 	Material dn = world.getBlockMaterial(x, y - 1, z);
 	Material so = world.getBlockMaterial(x - 1, y, z);
@@ -37,7 +41,13 @@ public class Crate {
 	int md = world.getBlockMetadata(x, y, z);
 	int bl = world.getBlockId(x, y, z);
 
-	if ((bl == LCBlocks.crate.blockID) || (bl == LCBlocks.crate2.blockID) || (bl == LCBlocks.crate3.blockID) || (bl == LCBlocks.crate4.blockID) || (bl == LCBlocks.box.blockID) || (bl == LCBlocks.box2.blockID) || (bl == LCBlocks.box3.blockID) || (bl == LCBlocks.box4.blockID)) {
+	for (Block box : boxes) {
+	    if (bl == box.blockID) {
+		isBox = true;
+	    }
+	}
+
+	if (isBox) {
 	    if ((up == ma) || (dn == ma) || (so == ma) || (no == ma) || (ea == ma) || (we == ma)) {
 		return true;
 	    }
@@ -50,21 +60,79 @@ public class Crate {
 	}
     }
 
-    public static boolean checkRain(World world, int x, int y, int z) {
+    public static boolean checkWaterCrate(World world, int x, int y, int z) {
+	Boolean isCrate = false;
+	Material up = world.getBlockMaterial(x, y + 1, z);
+	Material dn = world.getBlockMaterial(x, y - 1, z);
+	Material so = world.getBlockMaterial(x - 1, y, z);
+	Material no = world.getBlockMaterial(x + 1, y, z);
+	Material ea = world.getBlockMaterial(x, y, z - 1);
+	Material we = world.getBlockMaterial(x, y, z + 1);
+
+	Material ma = Material.water;
+
+	int md = world.getBlockMetadata(x, y, z);
+	int bl = world.getBlockId(x, y, z);
+
+	for (Block crate : crates) {
+	    if (bl == crate.blockID) {
+		isCrate = true;
+	    }
+	}
+	if (isCrate) {
+	    if ((up == ma) || (dn == ma) || (so == ma) || (no == ma) || (ea == ma) || (we == ma)) {
+		return true;
+	    }
+	    else {
+		return false;
+	    }
+	}
+	else {
+	    return false;
+	}
+    }
+
+    public static boolean checkRainBox(World world, int x, int y, int z) {
 	int bl = world.getBlockId(x, y, z);
 	int md = world.getBlockMetadata(x, y, z);
 	boolean blockAbove = false;
 	y++;
 
 	if (!world.isRemote) {
-	    if ((bl == LCBlocks.crate.blockID && (md != 15 || md != 14 || md != 7)) || (bl == LCBlocks.crate2.blockID) || (bl == LCBlocks.crate3.blockID) || (bl == LCBlocks.crate4.blockID) || bl == LCBlocks.box.blockID || bl == LCBlocks.box2.blockID || bl == LCBlocks.box3.blockID || bl == LCBlocks.box4.blockID) {
-		while (blockAbove != true && y <= (y + (256 - y))) {
-		    if (!world.isAirBlock(x, y, z)) {
-			blockAbove = true;
-			break;
+	    for (Block box : boxes) {
+		if (bl == box.blockID) {
+		    while (blockAbove != true && y <= (y + (256 - y))) {
+			if (!world.isAirBlock(x, y, z)) {
+			    blockAbove = true;
+			    break;
+			}
+			else {
+			    y++;
+			}
 		    }
-		    else {
-			y++;
+		}
+	    }
+	}
+	return blockAbove;
+    }
+
+    public static boolean checkRainCrate(World world, int x, int y, int z) {
+	int bl = world.getBlockId(x, y, z);
+	int md = world.getBlockMetadata(x, y, z);
+	boolean blockAbove = false;
+	y++;
+
+	if (!world.isRemote) {
+	    for (Block crate : crates) {
+		if (bl == crate.blockID) {
+		    while (blockAbove != true && y <= (y + (256 - y))) {
+			if (!world.isAirBlock(x, y, z)) {
+			    blockAbove = true;
+			    break;
+			}
+			else {
+			    y++;
+			}
 		    }
 		}
 	    }
