@@ -15,9 +15,9 @@ major = "1"
 minor = "0"
 rev = "0"
 sub = "000"
-mcpversion = "7.2"
-forgeversion = "4.1.4.298"
-mcclientver = "1.3.2"
+mcpversion = "7.19"
+forgeversion = "6.0.1.337"
+mcclientver = "1.4.2"
 
 def cmdsplit(args):
     if os.sep == '\\':
