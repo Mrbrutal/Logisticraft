@@ -52,7 +52,7 @@ public class BlockChimney extends Block {
 	return 1;
     }
 
-    protected int damageDropped(int i) {
+    public int damageDropped(int i) {
 	return i;
     }
 

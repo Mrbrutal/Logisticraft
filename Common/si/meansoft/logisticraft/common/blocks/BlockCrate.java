@@ -204,7 +204,7 @@ public class BlockCrate extends Block {
 	}
     }
 
-    protected int damageDropped(int i) {
+    public int damageDropped(int i) {
 	return i;
     }
 

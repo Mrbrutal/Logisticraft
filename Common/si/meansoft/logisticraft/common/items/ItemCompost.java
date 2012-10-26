@@ -43,7 +43,7 @@ public class ItemCompost extends Item {
 	    return false;
 	}
 
-	if (event.isHandeled()) {
+	if (event.hasResult()) {
 	    if (!world.isRemote) {
 		stack.stackSize--;
 	    }

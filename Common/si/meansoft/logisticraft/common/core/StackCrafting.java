@@ -37,7 +37,7 @@ public class StackCrafting extends SlotCrafting {
     }
 
     @Override
-    public void onPickupFromSlot(ItemStack par1ItemStack) {
+    public void func_82870_a(EntityPlayer player, ItemStack par1ItemStack) {
 	GameRegistry.onItemCrafted(thePlayer, par1ItemStack, craftMatrix);
 	this.onCrafting(par1ItemStack);
 
