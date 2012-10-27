@@ -24,7 +24,7 @@
 		<link>
 			<name>jars</name>
 			<type>2</type>
-			<locationURI>MCP_LOC1/jars</locationURI>
+			<locationURI>MCP_LOC2/jars</locationURI>
 		</link>
 	</linkedResources>
 	<variableList>
@@ -35,6 +35,10 @@
 		<variable>
 			<name>MCP_LOC1</name>
 			<value>$%7BMCP_LOC%7D/MCP</value>
+		</variable>
+		<variable>
+			<name>MCP_LOC2</name>
+			<value>$%7BPARENT-1-MCP_LOC%7D/Logisticraft1.4.2/MCP</value>
 		</variable>
 	</variableList>
 </projectDescription>

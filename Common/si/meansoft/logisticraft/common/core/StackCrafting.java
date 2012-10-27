@@ -38,8 +38,13 @@ public class StackCrafting extends SlotCrafting {
 	this.craftMatrix2 = inv3;
     }
 
+<<<<<<< HEAD
     
     /*public void func_82870_a(EntityPlayer player, ItemStack par1ItemStack) {
+=======
+    @Override
+    public void func_82870_a(EntityPlayer player, ItemStack par1ItemStack) {
+>>>>>>> origin/master
 	GameRegistry.onItemCrafted(thePlayer, par1ItemStack, craftMatrix);
 	this.onCrafting(par1ItemStack);
 
