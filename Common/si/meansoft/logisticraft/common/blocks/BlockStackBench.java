@@ -31,7 +31,7 @@ public class BlockStackBench extends Block {
 	setHardness(2.0F);
 	setStepSound(soundMetalFootstep);
 	setResistance(5.0F);
-	setCreativeTab(CreativeTabs.tabBlock);
+	setCreativeTab(LCBlocks.lcTab);
     }
 
     @Override

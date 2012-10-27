@@ -27,7 +27,7 @@ public class BlockCantaloupe extends Block {
 	setHardness(2.0F);
 	setResistance(1.0F);
 	blockIndexInTexture = par2;
-	setCreativeTab(CreativeTabs.tabBlock);
+	setCreativeTab(LCBlocks.lcTab);
 	setTextureFile(Info.TEX_BLOCK);
     }
 

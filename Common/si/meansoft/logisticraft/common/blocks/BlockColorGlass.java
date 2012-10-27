@@ -21,7 +21,7 @@ public class BlockColorGlass extends Block{
 		super(par1, par2, mat);
 		blockIndexInTexture = par2;
 		setBlockName("Colored glass");
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(LCBlocks.lcTab);
 	}
 	
 	@Override

@@ -27,7 +27,7 @@ public class BlockChimney extends Block {
 	setHardness(2.0F);
 	setResistance(1.0F);
 	blockIndexInTexture = par2;
-	setCreativeTab(CreativeTabs.tabBlock);
+	setCreativeTab(LCBlocks.lcTab);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class BlockChimney extends Block {
 	return 1;
     }
 
-    protected int damageDropped(int i) {
+    public int damageDropped(int i) {
 	return i;
     }
 

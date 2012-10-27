@@ -10,8 +10,10 @@ package si.meansoft.logisticraft.common.blocks;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.BlockStem;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EnumMobType;
 import net.minecraft.src.Material;
+import si.meansoft.logisticraft.common.core.CreativeTabLogisticraft;
 import si.meansoft.logisticraft.common.items.ItemBlockBox;
 import si.meansoft.logisticraft.common.items.ItemBlockChimney;
 import si.meansoft.logisticraft.common.items.ItemBlockCrate;
@@ -46,9 +48,14 @@ public class LCBlocks {
     public static Block stackBench;
     public static Block cantaloupe;
     public static Block cantaloupeStem;
+    
+    public static CreativeTabs lcTab;
 
     /* Block declarations */
     public static void loadBlocks() {
+	
+	lcTab = new CreativeTabLogisticraft(CreativeTabs.getNextID(), "Logisticraft");
+	
 	ores = new BlockOres(BlockIDs.ores, 3);
 	box = new BlockBox(BlockIDs.box, 0);
 	box2 = new BlockBox(BlockIDs.box2, 16);

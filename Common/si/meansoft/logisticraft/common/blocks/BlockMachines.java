@@ -46,7 +46,7 @@ public class BlockMachines extends Block {
 	setResistance(1.0F);
 	blockIndexInTexture = par2;
 	onState = state;
-	setCreativeTab(CreativeTabs.tabBlock);
+	setCreativeTab(LCBlocks.lcTab);
 	setTextureFile(Info.TEX_BLOCK);
     }
 
@@ -65,7 +65,7 @@ public class BlockMachines extends Block {
 	return 1;
     }
 
-    protected int damageDropped(int i) {
+    public int damageDropped(int i) {
 	return i;
     }
 

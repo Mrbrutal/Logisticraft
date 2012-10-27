@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 import si.meansoft.logisticraft.common.core.Crate;
+import si.meansoft.logisticraft.common.core.CreativeTabLogisticraft;
 import si.meansoft.logisticraft.common.core.handlers.ModHandler;
 import si.meansoft.logisticraft.common.items.LCItems;
 import si.meansoft.logisticraft.common.library.Info;
@@ -32,7 +33,7 @@ public class BlockBox extends Block {
 	setStepSound(soundGrassFootstep);
 	setResistance(1.0F);
 	setTickRandomly(true);
-	setCreativeTab(CreativeTabs.tabBlock);
+	setCreativeTab(LCBlocks.lcTab);
     }
 
     @Override
@@ -208,7 +209,7 @@ public class BlockBox extends Block {
 	}
     }
     
-    protected int damageDropped(int i) {
+    public int damageDropped(int i) {
 	return i;
     }
 

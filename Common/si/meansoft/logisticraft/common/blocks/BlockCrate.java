@@ -31,7 +31,7 @@ public class BlockCrate extends Block {
 	super(i, j, Material.grass);
 	blockIndexInTexture = j;
 	setTickRandomly(true);
-	setCreativeTab(CreativeTabs.tabBlock);
+	setCreativeTab(LCBlocks.lcTab);
 	setHardness(1.0F);
     }
 
@@ -204,7 +204,7 @@ public class BlockCrate extends Block {
 	}
     }
 
-    protected int damageDropped(int i) {
+    public int damageDropped(int i) {
 	return i;
     }
 
