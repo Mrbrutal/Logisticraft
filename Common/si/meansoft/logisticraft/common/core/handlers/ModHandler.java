@@ -26,8 +26,8 @@ import si.meansoft.logisticraft.common.library.ItemIDs;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.registry.GameRegistry;
-import forestry.api.core.BlockInterface;
-import forestry.api.core.ItemInterface;
+//import forestry.api.core.BlockInterface;
+//import forestry.api.core.ItemInterface;
 
 public class ModHandler {
 
@@ -50,7 +50,7 @@ public class ModHandler {
 	fo = isPresent("Forestry");
 	if(fo) {
 	    Logisticraft.lcLog.info("Loading Forestry items/blocks");
-	    getFoitems();
+	    //getFoitems();
 	    loadFoitems();
 	}
 	else {
@@ -91,12 +91,12 @@ public class ModHandler {
 	ic2Items = items;
     }
     
-    private static void getFoitems() {	
+    /*private static void getFoitems() {	
 	ItemStack[] items2 = {ItemInterface.getItem("waxCapsule"), ItemInterface.getItem("refractoryEmpty"), ItemInterface.getItem("canEmpty"), ItemInterface.getItem("mouldyWheat"), ItemInterface.getItem("fertilizerBio"), ItemInterface.getItem("fertilizerCompound"), ItemInterface.getItem("mulch"), ItemInterface.getItem("woodPulp"), ItemInterface.getItem("beeswax"), ItemInterface.getItem("refractoryWax"), ItemInterface.getItem("peat"), ItemInterface.getItem("bituminousPeat"), ItemInterface.getItem("ash"), ItemInterface.getItem("phosphor"), ItemInterface.getItem("apatite"), ItemInterface.getItem("honeyedSlice")};
 	foItems = items2;
-	ItemStack[] items3 = {new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 0), new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 1), new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 2), new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 3), new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 4), new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 5), new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 6), new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 7), new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 15), ItemInterface.getItem("honeyDrop"), ItemInterface.getItem("honeydew"), /*ItemInterface.getItem("royalJelly"),*/ new ItemStack(ItemInterface.getItem("pollen").getItem(), 1, 0), new ItemStack(ItemInterface.getItem("pollen").getItem(), 1, 1), new ItemStack(ItemInterface.getItem("propolis").getItem(), 1, 0), new ItemStack(ItemInterface.getItem("propolis").getItem(), 1, 1), new ItemStack(ItemInterface.getItem("propolis").getItem(), 1, 3)};
+	ItemStack[] items3 = {new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 0), new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 1), new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 2), new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 3), new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 4), new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 5), new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 6), new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 7), new ItemStack(ItemInterface.getItem("beeComb").getItem(), 1, 15), ItemInterface.getItem("honeyDrop"), ItemInterface.getItem("honeydew"), new ItemStack(ItemInterface.getItem("pollen").getItem(), 1, 0), new ItemStack(ItemInterface.getItem("pollen").getItem(), 1, 1), new ItemStack(ItemInterface.getItem("propolis").getItem(), 1, 0), new ItemStack(ItemInterface.getItem("propolis").getItem(), 1, 1), new ItemStack(ItemInterface.getItem("propolis").getItem(), 1, 3)};
 	foItems2 = items3;
-    }
+    }*/
 
     public static boolean isPresent(String modId) {
 	if(Loader.instance().getActiveModList() != null) {

@@ -49,7 +49,7 @@ public class Localization {
 	String[] files2 = null;
 
 	try {
-	    files = getResourceListing(this.getClass(), path);
+	    files = getResourceListing(this.getClass()/*Minecraft.class*/, path);
 	} catch (URISyntaxException e) {
 	    e.printStackTrace();
 	} catch (IOException e) {
@@ -63,6 +63,11 @@ public class Localization {
 	    System.out.println("No files in lang");
 	}
 
+	if (files2 != null) {
+	    for (int i = 0; i < files2.length; i++) {
+		System.out.println(files2[i]);
+	    }
+	}
 	return files2;
     }
 
@@ -78,12 +83,14 @@ public class Localization {
     public String[] getResourceListing(Class clazz, String path) throws URISyntaxException, IOException {
 	URL dirURL = clazz.getClassLoader().getResource(path);
 	if (dirURL != null && dirURL.getProtocol().equals("file")) {
+	    System.out.println("-----dirURL is a file!");
 	    return new File(dirURL.toURI()).list();
 	}
 
 	if (dirURL == null) {
 	    String me = clazz.getName().replace(".", "/") + ".class";
 	    dirURL = clazz.getClassLoader().getResource(me);
+	    System.out.println("-----dirURL is a file! : " + me);
 	}
 
 	if (dirURL.getProtocol().equals("jar")) {
@@ -119,7 +126,7 @@ public class Localization {
     public static String[] removeEl(String[] input) {
 	List result = new LinkedList();
 
-	for(String item : input) {
+	for (String item : input) {
 	    if (item.endsWith(".xml") && item != null) {
 		item = Info.LANG_FILES + item;
 		result.add(item);

@@ -9,7 +9,6 @@
 package si.meansoft.logisticraft.common.recipes;
 
 import net.minecraft.src.ItemStack;
-import net.minecraft.src.ic2.api.Ic2Recipes;
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.core.StackCraftingManager;
 import si.meansoft.logisticraft.common.core.handlers.ModHandler;

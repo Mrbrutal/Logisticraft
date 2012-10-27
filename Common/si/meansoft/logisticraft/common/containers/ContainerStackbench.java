@@ -87,15 +87,15 @@ public class ContainerStackbench extends Container {
 	}
     }
 
-    public boolean canInteractWith(EntityPlayer par1EntityPlayer) {
-	return this.worldObj.getBlockId(this.posX, this.posY, this.posZ) != LCBlocks.stackBench.blockID ? false : par1EntityPlayer.getDistanceSq((double) this.posX + 0.5D, (double) this.posY + 0.5D, (double) this.posZ + 0.5D) <= 64.0D;
+    public boolean canInteractWith(EntityPlayer player) {
+	return this.worldObj.getBlockId(this.posX, this.posY, this.posZ) != LCBlocks.stackBench.blockID ? false : player.getDistanceSq((double) this.posX + 0.5D, (double) this.posY + 0.5D, (double) this.posZ + 0.5D) <= 64.0D;
     }
 
     /**
      * Called to transfer a stack from one inventory to the other eg. when shift
      * clicking.
      */
-    public ItemStack transferStackInSlot(int par1) {
+    public ItemStack func_82846_b(EntityPlayer player, int par1) {
 	ItemStack var2 = null;
 	Slot var3 = (Slot) this.inventorySlots.get(par1);
 
@@ -135,7 +135,7 @@ public class ContainerStackbench extends Container {
 		return null;
 	    }
 
-	    var3.onPickupFromSlot(var4);
+	    var3.func_82870_a(player, var4);
 	}
 	return var2;
     }

@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
@@ -57,10 +58,10 @@ import si.meansoft.logisticraft.common.recipes.RecipesIC2;
 import si.meansoft.logisticraft.common.recipes.RecipesItems;
 import si.meansoft.logisticraft.common.recipes.RecipesStack;
 
-@Mod(modid = Info.modID, name = Info.modName, version = Info.modVersion) 
+@Mod(modid = Info.modID, name = Info.modName, dependencies="required-after:Forge@[6.0,)") 
 @NetworkMod(channels = { Info.channel }, clientSideRequired = true, serverSideRequired = true, packetHandler = PacketHandler.class) 
 public class Logisticraft {
-
+    
     /* Logisticraft instance */
     @Instance(Info.modID) public static Logisticraft instance;
 
@@ -129,8 +130,7 @@ public class Logisticraft {
     @PostInit
     public void modsLoaded(FMLPostInitializationEvent evt) {
 	ModHandler.init();
-
 	RecipesIC2.addIC2Recipes();
-	RecipesForestry.addFORecipes();
+	//RecipesForestry.addFORecipes();
     }
 }
