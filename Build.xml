@@ -116,8 +116,6 @@
 	<!-- Prepare build folder for copying files over -->
 	<target name="PostInit" description="Initialize build environment">
 		<mkdir dir="${build.dir}/si/meansoft/logisticraft" />
-	    <!--mkdir dir="${build.dir}/si/meansoft/logisticraft/client" />
-		<mkdir dir="${build.dir}/si/meansoft/logisticraft/resources" /-->
 		<echo message="PostInit target completed succesfully!" />		
 	</target>
 
