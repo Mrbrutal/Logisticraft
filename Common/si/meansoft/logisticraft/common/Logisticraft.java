@@ -58,11 +58,7 @@ import si.meansoft.logisticraft.common.recipes.RecipesIC2;
 import si.meansoft.logisticraft.common.recipes.RecipesItems;
 import si.meansoft.logisticraft.common.recipes.RecipesStack;
 
-<<<<<<< HEAD
 @Mod(modid = Info.modID, name = Info.modName, dependencies="required-after:Forge@[6.0,)") 
-=======
-@Mod(modid = Info.modID, name = Info.modName, /*version = Info.modVersion,*/ dependencies="required-after:Forge@[6.0,)") 
->>>>>>> origin/master
 @NetworkMod(channels = { Info.channel }, clientSideRequired = true, serverSideRequired = true, packetHandler = PacketHandler.class) 
 public class Logisticraft {
     
@@ -133,14 +129,8 @@ public class Logisticraft {
 
     @PostInit
     public void modsLoaded(FMLPostInitializationEvent evt) {
-<<<<<<< HEAD
 	ModHandler.init();
 	RecipesIC2.addIC2Recipes();
 	//RecipesForestry.addFORecipes();
-=======
-	/*ModHandler.init();
-	RecipesIC2.addIC2Recipes();
-	RecipesForestry.addFORecipes();*/
->>>>>>> origin/master
     }
 }

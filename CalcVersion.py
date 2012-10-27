@@ -16,11 +16,7 @@ minor = "1"
 rev = "0"
 sub = "000"
 mcpversion = "7.19"
-<<<<<<< HEAD
 forgeversion = "6.0.1.339"
-=======
-forgeversion = "6.0.1.337"
->>>>>>> origin/master
 mcclientver = "1.4.2"
 
 def cmdsplit(args):

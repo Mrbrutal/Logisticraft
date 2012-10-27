@@ -95,11 +95,8 @@ public class ContainerStackbench extends Container {
      * Called to transfer a stack from one inventory to the other eg. when shift
      * clicking.
      */
-<<<<<<< HEAD
+
     public ItemStack func_82846_b(EntityPlayer player, int par1) {
-=======
-    public ItemStack func_82846_b(EntityPlayer par1EntityPlayer, int par1) {
->>>>>>> origin/master
 	ItemStack var2 = null;
 	Slot var3 = (Slot) this.inventorySlots.get(par1);
 
@@ -138,12 +135,9 @@ public class ContainerStackbench extends Container {
 	    if (var4.stackSize == var2.stackSize) {
 		return null;
 	    }
-
-<<<<<<< HEAD
+	    
 	    var3.func_82870_a(player, var4);
-=======
-	    var3.func_82870_a(par1EntityPlayer, var4);
->>>>>>> origin/master
+
 	}
 	return var2;
     }
