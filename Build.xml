@@ -145,6 +145,7 @@
 				<include name="**/lcver.properties" />
 			</fileset>
 		</copy>
+		<replace dir="${build.dir}" token="@VERSION@" value="${version}" />
 		<copy todir="${build.dir}/si/meansoft/logisticraft/common" failonerror="false">
 			<fileset dir="${mcp.dir}/reobf/minecraft/si/meansoft/logisticraft/common"/>
 		</copy>
