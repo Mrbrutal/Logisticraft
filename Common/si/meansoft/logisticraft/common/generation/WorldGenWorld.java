@@ -2,13 +2,11 @@ package si.meansoft.logisticraft.common.generation;
 
 import java.util.Random;
 
-import si.meansoft.logisticraft.common.blocks.LCBlocks;
-import si.meansoft.logisticraft.common.core.handlers.ConfigHandler;
-
-import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.Block;
 import net.minecraft.src.IChunkProvider;
 import net.minecraft.src.World;
+import si.meansoft.logisticraft.common.blocks.LCBlocks;
+import si.meansoft.logisticraft.common.core.handlers.ConfigHandler;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class WorldGenWorld implements IWorldGenerator {

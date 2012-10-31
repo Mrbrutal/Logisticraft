@@ -10,14 +10,10 @@ package si.meansoft.logisticraft.common.generation;
 
 import java.util.Random;
 
-import si.meansoft.logisticraft.common.blocks.LCBlocks;
-
 import net.minecraft.src.Block;
-import net.minecraft.src.IChunkProvider;
 import net.minecraft.src.MathHelper;
 import net.minecraft.src.World;
 import net.minecraft.src.WorldGenerator;
-import cpw.mods.fml.common.IWorldGenerator;
 
 public class WorldGenOres extends WorldGenerator {
 

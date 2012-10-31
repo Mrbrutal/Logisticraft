@@ -12,10 +12,6 @@ import java.util.Comparator;
 
 import si.meansoft.logisticraft.common.core.interfaces.IStackRecipe;
 
-import net.minecraft.src.CraftingManager;
-import net.minecraft.src.ShapedRecipes;
-import net.minecraft.src.ShapelessRecipes;
-
 public class StackRecipeSorter implements Comparator {
     final StackCraftingManager scm;
 

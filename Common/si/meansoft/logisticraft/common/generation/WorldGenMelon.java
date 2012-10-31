@@ -10,11 +10,8 @@ package si.meansoft.logisticraft.common.generation;
 
 import java.util.Random;
 
-import cpw.mods.fml.common.IWorldGenerator;
-
 import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.Block;
-import net.minecraft.src.IChunkProvider;
 import net.minecraft.src.World;
 import net.minecraft.src.WorldGenerator;
 

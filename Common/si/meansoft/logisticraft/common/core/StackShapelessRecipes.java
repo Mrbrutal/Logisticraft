@@ -12,11 +12,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import si.meansoft.logisticraft.common.core.interfaces.IStackRecipe;
-
-import net.minecraft.src.IRecipe;
 import net.minecraft.src.InventoryCrafting;
 import net.minecraft.src.ItemStack;
+import si.meansoft.logisticraft.common.core.interfaces.IStackRecipe;
 
 public class StackShapelessRecipes implements IStackRecipe {
 

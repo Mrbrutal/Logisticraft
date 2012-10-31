@@ -14,25 +14,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+import net.minecraft.src.Block;
+import net.minecraft.src.InventoryCrafting;
+import net.minecraft.src.Item;
+import net.minecraft.src.ItemStack;
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.core.interfaces.IStackRecipe;
 import si.meansoft.logisticraft.common.items.LCItems;
 import si.meansoft.logisticraft.common.library.Info;
-
-import net.minecraft.src.Block;
-import net.minecraft.src.CraftingManager;
-import net.minecraft.src.IRecipe;
-import net.minecraft.src.InventoryCrafting;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.RecipesArmor;
-import net.minecraft.src.RecipesCrafting;
-import net.minecraft.src.RecipesDyes;
-import net.minecraft.src.RecipesFood;
-import net.minecraft.src.RecipesIngots;
-import net.minecraft.src.RecipesTools;
-import net.minecraft.src.RecipesWeapons;
-import net.minecraft.src.ShapelessRecipes;
 
 public class StackCraftingManager {
 

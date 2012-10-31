@@ -8,11 +8,9 @@
 
 package si.meansoft.logisticraft.common.core;
 
-import si.meansoft.logisticraft.common.core.interfaces.IStackRecipe;
-import net.minecraft.src.IRecipe;
 import net.minecraft.src.InventoryCrafting;
 import net.minecraft.src.ItemStack;
-import net.minecraft.src.ShapedRecipes;
+import si.meansoft.logisticraft.common.core.interfaces.IStackRecipe;
 
 public class StackShapedRecipes implements IStackRecipe {
 

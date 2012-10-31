@@ -8,14 +8,13 @@
 
 package si.meansoft.logisticraft.common.core;
 
-import si.meansoft.logisticraft.common.blocks.LCBlocks;
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.IInventory;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.SlotCrafting;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerDestroyItemEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class StackCrafting extends SlotCrafting {
 
