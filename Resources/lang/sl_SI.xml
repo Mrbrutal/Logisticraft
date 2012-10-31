@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+    <comment>Slovenial (SI) Localization File</comment>
+    <entry key="gui.stackCrafting.name">Stakovna delavna miza</entry>
+    <entry key="item.copperIngot.name">Bakrena palica</entry>
+    <entry key="item.silverIngot.name">Srebrna palica</entry>
+    <entry key="item.platinumIngot.name">Platinasta palica</entry>
+    <entry key="item.dust.copper.name">Bakreni prah</entry>
+    <entry key="item.dust.silver.name">Srebrni prah</entry>
+    <entry key="item.dust.platinum.name">Platinast prah</entry>
+    <entry key="item.coin.copper.name">Bakreni kovanec</entry>
+    <entry key="item.coin.silver.name">Srebrni kovanec</entry>
+    <entry key="item.coin.gold.name">Zlati kovanec</entry>
+    <entry key="item.coin.platinum.name">Platinast kovanec</entry>
+    <entry key="item.knife.name">Nož</entry>
+    <!-- entry key="tile.block.name">block</entry -->
+</properties>
