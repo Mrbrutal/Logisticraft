@@ -2,6 +2,13 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties version="1.0">
     <comment>English (US) Localization File</comment>
+    <!-- VERSIONING -->
+    <entry key="version.unninitialized">Versioning not initialized.</entry>
+    <entry key="version.current">The mod is up to date.</entry>
+    <entry key="version.outdated">The mod is outdated.</entry>
+    <entry key="version.error">There was an error checking the version.</entry>
+    <entry key="version.check_dissabled">Version checking dissabled.</entry>
+    <entry key="version.download">Download the new version at: </entry>
     <!-- GUI -->
     <entry key="gui.stackCrafting.name">Stack crafting bench</entry>
     <!-- ITEMS -->
