@@ -7,8 +7,10 @@
 
 package si.meansoft.logisticraft.common.items;
 
+import net.minecraft.src.Item;
+import net.minecraft.src.ItemBlock;
+import net.minecraft.src.ItemStack;
 import si.meansoft.logisticraft.common.library.Info;
-import net.minecraft.src.*;
 
 public class ItemBlockBox extends ItemBlock {
 

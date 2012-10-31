@@ -1,8 +1,8 @@
 package si.meansoft.logisticraft.common.items;
 
-import si.meansoft.logisticraft.common.library.Info;
 import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemStack;
+import si.meansoft.logisticraft.common.library.Info;
 
 public class ItemBlockGlass extends ItemBlock {
 

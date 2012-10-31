@@ -8,11 +8,11 @@
 
 package si.meansoft.logisticraft.common.items;
 
-import si.meansoft.logisticraft.common.blocks.LCBlocks;
-import si.meansoft.logisticraft.common.library.Info;
 import net.minecraft.src.Block;
 import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.ItemTool;
+import si.meansoft.logisticraft.common.blocks.LCBlocks;
+import si.meansoft.logisticraft.common.library.Info;
 
 public class ItemKnife extends ItemTool {
     private static Block[] blocksEffectiveAgainst = new Block[] { LCBlocks.crate, LCBlocks.box };

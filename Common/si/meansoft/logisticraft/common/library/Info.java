@@ -7,10 +7,10 @@
 
 package si.meansoft.logisticraft.common.library;
 
-import si.meansoft.logisticraft.common.items.LCItems;
 import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
+import si.meansoft.logisticraft.common.items.LCItems;
 
 public class Info {
 
@@ -19,6 +19,16 @@ public class Info {
     public static final String modName = "Logisticraft";
     public static final String modVersion = "1.0.0";
     public static final String channel = "Logisticraft";
+    public static final String REMOTE_VERSION = "http://dl.dropbox.com/u/25602663/Logisticraft/Version/lcver.properties";
+    public static final String REMOTE_DOWNLOAD = "http://adf.ly/EE6IK";
+    
+    /* Localization keys for versioning */
+    public static final String VERSION_CHECK_DISABLED = "version.check_disabled";
+    public static final String UNN_MESSAGE = "version.uninitialized";
+    public static final String CUR_MESSAGE = "version.current";
+    public static final String OUT_MESSAGE = "version.outdated";
+    public static final String ERR_MESSAGE = "version.error";
+    public static final String DL_MESSAGE = "version.download";
 
     /* All the resources for the mod */
     public static final String texPrefix = "/si/meansoft/logisticraft/Resources/";

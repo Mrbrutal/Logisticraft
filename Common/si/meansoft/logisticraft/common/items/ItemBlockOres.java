@@ -8,11 +8,8 @@
 
 package si.meansoft.logisticraft.common.items;
 
-import si.meansoft.logisticraft.common.Logisticraft;
-import si.meansoft.logisticraft.common.blocks.LCBlocks;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
-import net.minecraft.src.*;
+import net.minecraft.src.ItemBlock;
+import net.minecraft.src.ItemStack;
 
 public class ItemBlockOres extends ItemBlock {
 	public ItemBlockOres(int i) {

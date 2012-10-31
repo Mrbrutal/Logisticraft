@@ -8,9 +8,9 @@
 
 package si.meansoft.logisticraft.common.items;
 
-import si.meansoft.logisticraft.common.library.Info;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;
+import si.meansoft.logisticraft.common.library.Info;
 
 public class ItemCardboard extends Item{
 

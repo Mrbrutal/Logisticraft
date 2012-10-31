@@ -9,7 +9,6 @@
 package si.meansoft.logisticraft.common.blocks;
 
 import net.minecraft.src.Block;
-import net.minecraft.src.BlockStem;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EnumMobType;
 import net.minecraft.src.Material;

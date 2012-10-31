@@ -8,17 +8,15 @@
 
 package si.meansoft.logisticraft.common.items;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
 
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.MathHelper;
 import si.meansoft.logisticraft.common.library.Info;
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 
 public class ItemCoins extends Item {
 

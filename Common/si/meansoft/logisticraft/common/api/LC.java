@@ -10,10 +10,9 @@ package si.meansoft.logisticraft.common.api;
 
 import java.util.List;
 
-import si.meansoft.logisticraft.common.core.StackCraftingManager;
-
 import net.minecraft.src.Block;
 import net.minecraft.src.ItemStack;
+import si.meansoft.logisticraft.common.core.StackCraftingManager;
 
 public class LC {
     

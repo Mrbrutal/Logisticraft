@@ -10,28 +10,17 @@ package si.meansoft.logisticraft.common.core.util;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.util.Enumeration;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Properties;
 import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
-
-import net.minecraft.client.Minecraft;
-
-import si.meansoft.logisticraft.common.Logisticraft;
-import si.meansoft.logisticraft.common.core.CommonProxy;
 import si.meansoft.logisticraft.common.library.Info;
 
 public class Localization {
@@ -49,7 +38,7 @@ public class Localization {
 	String[] files2 = null;
 
 	try {
-	    files = getResourceListing(this.getClass()/*Minecraft.class*/, path);
+	    files = getResourceListing(this.getClass(), path);
 	} catch (URISyntaxException e) {
 	    e.printStackTrace();
 	} catch (IOException e) {
@@ -62,12 +51,7 @@ public class Localization {
 	else {
 	    System.out.println("No files in lang");
 	}
-
-	if (files2 != null) {
-	    for (int i = 0; i < files2.length; i++) {
-		System.out.println(files2[i]);
-	    }
-	}
+	
 	return files2;
     }
 

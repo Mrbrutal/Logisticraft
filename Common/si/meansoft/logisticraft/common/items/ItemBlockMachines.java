@@ -8,7 +8,8 @@
 
 package si.meansoft.logisticraft.common.items;
 
-import net.minecraft.src.*;
+import net.minecraft.src.ItemBlock;
+import net.minecraft.src.ItemStack;
 
 public class ItemBlockMachines extends ItemBlock {
 

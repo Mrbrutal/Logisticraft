@@ -3,6 +3,13 @@ package si.meansoft.logisticraft.client.GUI;
 import java.util.Iterator;
 import java.util.List;
 
+import net.minecraft.src.GuiContainer;
+import net.minecraft.src.InventoryPlayer;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.Slot;
+import net.minecraft.src.StatCollector;
+import net.minecraft.src.World;
+
 import org.lwjgl.opengl.GL11;
 
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
@@ -13,22 +20,6 @@ import si.meansoft.logisticraft.common.library.Info;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraft.src.Block;
-import net.minecraft.src.Container;
-import net.minecraft.src.ContainerEnchantment;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.FontRenderer;
-import net.minecraft.src.GuiContainer;
-import net.minecraft.src.InventoryCrafting;
-import net.minecraft.src.InventoryPlayer;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.OpenGlHelper;
-import net.minecraft.src.RenderHelper;
-import net.minecraft.src.RenderManager;
-import net.minecraft.src.Slot;
-import net.minecraft.src.StatCollector;
-import net.minecraft.src.World;
 
 @SideOnly(Side.CLIENT) public class GuiStackCrafting extends GuiContainer {
 

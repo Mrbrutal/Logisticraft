@@ -8,8 +8,6 @@
 
 package si.meansoft.logisticraft.common.items;
 
-import si.meansoft.logisticraft.common.blocks.LCBlocks;
-import si.meansoft.logisticraft.common.library.Info;
 import net.minecraft.src.Block;
 import net.minecraft.src.BlockCrops;
 import net.minecraft.src.BlockDirectional;
@@ -21,9 +19,10 @@ import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.World;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.BonemealEvent;
+import si.meansoft.logisticraft.common.blocks.LCBlocks;
+import si.meansoft.logisticraft.common.library.Info;
 
 public class ItemCompost extends Item {
 

@@ -9,20 +9,13 @@
 package si.meansoft.logisticraft.common.items;
 
 import net.minecraft.src.Block;
-import net.minecraft.src.CraftingManager;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.Item;
-import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemFood;
 import net.minecraft.src.ItemSeeds;
-import net.minecraft.src.ItemStack;
 import net.minecraftforge.common.EnumHelper;
-import net.minecraftforge.oredict.ShapedOreRecipe;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
-import si.meansoft.logisticraft.common.library.BlockIDs;
 import si.meansoft.logisticraft.common.library.Info;
 import si.meansoft.logisticraft.common.library.ItemIDs;
 

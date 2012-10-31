@@ -8,34 +8,11 @@
 package si.meansoft.logisticraft.common;
 
 import java.io.File;
-import java.lang.reflect.Method;
-import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
-import net.minecraftforge.common.Configuration;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
-import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.ModContainer;
-import cpw.mods.fml.common.Mod.Init;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.Mod.PostInit;
-import cpw.mods.fml.common.Mod.PreInit;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.core.CommonProxy;
 import si.meansoft.logisticraft.common.core.Version;
@@ -45,20 +22,31 @@ import si.meansoft.logisticraft.common.core.handlers.CraftingHandler;
 import si.meansoft.logisticraft.common.core.handlers.ModHandler;
 import si.meansoft.logisticraft.common.core.handlers.OreHandler;
 import si.meansoft.logisticraft.common.core.handlers.PacketHandler;
-import si.meansoft.logisticraft.common.core.util.Localization;
+import si.meansoft.logisticraft.common.core.handlers.VersionHandler;
 import si.meansoft.logisticraft.common.core.util.LocalizationHandler;
-import si.meansoft.logisticraft.common.generation.WorldGenOres;
 import si.meansoft.logisticraft.common.generation.WorldGenWorld;
 import si.meansoft.logisticraft.common.items.LCItems;
-import si.meansoft.logisticraft.common.library.BlockIDs;
 import si.meansoft.logisticraft.common.library.Info;
 import si.meansoft.logisticraft.common.recipes.RecipesBlocks;
-import si.meansoft.logisticraft.common.recipes.RecipesForestry;
 import si.meansoft.logisticraft.common.recipes.RecipesIC2;
 import si.meansoft.logisticraft.common.recipes.RecipesItems;
-import si.meansoft.logisticraft.common.recipes.RecipesStack;
+import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PostInit;
+import cpw.mods.fml.common.Mod.PreInit;
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.TickRegistry;
 
-@Mod(modid = Info.modID, name = Info.modName, dependencies="required-after:Forge@[6.0,)") 
+@Mod(modid = Info.modID, name = Info.modName, version=Info.modVersion, dependencies="required-after:Forge@[6.0.1,)") 
 @NetworkMod(channels = { Info.channel }, clientSideRequired = true, serverSideRequired = true, packetHandler = PacketHandler.class) 
 public class Logisticraft {
     
@@ -73,15 +61,23 @@ public class Logisticraft {
 
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
-	event.getModMetadata().version = Version.fullVer();
+	event.getModMetadata().version = Version.fullVerCurrent();
 	lcLog.setParent(FMLLog.getLogger());
-	lcLog.info("Starting Logisticraft " + Version.fullVer() + "!");
+	lcLog.info("Starting Logisticraft " + Version.fullVerCurrent() + "!");
 
 	/* Localisation */
 	LocalizationHandler.load();
 
 	/* Register config file */
 	ConfigHandler.init(new File(event.getModConfigurationDirectory(), Info.modName + ".cfg"));
+	
+	/* Check the version */
+        if (ConfigHandler.SHOW_VERSION_UPDATE) {
+        	Version.checkVersion();
+        }
+        
+        /* Initialize the Version Handler  */
+        TickRegistry.registerTickHandler(new VersionHandler(), Side.CLIENT);
 
 	/* Preload textures */
 	proxy.preloadTextures();
