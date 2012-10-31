@@ -9,19 +9,16 @@ package si.meansoft.logisticraft.common.blocks;
 
 import java.util.List;
 
-import si.meansoft.logisticraft.client.GUI.GuiStackCrafting;
-import si.meansoft.logisticraft.common.Logisticraft;
-import si.meansoft.logisticraft.common.library.Info;
 import net.minecraft.src.Block;
-import net.minecraft.src.BlockContainer;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.MathHelper;
-import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;
+import si.meansoft.logisticraft.common.Logisticraft;
+import si.meansoft.logisticraft.common.library.Info;
 
 public class BlockStackBench extends Block {
 
@@ -72,8 +69,13 @@ public class BlockStackBench extends Block {
 	    return true;
 	}
 	else {
-	    player.openGui(Logisticraft.instance, 1, world, x, y, z);
-	    return true;
+	    if(!player.isSneaking()) {
+		player.openGui(Logisticraft.instance, 1, world, x, y, z);
+	    	return true;
+	    }
+	    else {
+		return false;
+	    }
 	}
     }
 }
