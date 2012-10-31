@@ -10,10 +10,8 @@ package si.meansoft.logisticraft.common.core.handlers;
 
 import java.util.List;
 
-import net.minecraft.src.Block;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ic2.api.Items;
-
 import si.meansoft.logisticraft.common.Logisticraft;
 import si.meansoft.logisticraft.common.blocks.BlockBox;
 import si.meansoft.logisticraft.common.blocks.BlockCrate;
@@ -21,13 +19,9 @@ import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.items.ItemBlockBox;
 import si.meansoft.logisticraft.common.items.ItemBlockCrate;
 import si.meansoft.logisticraft.common.library.BlockIDs;
-import si.meansoft.logisticraft.common.library.ItemIDs;
-
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.registry.GameRegistry;
-//import forestry.api.core.BlockInterface;
-//import forestry.api.core.ItemInterface;
 
 public class ModHandler {
 
@@ -105,7 +99,7 @@ public class ModHandler {
 		if(mods.get(i).getModId().equals(modId)) {
 		    return true;
 		}
-		System.out.println("[LC] Mod:" + mods.get(i).getName() + " | " + mods.get(i).getModId());
+		//System.out.println("[LC] Mod:" + mods.get(i).getName() + " | " + mods.get(i).getModId());
 	    }
 	}
 	return false;

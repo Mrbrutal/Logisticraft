@@ -8,10 +8,10 @@
 
 package si.meansoft.logisticraft.common.core.handlers;
 
-import si.meansoft.logisticraft.common.blocks.LCBlocks;
-import si.meansoft.logisticraft.common.items.LCItems;
 import net.minecraft.src.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import si.meansoft.logisticraft.common.blocks.LCBlocks;
+import si.meansoft.logisticraft.common.items.LCItems;
 
 public class OreHandler {
 

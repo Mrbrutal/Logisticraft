@@ -1,8 +1,9 @@
 package si.meansoft.logisticraft.common.core;
 
+import net.minecraft.src.Block;
+import net.minecraft.src.World;
 import si.meansoft.logisticraft.common.blocks.BlockMachines;
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
-import net.minecraft.src.*;
 
 public class Reflector {
 	

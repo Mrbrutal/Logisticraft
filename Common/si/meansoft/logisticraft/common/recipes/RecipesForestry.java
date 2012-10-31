@@ -12,7 +12,6 @@ import net.minecraft.src.ItemStack;
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.core.StackCraftingManager;
 import si.meansoft.logisticraft.common.core.handlers.ModHandler;
-import si.meansoft.logisticraft.common.items.LCItems;
 
 public class RecipesForestry {
     public static void addFORecipes() {

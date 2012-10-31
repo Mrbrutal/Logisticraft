@@ -1,14 +1,13 @@
 package si.meansoft.logisticraft.common.recipes;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import si.meansoft.logisticraft.common.blocks.LCBlocks;
-import si.meansoft.logisticraft.common.items.LCItems;
 import net.minecraft.src.Block;
 import net.minecraft.src.CraftingManager;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import si.meansoft.logisticraft.common.items.LCItems;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RecipesItems {
 

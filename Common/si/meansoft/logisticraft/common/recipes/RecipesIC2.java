@@ -14,7 +14,6 @@ import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.core.StackCraftingManager;
 import si.meansoft.logisticraft.common.core.handlers.ModHandler;
 import si.meansoft.logisticraft.common.items.LCItems;
-import si.meansoft.logisticraft.common.library.Info;
 
 public class RecipesIC2 {
     public static void addIC2Recipes() {
