@@ -11,28 +11,17 @@ package si.meansoft.logisticraft.common.blocks;
 import java.util.List;
 import java.util.Random;
 
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
-
-import si.meansoft.logisticraft.common.core.Reflector;
-import si.meansoft.logisticraft.common.library.Info;
-
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityLightningBolt;
 import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EntityPlayerMP;
-import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
-import net.minecraft.src.ModLoader;
-import net.minecraft.src.Potion;
-import net.minecraft.src.PotionEffect;
 import net.minecraft.src.World;
-import net.minecraftforge.client.ForgeHooksClient;
-import net.minecraftforge.common.ForgeHooks;
+import si.meansoft.logisticraft.common.Logisticraft;
+import si.meansoft.logisticraft.common.core.Reflector;
+import si.meansoft.logisticraft.common.library.Info;
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 
 public class BlockMachines extends Block {
 

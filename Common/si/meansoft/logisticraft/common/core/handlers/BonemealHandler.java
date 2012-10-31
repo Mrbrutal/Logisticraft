@@ -8,10 +8,10 @@
 
 package si.meansoft.logisticraft.common.core.handlers;
 
-import si.meansoft.logisticraft.common.blocks.BlockStem2;
-import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.BonemealEvent;
+import si.meansoft.logisticraft.common.blocks.BlockStem2;
+import si.meansoft.logisticraft.common.blocks.LCBlocks;
 
 public class BonemealHandler {
 

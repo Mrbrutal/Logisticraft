@@ -11,14 +11,13 @@ package si.meansoft.logisticraft.common.blocks;
 import java.util.List;
 import java.util.Random;
 
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
-
-import si.meansoft.logisticraft.common.library.Info;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
+import si.meansoft.logisticraft.common.library.Info;
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 
 public class BlockOres extends Block {
 

@@ -7,16 +7,11 @@
 
 package si.meansoft.logisticraft.common.core;
 
-import si.meansoft.logisticraft.client.GUI.GuiStackCrafting;
+import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.World;
 import si.meansoft.logisticraft.common.containers.ContainerStackbench;
 import si.meansoft.logisticraft.common.library.GuiIDs;
-import net.minecraft.src.ContainerWorkbench;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.GuiCrafting;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.ModLoader;
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.World;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 public class CommonProxy implements IGuiHandler {

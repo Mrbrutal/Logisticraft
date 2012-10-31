@@ -12,18 +12,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
-import si.meansoft.logisticraft.common.core.Crate;
-import si.meansoft.logisticraft.common.items.LCItems;
-import si.meansoft.logisticraft.common.library.*;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
+import si.meansoft.logisticraft.common.core.Crate;
+import si.meansoft.logisticraft.common.items.LCItems;
+import si.meansoft.logisticraft.common.library.Info;
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 
 public class BlockCrate extends Block {
 

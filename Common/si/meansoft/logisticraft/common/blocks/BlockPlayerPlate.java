@@ -8,10 +8,10 @@
 
 package si.meansoft.logisticraft.common.blocks;
 
-import java.util.List;
-import java.util.Random;
-
-import net.minecraft.src.*;
+import net.minecraft.src.BlockPressurePlate;
+import net.minecraft.src.CreativeTabs;
+import net.minecraft.src.EnumMobType;
+import net.minecraft.src.Material;
 
 public class BlockPlayerPlate extends BlockPressurePlate {
 

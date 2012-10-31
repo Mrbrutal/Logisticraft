@@ -1,9 +1,9 @@
 package si.meansoft.logisticraft.common.core;
 
-import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import net.minecraft.src.Block;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
+import si.meansoft.logisticraft.common.blocks.LCBlocks;
 
 public class Crate {
 
@@ -42,7 +42,7 @@ public class Crate {
 	int bl = world.getBlockId(x, y, z);
 
 	for (Block box : boxes) {
-	    if (bl == box.blockID) {
+	    if (box != null && bl == box.blockID) {
 		isBox = true;
 	    }
 	}
@@ -75,7 +75,7 @@ public class Crate {
 	int bl = world.getBlockId(x, y, z);
 
 	for (Block crate : crates) {
-	    if (bl == crate.blockID) {
+	    if (crate != null && bl == crate.blockID) {
 		isCrate = true;
 	    }
 	}
@@ -100,7 +100,7 @@ public class Crate {
 
 	if (!world.isRemote) {
 	    for (Block box : boxes) {
-		if (bl == box.blockID) {
+		if (box != null && bl == box.blockID) {
 		    while (blockAbove != true && y <= (y + (256 - y))) {
 			if (!world.isAirBlock(x, y, z)) {
 			    blockAbove = true;
@@ -124,7 +124,7 @@ public class Crate {
 
 	if (!world.isRemote) {
 	    for (Block crate : crates) {
-		if (bl == crate.blockID) {
+		if (crate != null && bl == crate.blockID) {
 		    while (blockAbove != true && y <= (y + (256 - y))) {
 			if (!world.isAirBlock(x, y, z)) {
 			    blockAbove = true;

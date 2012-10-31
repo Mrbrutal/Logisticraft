@@ -1,22 +1,15 @@
 package si.meansoft.logisticraft.common.blocks;
 
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
-
 import java.util.ArrayList;
-import java.util.Random;
-
-import si.meansoft.logisticraft.common.items.LCItems;
 
 import net.minecraft.src.Block;
-import net.minecraft.src.BlockFlower;
 import net.minecraft.src.BlockStem;
 import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.IBlockAccess;
-import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.World;
-import net.minecraftforge.common.ForgeDirection;
+import si.meansoft.logisticraft.common.items.LCItems;
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 
 public class BlockStem2 extends BlockStem {
 

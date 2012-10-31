@@ -10,14 +10,13 @@ package si.meansoft.logisticraft.common.blocks;
 
 import java.util.Random;
 
-import si.meansoft.logisticraft.common.items.LCItems;
-import si.meansoft.logisticraft.common.library.Info;
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.Block;
-import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
+import si.meansoft.logisticraft.common.items.LCItems;
+import si.meansoft.logisticraft.common.library.Info;
 
 public class BlockCantaloupe extends Block {
 

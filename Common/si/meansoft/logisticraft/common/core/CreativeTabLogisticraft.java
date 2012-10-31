@@ -8,9 +8,9 @@
 
 package si.meansoft.logisticraft.common.core;
 
-import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
+import si.meansoft.logisticraft.common.blocks.LCBlocks;
 
 public class CreativeTabLogisticraft extends CreativeTabs {
 

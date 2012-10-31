@@ -8,13 +8,18 @@
 
 package si.meansoft.logisticraft.common.containers;
 
-import java.util.List;
-
-import si.meansoft.logisticraft.client.GUI.GuiStackCrafting;
+import net.minecraft.src.Container;
+import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.IInventory;
+import net.minecraft.src.InventoryCraftResult;
+import net.minecraft.src.InventoryCrafting;
+import net.minecraft.src.InventoryPlayer;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.Slot;
+import net.minecraft.src.World;
 import si.meansoft.logisticraft.common.blocks.LCBlocks;
 import si.meansoft.logisticraft.common.core.StackCrafting;
 import si.meansoft.logisticraft.common.core.StackCraftingManager;
-import net.minecraft.src.*;
 
 public class ContainerStackbench extends Container {
     /** The crafting matrix inventory (3x3)+1. */

@@ -3,17 +3,16 @@ package si.meansoft.logisticraft.common.blocks;
 import java.util.List;
 import java.util.Random;
 
-import si.meansoft.logisticraft.common.core.Reflector;
-import si.meansoft.logisticraft.common.library.Info;
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.MovingObjectPosition;
 import net.minecraft.src.Vec3;
 import net.minecraft.src.World;
+import si.meansoft.logisticraft.common.core.Reflector;
+import si.meansoft.logisticraft.common.library.Info;
 
 public class BlockColorGlass extends Block{
 

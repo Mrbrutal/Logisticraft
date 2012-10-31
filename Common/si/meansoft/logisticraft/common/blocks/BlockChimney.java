@@ -1,23 +1,16 @@
 package si.meansoft.logisticraft.common.blocks;
 
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
 import java.util.List;
 import java.util.Random;
-
-import com.google.common.util.concurrent.SettableFuture;
-
-import si.meansoft.logisticraft.common.library.Info;
-
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
+import si.meansoft.logisticraft.common.library.Info;
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 
 public class BlockChimney extends Block {
 
