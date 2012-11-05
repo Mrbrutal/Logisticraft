@@ -33,6 +33,7 @@ public class Version {
     private static String subUp;
     private static String forgeverUp;
     private static String mcversionUp;
+    private static String newLink;
     private static boolean loaded;
 
     // All possible results of the remote version number check
@@ -87,6 +88,7 @@ public class Version {
 		    subUp = properties.getProperty("lc.build.subversion.number");
 		    forgeverUp = properties.getProperty("lc.build.forgever.number");
 		    mcversionUp = properties.getProperty("lc.build.mcclientversion");
+		    newLink = properties.getProperty("lc.download.link");
 		    //Logisticraft.lcLog.log(Level.SEVERE, (Info.MOD_PFX + " DB " + major + "." + minor + "." + rev + "_" + sub));
 		    is.close();
 		} catch (IOException ex) {
@@ -124,7 +126,7 @@ public class Version {
 	    case CUR:
 		return LanguageRegistry.instance().getStringLocalization(Info.CUR_MESSAGE) + " Cur: \u00a72" + verCurrent() + "_" + sub + " \u00a7fNew: \u00a72" + verUpdated() + "_" + subUp;
 	    case OUT:
-		return LanguageRegistry.instance().getStringLocalization(Info.OUT_MESSAGE) + " Cur: \u00a74" + verCurrent() + "_" + sub + " \u00a7fNew: \u00a72" + verUpdated() + "_" + subUp + " \u00a7f" + LanguageRegistry.instance().getStringLocalization(Info.DL_MESSAGE) + "\u00a79 " + Info.REMOTE_DOWNLOAD;
+		return LanguageRegistry.instance().getStringLocalization(Info.OUT_MESSAGE) + " Cur: \u00a74" + verCurrent() + "_" + sub + " \u00a7fNew: \u00a72" + verUpdated() + "_" + subUp + " \u00a7f" + LanguageRegistry.instance().getStringLocalization(Info.DL_MESSAGE) + "\u00a79 " + newLink;
 	    case ERR:
 		return "\u00a74" + LanguageRegistry.instance().getStringLocalization(Info.ERR_MESSAGE);
 	    default:
