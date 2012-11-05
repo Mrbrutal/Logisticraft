@@ -37,6 +37,9 @@
     <entry key="tile.ore.silver.name">Silver ore</entry>
     <entry key="tile.ore.platinum.name">Platinum ore</entry>
     <entry key="tile.cantaloupe.name">Cantaloupe</entry>
+    <entry key="tile.test.name">test</entry>
+    <entry key="tile.test2.name">test2</entry>
+    <entry key="tile.test3.name">test3</entry>
     <!-- BlOCKS BOX -->
     <entry key="tile.box.wheat.name">Box of wheat</entry>
     <entry key="tile.box.sugarcane.name">Box of sugarcane</entry>
