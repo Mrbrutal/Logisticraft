@@ -47,6 +47,9 @@ public class LCBlocks {
     public static Block stackBench;
     public static Block cantaloupe;
     public static Block cantaloupeStem;
+    public static Block test;
+    public static Block test2;
+    public static Block test3;
     
     public static CreativeTabs lcTab;
 
@@ -72,6 +75,9 @@ public class LCBlocks {
 	stackBench = new BlockStackBench(BlockIDs.stackBench, 20);
 	cantaloupe = new BlockCantaloupe(BlockIDs.cantaloupe, 6);
 	cantaloupeStem = new BlockStem2(BlockIDs.cantaloupeStem, cantaloupe);
+	test = new BlockTest(BlockIDs.test, 12);
+	test2 = new BlockTest(BlockIDs.test2, 14);
+	test3 = new BlockTest(BlockIDs.test3, 14+16);
     }
 
     /* Block registration */
@@ -80,6 +86,9 @@ public class LCBlocks {
 	GameRegistry.registerBlock(stackBench);
 	GameRegistry.registerBlock(cantaloupe);
 	GameRegistry.registerBlock(cantaloupeStem);
+	GameRegistry.registerBlock(test);
+	GameRegistry.registerBlock(test2);
+	GameRegistry.registerBlock(test3);
 	GameRegistry.registerBlock(machines, ItemBlockMachines.class);
 	GameRegistry.registerBlock(box, ItemBlockBox.class);
 	GameRegistry.registerBlock(box2, ItemBlockBox.class);
@@ -114,5 +123,8 @@ public class LCBlocks {
 	coloredGlass.setBlockName("coloredGlass");
 	beam.setBlockName("beam");
 	chimney.setBlockName("chimney");
+	test.setBlockName("test");
+	test2.setBlockName("test2");
+	test3.setBlockName("test3");
     }
 }

@@ -21,11 +21,7 @@ public class BlockChimney extends Block {
 	setResistance(1.0F);
 	blockIndexInTexture = par2;
 	setCreativeTab(LCBlocks.lcTab);
-    }
-
-    @Override
-    public String getTextureFile() {
-	return Info.TEX_BLOCK;
+	setTextureFile(Info.TEX_BLOCK);
     }
 
     @Override

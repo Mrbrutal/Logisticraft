@@ -14,12 +14,14 @@ import java.util.Random;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
 import si.meansoft.logisticraft.common.Logisticraft;
 import si.meansoft.logisticraft.common.core.Reflector;
 import si.meansoft.logisticraft.common.library.Info;
+import si.meansoft.logisticraft.common.library.RenderIDs;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 

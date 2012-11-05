@@ -32,11 +32,7 @@ public class BlockBox extends Block {
 	setResistance(1.0F);
 	setTickRandomly(true);
 	setCreativeTab(LCBlocks.lcTab);
-    }
-
-    @Override
-    public String getTextureFile() {
-	return Info.TEX_BOXES;
+	setTextureFile(Info.TEX_BOXES);
     }
 
     @Override

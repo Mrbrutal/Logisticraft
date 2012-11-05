@@ -27,6 +27,9 @@ public class BlockIDs {
 	public static int crate4;
 	public static int cantaloupe;
 	public static int cantaloupeStem;
+	public static int test;
+	public static int test2;
+	public static int test3;
 	
 	/* Mod IDs */
 		/* IC2 */
