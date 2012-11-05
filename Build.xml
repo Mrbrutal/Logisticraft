@@ -63,18 +63,19 @@
 	<target name="GetVer" depends="SetUp">
 		<exec executable="${python.exe}" dir="${mcp.ecl}/" failonerror="true">
 			<arg value="${mcp.ecl}/CalcVersion.py" />
+			<arg value="1" />
 		</exec>
 		
 		<property file="lcver.properties" />
-	    <property name="build.number" value="${lc.build.major.number}.${lc.build.minor.number}.${lc.build.revision.number}_${lc.build.subversion.number}" />
-		<property name="version.forge" value="${lc.build.forgeversion}" />
-		<property name="version.mcp" value="${lc.build.mcpversion}" />
-	    <property name="version.minecraft" value="${lc.build.mcclientversion}" />
 	    <property name="version.major" value="${lc.build.major.number}" />
 	    <property name="version.minor" value="${lc.build.minor.number}" />
 	    <property name="version.rev" value="${lc.build.revision.number}" />
-		<property name="version.sub" value="${lc.build.subversion.number}" />
+	    <property name="version.sub" value="${lc.build.subversion.number}" />
+		<property name="version.forge" value="${lc.build.forgeversion}" />
+		<property name="version.mcp" value="${lc.build.mcpversion}" />
+	    <property name="version.minecraft" value="${lc.build.mcclientversion}" />
 	    <property name="version" value="${version.major}.${version.minor}.${version.rev}_${version.sub}" />
+		<property name="build.number" value="${lc.build.major.number}.${lc.build.minor.number}.${lc.build.revision.number}_${lc.build.subversion.number}" />
 		<echo message="${version} Build of Logisticraft" />
 		<echo message="GetVer target completed succesfully!" />
 	</target>
@@ -180,7 +181,7 @@
 	</target>
 
 	<target name="all" description="Perform all tasks for a build" depends="GetVer, PreInit, Init, PostInit, recompile, reobfuscate, stage, jarzip, final">
-		<!-- , Init, PostInit, recompile, reobfuscate, stage -->
+		<!-- , PreInit, Init, PostInit, recompile, reobfuscate, stage, jarzip, final -->
 		<echo message="Build of Logisticraft Completed!" />
 	</target>
 
