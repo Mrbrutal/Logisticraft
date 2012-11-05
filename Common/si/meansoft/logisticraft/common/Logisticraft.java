@@ -28,6 +28,7 @@ import si.meansoft.logisticraft.common.generation.WorldGenWorld;
 import si.meansoft.logisticraft.common.items.LCItems;
 import si.meansoft.logisticraft.common.library.Info;
 import si.meansoft.logisticraft.common.recipes.RecipesBlocks;
+import si.meansoft.logisticraft.common.recipes.RecipesForestry;
 import si.meansoft.logisticraft.common.recipes.RecipesIC2;
 import si.meansoft.logisticraft.common.recipes.RecipesItems;
 import cpw.mods.fml.common.FMLLog;
@@ -51,10 +52,12 @@ import cpw.mods.fml.common.registry.TickRegistry;
 public class Logisticraft {
     
     /* Logisticraft instance */
-    @Instance(Info.modID) public static Logisticraft instance;
+    @Instance(Info.modID) 
+    public static Logisticraft instance;
 
     /* Sided proxies and proxy */
-    @SidedProxy(clientSide = "si.meansoft.logisticraft.client.core.ClientProxy", serverSide = "si.meansoft.logisticraft.common.core.CommonProxy") public static CommonProxy proxy;
+    @SidedProxy(clientSide = "si.meansoft.logisticraft.client.core.ClientProxy", serverSide = "si.meansoft.logisticraft.common.core.CommonProxy") 
+    public static CommonProxy proxy;
 
     /* Logger */
     public static Logger lcLog = Logger.getLogger(Info.modID);
@@ -127,6 +130,6 @@ public class Logisticraft {
     public void modsLoaded(FMLPostInitializationEvent evt) {
 	ModHandler.init();
 	RecipesIC2.addIC2Recipes();
-	//RecipesForestry.addFORecipes();
+	RecipesForestry.addFORecipes();
     }
 }
