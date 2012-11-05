@@ -14,6 +14,7 @@ import net.minecraft.src.StringTranslate;
 import net.minecraft.src.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import si.meansoft.logisticraft.client.GUI.GuiStackCrafting;
+import si.meansoft.logisticraft.client.renderers.TestRenderer;
 import si.meansoft.logisticraft.common.core.CommonProxy;
 import si.meansoft.logisticraft.common.library.GuiIDs;
 import si.meansoft.logisticraft.common.library.Info;
@@ -41,10 +42,10 @@ public class ClientProxy extends CommonProxy {
 	MinecraftForgeClient.preloadTexture(Info.TEX_CRATES);
 	MinecraftForgeClient.preloadTexture(Info.TEX_BOXES);
 	MinecraftForgeClient.preloadTexture(Info.TEX_ITEM);
-	MinecraftForgeClient.preloadTexture(Info.TEX_CRATE);
+	//MinecraftForgeClient.preloadTexture(Info.TEX_CRATE);
 
 	RenderIDs.crateID = RenderingRegistry.getNextAvailableRenderId();
-	//RenderingRegistry.registerBlockHandler(new RenderCrate());
+	RenderingRegistry.registerBlockHandler(new TestRenderer());
     }
 
     @Override

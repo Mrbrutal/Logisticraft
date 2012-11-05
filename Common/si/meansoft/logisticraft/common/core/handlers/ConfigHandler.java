@@ -69,6 +69,9 @@ public class ConfigHandler {
             BlockIDs.stackBench = cf.getBlock(CATEGORY_BLOCK, "block_stack_bench", 424).getInt(424);
             BlockIDs.cantaloupe = cf.getBlock(CATEGORY_BLOCK, "block_cantaloupe", 425).getInt(425);
             BlockIDs.cantaloupeStem = cf.getBlock(CATEGORY_BLOCK, "block_cantaloupe_stem", 426).getInt(426);
+            BlockIDs.test = cf.getBlock(CATEGORY_BLOCK, "block_test", 427).getInt(427);
+            BlockIDs.test2 = cf.getBlock(CATEGORY_BLOCK, "block_test2", 428).getInt(428);
+            BlockIDs.test3 = cf.getBlock(CATEGORY_BLOCK, "block_test3", 429).getInt(429);
             
             /* Item */
             ItemIDs.ingotCopper = cf.getItem(CATEGORY_ITEM, "ingot_copper", 1100).getInt();
